@@ -5,21 +5,12 @@ _log = logging.getLogger(__name__)
 
 
 _OWID_PATH = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
-_COLUMNS = [
-    'iso_code',
-    'location',
-    'date',
-    'total_cases',
-    'new_cases',
-    'total_deaths',
-    'new_deaths'
-]
 
 
 def _load_dataset() -> pd.DataFrame:
     _log.info('Loading dataset')
     df = pd.read_csv(_OWID_PATH)
-    df = df[_COLUMNS].rename(columns={
+    df = df.rename(columns={
         'iso_code': ISO_COLUMN_NAME,
         'date': DATE_COLUMN_NAME
     })
