@@ -8,7 +8,7 @@ _OWID_PATH = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
 
 
 def _load_dataset() -> pd.DataFrame:
-    _log.info('Loading dataset')
+    _log.info(f'Loading dataset from {_OWID_PATH}')
     df = pd.read_csv(_OWID_PATH)
     df = df.rename(columns={
         'iso_code': ISO_COLUMN_NAME,
