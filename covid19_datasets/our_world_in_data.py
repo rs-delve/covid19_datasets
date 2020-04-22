@@ -1,6 +1,6 @@
 import pandas as pd
 import logging
-import constants
+from .constants import *
 _log = logging.getLogger(__name__)
 
 
