@@ -1,12 +1,14 @@
 import pandas as pd
-
+import datetime
 
 import logging
 _log = logging.getLogger(__name__)
 
 
 def _load_dataset():
-    acaps_path = 'https://www.acaps.org/sites/acaps/files/resources/files/20200416_acaps_-_covid-19_goverment_measures_dataset_v8.xlsx'
+    acaps_path = 'https://www.acaps.org/sites/acaps/files/resources/files/{date}_acaps_-_covid-19_goverment_measures_dataset_v9.xlsx'
+    date = (datetime.datetime.today() - datetime.timedelta(days=1)).strftime('%Y%m%d')
+    acaps_path = acaps_path.format(date=date)
     _log.info("Loading dataset from " + acaps_path)
     acaps_df = pd.read_excel(acaps_path, sheet_name='Database')
 
