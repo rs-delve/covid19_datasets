@@ -20,8 +20,8 @@ def _load_dataset() -> pd.DataFrame:
     _log.info('Loading dataset')
     df = pd.read_csv(_OWID_PATH)
     df = df[_COLUMNS].rename(columns={
-        'iso_code': constants.ISO_COLUMN_NAME,
-        'date': constants.DATE_COLUMN_NAME
+        'iso_code': ISO_COLUMN_NAME,
+        'date': DATE_COLUMN_NAME
     })
     df.DATE = pd.to_datetime(df.DATE)
     _log.info('Loaded')
