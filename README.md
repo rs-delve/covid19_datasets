@@ -279,7 +279,7 @@ Note that in this table a "Y" in "Is Daily" indicates that value comes from a ti
 <tr>
 <td style="font-weight:bold">Population in Urban Agglomerations</td>
 <td>Population living in urban areas</td>
-<td>Percent of total population living in agglomerations consisting of over 1 million people</td>
+<td>Number of people living in agglomerations consisting of over 1 million people</td>
 <td>World Bank Data Bank</td>
 <td>N</td>
 </tr>
