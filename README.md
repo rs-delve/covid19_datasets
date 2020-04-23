@@ -13,52 +13,49 @@ Note that in this table a "Y" in "Is Daily" indicates that value comes from a ti
 | Column Name |	Description | Data Type/Measurement | Source | Is Daily |
 | ----------- |	----------- | --------------------- | ------ | -------- |
 | CountryName | Name of country | Text | Oxford Government Response Tracker | Y |
-"| School closing | Closing of schools and universities. 
+| School closing | Closing of schools and universities. 
+ | Ordinal scale \ 0 - No measures; 1 - Recommend; 2 - Required \ + binary for geographic scope \ 0 - Targeted;  1- General | Oxford Government Response Tracker | Y |
+| Workplace closing | Closing of work places | Ordinal scale 
+0 - No measures; 1 - Recommend; 2 - Required 
++ binary for geographic scope 
+0 - Targeted;  1- General | Oxford Government Response Tracker | Y |
+| Cancel public events | Cancellation of public events
  | Ordinal scale 
 0 - No measures; 1 - Recommend; 2 - Required 
 + binary for geographic scope 
-0 - Targeted;  1- General | Oxford Government Response Tracker | Y |"
-"| Workplace closing | Closing of work places | Ordinal scale 
-0 - No measures; 1 - Recommend; 2 - Required 
-+ binary for geographic scope 
-0 - Targeted;  1- General | Oxford Government Response Tracker | Y |"
-"| Cancel public events | Cancellation of public events
+0 - Targeted;  1- General | Oxford Government Response Tracker | Y |
+| Close public transport | Closing of public transport
  | Ordinal scale 
 0 - No measures; 1 - Recommend; 2 - Required 
 + binary for geographic scope 
-0 - Targeted;  1- General | Oxford Government Response Tracker | Y |"
-"| Close public transport | Closing of public transport
- | Ordinal scale 
-0 - No measures; 1 - Recommend; 2 - Required 
-+ binary for geographic scope 
-0 - Targeted;  1- General | Oxford Government Response Tracker | Y |"
-"| Public information campaigns | Presence of public info campaigns | Binary
+0 - Targeted;  1- General | Oxford Government Response Tracker | Y |
+| Public information campaigns | Presence of public info campaigns | Binary
 0 -No COVID-19 public information campaign; 1 - COVID-19 public information campaign
 + binary for geographic scope
-0 - Targeted; 1- General | Oxford Government Response Tracker | Y |"
-"| Restrictions on internal movement | Restrictions on internal movement | Ordinal scale 
+0 - Targeted; 1- General | Oxford Government Response Tracker | Y |
+| Restrictions on internal movement | Restrictions on internal movement | Ordinal scale 
 0 - No measures; 1 - Recommend; 2 - Required 
 + binary for geographic scope 
-0 - Targeted;  1- General | Oxford Government Response Tracker | Y |"
-"| International travel controls | Restrictions on international travel | Ordinal Scale:
-0 - No measures; 1 - Screening; 2 - Quarantine on high-risk regions; 3 - Ban on high-risk regions | Oxford Government Response Tracker | Y |"
+0 - Targeted;  1- General | Oxford Government Response Tracker | Y |
+| International travel controls | Restrictions on international travel | Ordinal Scale:
+0 - No measures; 1 - Screening; 2 - Quarantine on high-risk regions; 3 - Ban on high-risk regions | Oxford Government Response Tracker | Y |
 | Fiscal measures | What economic stimulus policies are adopted? | Value of fiscal stimuli, including spending or tax cuts in USD | Oxford Government Response Tracker | Y |
 | Monetary measures | What monetary policy interventions are in place? | Value of interest rate in % | Oxford Government Response Tracker | Y |
 | Emergency investment in health care | Short-term spending on, e.g, hospitals, masks, etc | Value of new short-term spending on health in USD | Oxford Government Response Tracker | Y |
 | Investment in Vaccines | Announced public spending on vaccine development | Value of investment in USD | Oxford Government Response Tracker | Y |
-"| Testing framework | Who can get tested | Ordinal Scale
+| Testing framework | Who can get tested | Ordinal Scale
 0 - No testing policy
 1 - only testing those who both (a) have symptoms, and (b) meet specific criteria (eg key workers, admitted to hospital, came into contact with a known case, returned from overseas)
 2 - testing of anyone showing COVID19 symptoms
-3 - open public testing (eg “drive through” testing available to asymptomatic people) | Oxford Government Response Tracker | Y |"
-"| Contact tracing | Are governments doing contact tracing | Ordinal Scale
+3 - open public testing (eg “drive through” testing available to asymptomatic people) | Oxford Government Response Tracker | Y |
+| Contact tracing | Are governments doing contact tracing | Ordinal Scale
 0 - no contact tracing
 1 - limited contact tracing – not done for all cases
-2 - comprehensive contact tracing –done for all cases | Oxford Government Response Tracker | Y |"
-"| Masks | Mask policy in force in the country.  | Ordinal Scale
+2 - comprehensive contact tracing –done for all cases | Oxford Government Response Tracker | Y |
+| Masks | Mask policy in force in the country.  | Ordinal Scale
 0 - No mask policy in place
 1 - Limited mask policy (eg in stores only) or limited enforcement
-2 - Widespread mask policy and/or strict enforcement | ACAPS + Manual | Y |"
+2 - Widespread mask policy and/or strict enforcement | ACAPS + Manual | Y |
 | total_cases | Total (cumulative) confirmed cases in the country, as published by ECDC | Integer number of cases | Our World in Data | Y |
 | new_cases | Number of new cases since previous day as published by ECDC | Integer number of cases | Our World in Data | Y |
 | total_deaths | Total (cumulative) confirmed deaths in the country, as published by ECDC | Integer number of deaths | Our World in Data | Y |
