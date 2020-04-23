@@ -46,7 +46,6 @@ AGGREGATES = [
   'IDA only',
   'IDA total',
   'Late-demographic dividend',
-  'Latin America & Caribbean',
   'Latin America & Caribbean (excluding high income)',
   'Latin America & the Caribbean (IDA & IBRD countries)',
   'Least developed countries: UN classification',
@@ -67,7 +66,6 @@ AGGREGATES = [
   'Small states',
   'South Asia (IDA & IBRD)',
   'South Asia',
-  'Sub-Saharan Africa',
   'Sub-Saharan Africa (IDA & IBRD countries)',
   'Sub-Saharan Africa (excluding high income)',
   'Upper middle income',
@@ -86,7 +84,12 @@ def _load_dataset(start=2010, end=2020, extra_indicators={}):
         all_data.append(data.sort_index().groupby(level=0).last().rename(columns={series: name}))
 
     country_data = pd.concat(all_data, axis=1)
-    country_data.head()
+    
+    # Add ISO
+    mapping = wb.get_countries()[['name', 'iso3c']].rename(columns={'iso3c': 'ISO'})
+    country_data = (country_data.reset_index()
+                    .merge(mapping, left_on='country', right_on='name', how='inner')
+                    .drop('name', axis='columns'))
 
     return country_data
 
