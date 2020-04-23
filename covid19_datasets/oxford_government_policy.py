@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 import matplotlib.pyplot as plt
+from .constants import *
 
 import logging
 _log = logging.getLogger(__name__)
@@ -8,12 +9,12 @@ _log = logging.getLogger(__name__)
 OXFORD_PATH = 'https://ocgptweb.azurewebsites.net/CSVDownload'
 
 
-def _load_dataset():
-    _log.info("Loading dataset from " + OXFORD_PATH)
+def _load_dataset() -> pd.DataFrame:
+    _log.info(f'Loading dataset from {OXFORD_PATH}')
     oxford_df = pd.read_csv(OXFORD_PATH)
-    oxford_df['date'] = pd.to_datetime(oxford_df.Date.astype(str))
-    df = oxford_df[[c for c in oxford_df.columns if 'Notes' not in c and 'IsGeneral' not in c]].drop(['Date', 'CountryCode', 'StringencyIndex', 'StringencyIndexForDisplay', 'Unnamed: 39'], axis='columns')
-    df = df.set_index(['CountryName', 'date'])
+    oxford_df[DATE_COLUMN_NAME] = pd.to_datetime(oxford_df.Date.astype(str))
+    df = oxford_df[[c for c in oxford_df.columns if 'Notes' not in c and 'IsGeneral' not in c]].drop(['Date', 'StringencyIndex', 'StringencyIndexForDisplay', 'Unnamed: 39'], axis='columns')
+    df = df.rename(columns={'CountryCode': ISO_COLUMN_NAME})
     _log.info("Loaded")
     return df
 
@@ -35,29 +36,30 @@ class OxfordGovernmentPolicyDataset:
         if OxfordGovernmentPolicyDataset.data is None or force_load:
             OxfordGovernmentPolicyDataset.data = _load_dataset()
 
-    def get_data(self):
+    def get_data(self) -> pd.DataFrame:
         """
         Returns the dataset as Pandas dataframe
         """
         return OxfordGovernmentPolicyDataset.data
 
-    def get_country_data(self, country):
+    def get_country_data(self, country_or_iso) -> pd.DataFrame:
         """
         Returns the dataset for a country as Pandas dataframe
 
-        :param country: Name of the country
+        :param country_or_iso: Name or ISO code of the country
         """
-        return self.data.loc[country]
+        return self.data.query(f'CountryName == "{country_or_iso}" or ISO == "{country_or_iso}"')
 
 
-    def get_country_policy_changes(self, country):
+    def get_country_policy_changes(self, country_or_iso) -> pd.DataFrame:
         """
         Policy changes for a given country
 
-        :param country: Name of the country
+        :param country_or_iso: Name or ISO code of the country
+
         :returns: Pandas dataframe of policy changes
         """
-        country_df = self.get_country_data(country)
+        country_df = self.get_country_data(country_or_iso)
         regex = re.compile(r"S(\d)*_")
 
         country_df = country_df.drop(['ConfirmedCases', 'ConfirmedDeaths'], axis='columns')
