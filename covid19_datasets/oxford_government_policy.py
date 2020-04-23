@@ -1,6 +1,5 @@
 import pandas as pd
 import re
-import matplotlib.pyplot as plt
 from .constants import *
 
 import logging
@@ -15,6 +14,10 @@ def _load_dataset() -> pd.DataFrame:
     oxford_df[DATE_COLUMN_NAME] = pd.to_datetime(oxford_df.Date.astype(str))
     df = oxford_df[[c for c in oxford_df.columns if 'Notes' not in c and 'IsGeneral' not in c]].drop(['Date', 'StringencyIndex', 'StringencyIndexForDisplay', 'Unnamed: 39'], axis='columns')
     df = df.rename(columns={'CountryCode': ISO_COLUMN_NAME})
+
+    regex = re.compile(r"S(\d)*_")
+    df = df.rename(columns={c: regex.sub('', c) for c in df.columns})
+
     _log.info("Loaded")
     return df
 
@@ -42,6 +45,7 @@ class OxfordGovernmentPolicyDataset:
         """
         return OxfordGovernmentPolicyDataset.data
 
+
     def get_country_data(self, country_or_iso) -> pd.DataFrame:
         """
         Returns the dataset for a country as Pandas dataframe
@@ -60,10 +64,7 @@ class OxfordGovernmentPolicyDataset:
         :returns: Pandas dataframe of policy changes
         """
         country_df = self.get_country_data(country_or_iso)
-        regex = re.compile(r"S(\d)*_")
-
         country_df = country_df.drop(['ConfirmedCases', 'ConfirmedDeaths'], axis='columns')
-        country_df = country_df.rename(columns={c: regex.sub('', c) for c in country_df.columns})
 
         policy_changes = ((country_df != country_df.shift(1)) & ~country_df.isna()).iloc[1:]
         
