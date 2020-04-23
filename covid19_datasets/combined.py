@@ -14,7 +14,7 @@ _OXFORD_DROP_COLUMNS = ['ConfirmedCases',	'ConfirmedDeaths']
 _OWID_COVID19_DROP_COLUMNS = ['tests_units', 'location']
 _OWID_AGE_DROP_COLUMNS = ['Entity', 'Year']
 _MASKS_DROP_COLUMNS = ['Country', 'Source']
-_WORLD_BANK_DROP_COLUMNS = ['country']
+_WORLD_BANK_DROP_COLUMNS = ['country', 'Smoking prevalence, females (% of adults)', 'Smoking prevalence, males (% of adults)', 'Diabetes (% of population ages 20 to 79)']
 
 
 def _policies_data() -> pd.DataFrame:
