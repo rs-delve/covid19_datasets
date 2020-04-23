@@ -1,5 +1,6 @@
 import pandas as pd
 import datetime
+from urllib.error import HTTPError
 
 import logging
 _log = logging.getLogger(__name__)
@@ -7,10 +8,16 @@ _log = logging.getLogger(__name__)
 
 def _load_dataset():
     acaps_path = 'https://www.acaps.org/sites/acaps/files/resources/files/{date}_acaps_-_covid-19_goverment_measures_dataset_v9.xlsx'
-    date = (datetime.datetime.today() - datetime.timedelta(days=1)).strftime('%Y%m%d')
-    acaps_path = acaps_path.format(date=date)
-    _log.info("Loading dataset from " + acaps_path)
-    acaps_df = pd.read_excel(acaps_path, sheet_name='Database')
+    date = datetime.datetime.today().strftime('%Y%m%d')
+    path = acaps_path.format(date=date)
+    try:
+        _log.info("Loading dataset from " + path)
+        acaps_df = pd.read_excel(path, sheet_name='Database')
+    except HTTPError:
+        date = (datetime.datetime.today() - datetime.timedelta(days=1)).strftime('%Y%m%d')
+        path = acaps_path.format(date=date)
+        _log.info("Failed to load, trying previous day path: " + acaps_path)
+        acaps_df = pd.read_excel(path, sheet_name='Database')
 
     # Clean-up
     acaps_df = acaps_df.drop(['ADMIN_LEVEL_NAME', 'PCODE', 'SOURCE', 'SOURCE_TYPE', 'LINK', 'ENTRY_DATE', 'Alternative source'], axis='columns')
