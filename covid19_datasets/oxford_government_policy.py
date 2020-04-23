@@ -64,6 +64,7 @@ class OxfordGovernmentPolicyDataset:
         :returns: Pandas dataframe of policy changes
         """
         country_df = self.get_country_data(country_or_iso)
+        country_df = country_df.set_index(DATE_COLUMN_NAME)
         country_df = country_df.drop(['ConfirmedCases', 'ConfirmedDeaths'], axis='columns')
 
         policy_changes = ((country_df != country_df.shift(1)) & ~country_df.isna()).iloc[1:]
