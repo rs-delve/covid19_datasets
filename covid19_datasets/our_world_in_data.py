@@ -47,7 +47,7 @@ class OWIDCovid19:
         """
         # This is to make sure we only load the dataset once during a single session
         if OWIDCovid19._data is None or force_load:
-            OurWorldInData._data = _load_covid19_dataset()
+            OWIDCovid19._data = _load_covid19_dataset()
 
     def get_data(self) -> pd.DataFrame:
         """
