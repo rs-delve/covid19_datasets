@@ -44,15 +44,20 @@ def _fill_dates(rows):
     return rows.drop(ISO_COLUMN_NAME, axis='columns')
 
 
-def _load_covid19_dataset() -> pd.DataFrame:
-    _log.info(f'Loading dataset from {_OWID_PATH}')
+def _load_covid19_raw() -> pd.DataFrame:
     df = pd.read_csv(_OWID_PATH)
     df = df.rename(columns={
         'iso_code': ISO_COLUMN_NAME,
         'date': DATE_COLUMN_NAME
     })
     df.DATE = pd.to_datetime(df.DATE)
-    df = df.groupby(ISO_COLUMN_NAME).apply(_fill_dates).reset_index()
+    return df
+
+
+def _load_covid19_dataset() -> pd.DataFrame:
+    _log.info(f'Loading dataset from {_OWID_PATH}')
+    df = _load_covid19_raw()
+    df = df.groupby(ISO_COLUMN_NAME).apply(_fill_dates).reset_index().rename(columns={'level_1': DATE_COLUMN_NAME})
     df = _add_days_since(df)
     _log.info('Loaded')
     return df
