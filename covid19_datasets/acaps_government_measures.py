@@ -7,7 +7,8 @@ _log = logging.getLogger(__name__)
 
 
 def _load_dataset():
-    acaps_path = 'https://www.acaps.org/sites/acaps/files/resources/files/{date}_acaps_-_covid-19_goverment_measures_dataset_v9.xlsx'
+    
+    acaps_path = 'https://www.acaps.org/sites/acaps/files/resources/files/{date}_acaps_-_covid-19_goverment_measures_dataset_v10.xlsx'
     date = datetime.datetime.today().strftime('%Y%m%d')
     path = acaps_path.format(date=date)
     try:
@@ -16,7 +17,7 @@ def _load_dataset():
     except HTTPError:
         date = (datetime.datetime.today() - datetime.timedelta(days=1)).strftime('%Y%m%d')
         path = acaps_path.format(date=date)
-        _log.info("Failed to load, trying previous day path: " + acaps_path)
+        _log.info("Failed to load, trying previous day path: " + path)
         acaps_df = pd.read_excel(path, sheet_name='Database')
 
     # Clean-up
