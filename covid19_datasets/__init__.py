@@ -4,3 +4,4 @@ from .yougov_behavioural_tracker import YouGovBehaviouralTracker
 from .acaps_government_measures import AcapsGovernmentMeasures
 from .our_world_in_data import OWIDCovid19, OWIDMedianAges
 from .mask_policies import MaskPolicies
+from .combined import Combined
