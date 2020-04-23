@@ -21,13 +21,27 @@ def _compute_anchor(col: str) -> Callable[[pd.DataFrame], pd.Timestamp]:
 
 
 def _add_days_since(df: pd.DataFrame) -> pd.DataFrame:
+    """Calculate number of days since first case and first death."""
     first_cases = df.groupby('ISO').apply(_compute_anchor('total_cases')).reset_index().rename(columns={0: 'first_case'})
     first_deaths = df.groupby('ISO').apply(_compute_anchor('total_deaths')).reset_index().rename(columns={0: 'first_death'})
     df = df.merge(first_cases, on='ISO').merge(first_deaths, on='ISO')
     df['days_since_first_case'] = (df.DATE - df.first_case).dt.days
+    df.loc[df.days_since_first_case < 0, 'days_since_first_case'] = 0
     df['days_since_first_death'] = (df.DATE - df.first_death).dt.days
+    df.loc[df.days_since_first_death < 0, 'days_since_first_death'] = 0
     df = df.drop(['first_case', 'first_death'], axis='columns')
     return df
+
+
+def _fill_dates(rows):
+    """Ensure that dates are contiguous."""
+    rows = rows.set_index(DATE_COLUMN_NAME)
+    rows = rows.reindex(pd.date_range(rows.index.min(), rows.index.max(), freq='D'))
+    # Forward fill certain columns
+    fill_cols = [ISO_COLUMN_NAME, 'total_cases', 'total_deaths', 'total_cases_per_million', 'total_deaths_per_million', 'total_tests', 'total_tests_per_thousand']
+    rows.loc[:, fill_cols] = rows.loc[:, fill_cols].ffill()
+    rows = rows.fillna(0)
+    return rows.drop(ISO_COLUMN_NAME, axis='columns')
 
 
 def _load_covid19_dataset() -> pd.DataFrame:
@@ -38,6 +52,7 @@ def _load_covid19_dataset() -> pd.DataFrame:
         'date': DATE_COLUMN_NAME
     })
     df.DATE = pd.to_datetime(df.DATE)
+    df = df.groupby(ISO_COLUMN_NAME).apply(_fill_dates).reset_index()
     df = _add_days_since(df)
     _log.info('Loaded')
     return df
