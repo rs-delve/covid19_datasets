@@ -71,7 +71,7 @@ class OWIDMedianAges:
         """
         # This is to make sure we only load the dataset once during a single session
         if OWIDMedianAges._data is None or force_load:
-            OWIDMedianAges._data = _load_covid19_dataset()
+            OWIDMedianAges._data = _load_age_dataset()
 
     def get_data(self) -> pd.DataFrame:
         """
