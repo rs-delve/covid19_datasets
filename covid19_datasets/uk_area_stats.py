@@ -1,6 +1,9 @@
 import pandas as pd
 from .constants import DATE_COLUMN_NAME
 
+import logging
+_log = logging.getLogger(__name__)
+
 
 ENGLAND_CASES_PATH = 'https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv'
 ENGLAND_DEATHS_PATH = 'https://coronavirus.data.gov.uk/downloads/csv/coronavirus-deaths_latest.csv'
