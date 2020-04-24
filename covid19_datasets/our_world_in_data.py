@@ -38,7 +38,7 @@ def _fill_dates(rows):
     rows = rows.set_index(DATE_COLUMN_NAME)
     rows = rows.reindex(pd.date_range(rows.index.min(), rows.index.max(), freq='D'))
     # Forward fill certain columns
-    fill_cols = [ISO_COLUMN_NAME, 'total_cases', 'total_deaths', 'total_cases_per_million', 'total_deaths_per_million', 'total_tests', 'total_tests_per_thousand']
+    fill_cols = [ISO_COLUMN_NAME, 'total_cases', 'total_deaths', 'total_cases_per_million', 'total_deaths_per_million', 'total_tests', 'total_tests_per_thousand', 'location']
     rows.loc[:, fill_cols] = rows.loc[:, fill_cols].ffill()
     rows = rows.fillna(0)
     return rows.drop(ISO_COLUMN_NAME, axis='columns')
