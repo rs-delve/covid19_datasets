@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from .constants import DATE_COLUMN_NAME
 
 import logging
@@ -11,17 +12,39 @@ ENGLAND_DEATHS_PATH = 'https://c19downloads.azureedge.net/downloads/csv/coronavi
 
 def _load_dataset(path):
     _log.info("Loading dataset from " + path)
-    loaded_df = pd.read_csv(path)
+    df = pd.read_csv(path)
     _log.info("Loaded")
 
-    loaded_df[DATE_COLUMN_NAME] = pd.to_datetime(loaded_df["Specimen date"].astype(str))
+    df[DATE_COLUMN_NAME] = pd.to_datetime(df["Specimen date"].astype(str))
 
-    return loaded_df
+    # Convert so that
+    # Each row corresponds to an area
+    # Each column corresponds to a date
+    df['Daily lab-confirmed cases'] = df['Daily lab-confirmed cases'].astype('float')
+    df = df.pivot_table(index=['Area name', 'Area type'], columns='DATE',
+                        values='Cumulative lab-confirmed cases').sort_values(by=['Area type'])
+    df = df.fillna(0.0)
+
+    # Some dates are missing as there were no number reported
+    # backfill them with 0
+    all_days = pd.date_range(df.columns.min(), df.columns.max(), freq='D')
+    missing_days = np.setdiff1d(all_days, df.columns)
+    for missing_day in missing_days:
+        df[missing_day] = 0.0
+
+    df = df[np.sort(df.columns)]
+
+    return df
 
 
 class UKCovid19Cases:
     """
-    New and cumulative COVID-19 cases in each UK area
+    New COVID-19 cases in each UK area
+
+    Format is:
+    - Each row corresponds to an area
+    - Each column corresponds to a date
+    - Each cell contains daily cases count
     """
     
     data = None
@@ -46,9 +69,14 @@ class UKCovid19Cases:
 
 class UKCovid19Deaths:
     """
-    New and cumulative COVID-19 deaths in each UK area
-    """
+    New COVID-19 deaths in each UK area
     
+    Format is:
+    - Each row corresponds to an area
+    - Each column corresponds to a date
+    - Each cell contains daily deaths count
+    """
+
     data = None
 
     def __init__(self, force_load=False):
