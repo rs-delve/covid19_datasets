@@ -43,7 +43,7 @@ def _load_england_cases_dataset():
     # Each row corresponds to an area
     # Each column corresponds to a date
     df['Daily lab-confirmed cases'] = df['Daily lab-confirmed cases'].astype('float')
-    df = df[df['Area type'] != 'Region']
+    df = df[df['Area type'] == 'Upper tier local authority']
     df['Country'] = 'England'
 
     df = df.pivot_table(index=['Country', 'Area name'], columns=DATE_COLUMN_NAME,
@@ -58,7 +58,7 @@ def _load_wales_datasets():
     xlsx = pd.ExcelFile(WALES_PATH)
     _log.info("Loaded")
 
-    df_cases_tests = pd.read_excel(xlsx, 'Tests by specimen date')
+    df = pd.read_excel(xlsx, 'Tests by specimen date')
     df['Cases (new)'] = df['Cases (new)'].astype('float')
     df['Testing episodes (new)'] = df['Testing episodes (new)'].astype('float')
     df[DATE_COLUMN_NAME] = pd.to_datetime(df["Specimen date"].astype(str))
@@ -68,12 +68,10 @@ def _load_wales_datasets():
     df_cases = df.pivot_table(index=['Country', 'Area name'], columns=DATE_COLUMN_NAME,
                               values='Cases (new)')
     df_cases = _backfill_missing_data(df_cases)
-    df_cases.loc["Wales", "Wales"] = df_cases.sum()
 
     df_tests = df.pivot_table(index=['Country', 'Area name'], columns=DATE_COLUMN_NAME,
                               values='Testing episodes (new)')
     df_tests = _backfill_missing_data(df_tests)
-    df_tests.loc["Wales", "Wales"] = df_tests.sum()
 
     return df_cases, df_tests
 
@@ -100,8 +98,18 @@ class UKCovid19Data:
         if UKCovid19Data.wales_cases_data is None or UKCovid19Data.wales_tests_data is None or force_load:
             UKCovid19Data.wales_cases_data, UKCovid19Data.wales_tests_data = _load_wales_datasets()
 
-    def get_england_wales_cases_data(self):
+    def get_cases_data(self):
         """
         Returns the dataset as Pandas dataframe
+        
+        Format:
+        - Row index: Country (England and Wales so far), County
+        - Columns: Dates
+        - Each cell value is a number of new cases registered on that day
         """
-        return pd.concat([UKCovid19Data.england_cases_data, UKCovid19Data.wales_cases_data])
+        df = pd.concat([UKCovid19Data.england_cases_data, UKCovid19Data.wales_cases_data])
+        # in case they have uneven number of columns
+        df = df.fillna(0.0)
+
+        return df
+
