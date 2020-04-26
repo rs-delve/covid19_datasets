@@ -3,7 +3,7 @@
 This repository provides a data set for COVID19 research consolidated from multiple sources.
 Code is provided for easily accessing both the combined and underlying data sets.
 
-Usage examples are given in this [Jupyter notebook](./usage_examples.ipynb).
+Usage examples are given in this [Jupyter notebook](./usage_example.ipynb).
 
 ## Combined Dataset Columns
 The combined dataset provides the following columns for each ISO (the 3 letter ISO country code) and DATE.
