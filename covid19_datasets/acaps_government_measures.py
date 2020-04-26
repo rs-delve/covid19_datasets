@@ -9,16 +9,33 @@ _log = logging.getLogger(__name__)
 def _load_dataset():
     
     acaps_path = 'https://www.acaps.org/sites/acaps/files/resources/files/{date}_acaps_-_covid-19_goverment_measures_dataset_v10.xlsx'
-    date = datetime.datetime.today().strftime('%Y%m%d')
-    path = acaps_path.format(date=date)
-    try:
-        _log.info("Loading dataset from " + path)
-        acaps_df = pd.read_excel(path, sheet_name='Database')
-    except HTTPError:
-        date = (datetime.datetime.today() - datetime.timedelta(days=1)).strftime('%Y%m%d')
-        path = acaps_path.format(date=date)
-        _log.info("Failed to load, trying previous day path: " + path)
-        acaps_df = pd.read_excel(path, sheet_name='Database')
+
+    # the file path depends on the exact day, and some are known to be missing
+    # therefore compile a list of dates to try, and then fall if none worked
+
+    today = datetime.datetime.today()
+    yesterday = today - datetime.timedelta(days=1)
+    two_days_ago = today - datetime.timedelta(days=2)
+    week_ago = today - datetime.timedelta(weeks=1)
+    # an absolutely last resort, but it is probably better to retrieve some data if we can
+    # this is written on 26.04.2020, and the last available report is dated 23.04.2020
+    last_known_date = datetime.date(2020, 4, 23)
+    days_to_try = [today, yesterday, two_days_ago, week_ago, last_known_date]
+
+    for date in days_to_try:
+        path = acaps_path.format(date=date.strftime('%Y%m%d'))
+        try:
+            _log.info("Loading dataset from " + path)
+            acaps_df = pd.read_excel(path, sheet_name='Database')
+        except HTTPError:
+            _log.info("No report on " + str(date))
+            continue
+        else:
+            break
+    else:
+        error_message = 'ACAPS report unavailable'
+        _log.error(error_message)
+        raise RuntimeError(error_message)
 
     # Clean-up
     acaps_df = acaps_df.drop(['ADMIN_LEVEL_NAME', 'PCODE', 'SOURCE', 'SOURCE_TYPE', 'LINK', 'ENTRY_DATE', 'Alternative source'], axis='columns')
