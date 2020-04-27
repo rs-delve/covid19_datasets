@@ -7,6 +7,7 @@ from .our_world_in_data import OWIDCovid19, OWIDMedianAges
 from .oxford_government_policy import OxfordGovernmentPolicyDataset
 from .mask_policies import MaskPolicies
 from .world_bank import WorldBankDataBank
+from .mobility import Mobility
 from .constants import ISO_COLUMN_NAME, DATE_COLUMN_NAME
 
 
@@ -42,22 +43,28 @@ def _reference_data() -> pd.DataFrame:
     return wb.get_data().drop(_WORLD_BANK_DROP_COLUMNS, axis='columns')
     
 
+def _mobility_data() -> pd.DataFrame:
+    mobility = Mobility()
+    return mobility.get_data()
+
+
 def _create_interventions_data() -> pd.DataFrame:
     interventions_data = (_policies_data()
-                          .merge(_mask_data(), on=['ISO', 'DATE'], how='left')
-                          .set_index(['ISO', 'DATE', 'CountryName']))
+                          .merge(_mask_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
+                          .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME, 'CountryName']))
     interventions_data = interventions_data.groupby(level=0).ffill().fillna(0.).reset_index()
     return interventions_data
 
 
 def _create_data() -> pd.DataFrame:
     interventions_data = _create_interventions_data()
-    interventions_cases = interventions_data.merge(_cases_data(), on=['ISO', 'DATE'], how='left').fillna(0)
+    interventions_cases = interventions_data.merge(_cases_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left').fillna(0)
 
     combined = (interventions_cases
-                .merge(_age_data(), on='ISO', how='left')
-                .merge(_reference_data(), on='ISO', how='left')
-                .set_index(['ISO', 'DATE']))
+                .merge(_mobility_data, on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
+                .merge(_age_data(), on=ISO_COLUMN_NAME, how='left')
+                .merge(_reference_data(), on=ISO_COLUMN_NAME, how='left')
+                .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME]))
     
     return combined
 
