@@ -3,7 +3,7 @@ import logging
 from .constants import *
 _log = logging.getLogger(__name__)
 
-_MASK_POLICY_PATH = 'https://raw.githubusercontent.com/DELVE-covid19/covid19_datasets/master/data/mask_policy_dates.csv'
+_MASK_POLICY_PATH = 'https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/data/mask_policy_dates.csv'
 
 def _load_dataset() -> pd.DataFrame:
     _log.info(f'Loading dataset from {_MASK_POLICY_PATH}')

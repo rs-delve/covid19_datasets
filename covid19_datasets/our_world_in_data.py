@@ -6,7 +6,7 @@ _log = logging.getLogger(__name__)
 
 
 _OWID_PATH = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
-_AGE_PATH = 'https://github.com/DELVE-covid19/covid19_datasets/raw/master/data/median-age.csv'
+_AGE_PATH = 'https://github.com/rs-delve/covid19_datasets/raw/master/data/median-age.csv'
 
 
 def _compute_anchor(col: str) -> Callable[[pd.DataFrame], pd.Timestamp]:
