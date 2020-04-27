@@ -347,5 +347,12 @@ Note that in this table a "Y" in "Is Daily" indicates that value comes from a ti
 <td>World Bank Data Bank</td>
 <td>N</td>
 </tr>
+<tr>
+<td style="font-weight:bold">Population of Compulsory School Age</td>
+<td>Population that is of the age where school attendance is compulsory</td>
+<td>Number of people</td>
+<td>World Bank Data Bank</td>
+<td>N</td>
+</tr>
 </tbody></table>
 
