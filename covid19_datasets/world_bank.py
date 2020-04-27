@@ -20,7 +20,8 @@ WORLD_BANK_INDICATORS = {
   'Population in Urban Agglomerations': 'EN.URB.MCTY',
   'Population Female': 'SP.POP.TOTL.FE.IN',
   'Population Male': 'SP.POP.TOTL.MA.IN',
-  'Population': 'SP.POP.TOTL'
+  'Population': 'SP.POP.TOTL',
+  'Population of Compulsory School Age': 'UIS.SAP.CE'
 }
 
 
