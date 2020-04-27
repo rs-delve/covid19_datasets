@@ -85,7 +85,8 @@ def _load_dataset(start=2010, end=2020, extra_indicators={}):
         data = wb.download(indicator=series, country='all', start=start, end=end)
         all_data.append(data.sort_index().groupby(level=0).last().rename(columns={series: name}))
 
-    country_data = pd.concat(all_data, axis=1).reset_index()
+    country_data = pd.concat(all_data, axis=1)
+    country_data.index = country_data.index.set_names(['country'])
     
     # Add ISO
     mapping = wb.get_countries()[['name', 'iso3c']].rename(columns={'iso3c': 'ISO'})
