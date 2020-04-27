@@ -5,4 +5,5 @@ from .acaps_government_measures import AcapsGovernmentMeasures
 from .our_world_in_data import OWIDCovid19, OWIDMedianAges
 from .uk_area_stats import UKCovid19Data
 from .mask_policies import MaskPolicies
+from .mobility import Mobility
 from .combined import Combined
