@@ -220,6 +220,49 @@ Note that in this table a "Y" in "Is Daily" indicates that value comes from a ti
 <td>Derived</td>
 <td>Y</td>
 </tr>
+
+<tr>
+<td style="font-weight:bold">Retail and Recreation</td>
+<td>Mobility trends for places like restaurants, cafes, shopping centers, theme parks, museums, libraries, and movie theaters.</td>
+<td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
+<td>Google Mobility Report</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">Grocery and Pharmacy</td>
+<td>Mobility trends for places like grocery markets, food warehouses, farmers markets, specialty food shops, drug stores, and pharmacies.</td>
+<td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
+<td>Google Mobility Report</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">Parks</td>
+<td>Mobility trends for places like national parks, public beaches, marinas, dog parks, plazas, and public gardens</td>
+<td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
+<td>Google Mobility Report</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">Transit Stations</td>
+<td>Mobility trends for places like public transport hubs such as subway, bus, and train stations.</td>
+<td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
+<td>Google Mobility Report</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">Workplaces</td>
+<td>Mobility trends for places of work.</td>
+<td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
+<td>Google Mobility Report</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">Residential</td>
+<td>Mobility trends for places of residence</td>
+<td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
+<td>Google Mobility Report</td>
+<td>Y</td>
+</tr>
 <tr>
 <td style="font-weight:bold">median_age</td>
 <td>Median age of population</td>
