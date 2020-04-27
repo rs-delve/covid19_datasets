@@ -23,6 +23,7 @@ def _load_dataset():
     _log.info(f'Loading data from {_MOBILITY_PATH}')
     raw = pd.read_csv(_MOBILITY_PATH)
     mob_rep_data = raw.rename(columns={'date': DATE_COLUMN_NAME})
+    mob_rep_data[DATE_COLUMN_NAME] = pd.to_datetime(mob_rep_data[DATE_COLUMN_NAME])
     mob_rep_data = mob_rep_data[mob_rep_data["sub_region_1"].isnull()]
     mob_rep_data = mob_rep_data.rename(columns=_COLUMN_NAME_MAP)
     mob_rep_data = mob_rep_data.drop(['sub_region_1', 'sub_region_2', 'country_region'], axis=1)
