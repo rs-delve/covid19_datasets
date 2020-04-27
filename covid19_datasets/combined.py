@@ -61,7 +61,7 @@ def _create_data() -> pd.DataFrame:
     interventions_cases = interventions_data.merge(_cases_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left').fillna(0)
 
     combined = (interventions_cases
-                .merge(_mobility_data, on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
+                .merge(_mobility_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .merge(_age_data(), on=ISO_COLUMN_NAME, how='left')
                 .merge(_reference_data(), on=ISO_COLUMN_NAME, how='left')
                 .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME]))
