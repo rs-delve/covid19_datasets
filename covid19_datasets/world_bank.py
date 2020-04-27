@@ -72,7 +72,6 @@ AGGREGATES = [
   'Upper middle income',
   'World',
   'West Bank and Gaza',
-  'Global Partnership for Education'
 ]
 
 
