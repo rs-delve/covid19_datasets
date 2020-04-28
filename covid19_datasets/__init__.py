@@ -6,4 +6,5 @@ from .our_world_in_data import OWIDCovid19, OWIDMedianAges
 from .uk_area_stats import UKCovid19Data
 from .mask_policies import MaskPolicies
 from .mobility import Mobility
+from .johns_hopkins import JohnsHopkins
 from .combined import Combined
