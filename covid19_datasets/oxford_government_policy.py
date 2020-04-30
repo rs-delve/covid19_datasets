@@ -15,7 +15,7 @@ def _load_dataset() -> pd.DataFrame:
     df = oxford_df[[c for c in oxford_df.columns if 'Notes' not in c and 'IsGeneral' not in c]].drop(['Date', 'StringencyIndex', 'StringencyIndexForDisplay', 'Unnamed: 39'], axis='columns')
     df = df.rename(columns={'CountryCode': ISO_COLUMN_NAME})
 
-    regex = re.compile(r"S(\d)*_")
+    regex = re.compile(r"[C|H|E](\d)*_")
     df = df.rename(columns={c: regex.sub('', c) for c in df.columns})
 
     _log.info("Loaded")
