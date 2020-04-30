@@ -12,7 +12,7 @@ def _load_dataset() -> pd.DataFrame:
     _log.info(f'Loading dataset from {OXFORD_PATH}')
     oxford_df = pd.read_csv(OXFORD_PATH)
     oxford_df[DATE_COLUMN_NAME] = pd.to_datetime(oxford_df.Date.astype(str))
-    df = oxford_df[[c for c in oxford_df.columns if 'Notes' not in c and 'IsGeneral' not in c]].drop(['Date', 'StringencyIndex', 'StringencyIndexForDisplay', 'Unnamed: 39'], axis='columns')
+    df = oxford_df[[c for c in oxford_df.columns if 'Notes' not in c and 'Flag' not in c]].drop(['Date', 'StringencyIndex', 'StringencyIndexForDisplay', 'Unnamed: 39'], axis='columns')
     df = df.rename(columns={'CountryCode': ISO_COLUMN_NAME})
 
     regex = re.compile(r"[C|H|E](\d)*_")
