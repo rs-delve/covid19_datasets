@@ -5,7 +5,7 @@ from .constants import *
 import logging
 _log = logging.getLogger(__name__)
 
-OXFORD_PATH = 'https://ocgptweb.azurewebsites.net/CSVDownload'
+OXFORD_PATH = 'https://oxcgrtportal.azurewebsites.net/api/CSVDownload'
 
 
 def _load_dataset() -> pd.DataFrame:
