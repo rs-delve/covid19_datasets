@@ -95,6 +95,21 @@ few days, or only one person can leave at a time, etc.)
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
+
+<tr>
+<td style="font-weight:bold">Income Support</td>
+<td>Record if the government is covering the salaries or providing direct cash payments, universal basic income, or similar, of people who lose their jobs or cannot work. (Includes payments to firms if explicitly linked to payroll/ salaries)</td>
+<td>Ordinal Scale: 0 - no income support; 1 - government is replacing less than 50% of lost salary (or if a flat sum, it is less than 50% median salary); 2 - government is replacing more than 50% of lost salary (or if a flat sum, it is greater than 50% median salary)<br/>+ binary for scope<br/>0 - formal sector workers only 1 - transfers to informal sector workers too</td>
+<td>Oxford Government Response Tracker</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">Debt / contract relief for households</td>
+<td>Record if govt. is freezing financial obligations (eg stopping loan repayments, preventing services like water from stopping, or banning evictions)</td>
+<td>Ordinal Scale: 0 - No; 1 - Narrow relief, specific to one kind of contract; 2 - broad debt/contract relief</td>
+<td>Oxford Government Response Tracker</td>
+<td>Y</td>
+</tr>
 <tr>
 <td style="font-weight:bold">Fiscal measures</td>
 <td>What economic stimulus policies are adopted?</td>
@@ -102,7 +117,13 @@ few days, or only one person can leave at a time, etc.)
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
-
+<tr>
+<td style="font-weight:bold">Providing support to other countries</td>
+<td>Announced offers of COVID-19 related aid spending to other countries</td>
+<td>Record monetary value announced if additional to previously announced spending - 0 if there is none</td>
+<td>Oxford Government Response Tracker</td>
+<td>Y</td>
+</tr>
 <tr>
 <td style="font-weight:bold">Emergency investment in health care</td>
 <td>Short-term spending on, e.g, hospitals, masks, etc</td>
