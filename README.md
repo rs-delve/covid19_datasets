@@ -27,14 +27,15 @@ Note that in this table a "Y" in "Is Daily" indicates that value comes from a ti
 <tr>
 <td style="font-weight:bold">School closing</td>
 <td>Closing of schools and universities. <br/></td>
-<td>Ordinal scale <br/>0 - No measures; 1 - Recommend; 2 - Required <br/>+ binary for geographic scope <br/>0 - Targeted;  1- General</td>
+<td>Ordinal scale <br/>0 - No measures; 1 - Recommend; 2 - Require closing (only some levels or categories,
+eg just high school, or just public schools); 3 - Require closing all levels <br/>+ binary for geographic scope <br/>0 - Targeted;  1- General</td>
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
 <tr>
 <td style="font-weight:bold">Workplace closing</td>
 <td>Closing of work places</td>
-<td>Ordinal scale <br/>0 - No measures; 1 - Recommend; 2 - Required <br/>+ binary for geographic scope <br/>0 - Targeted;  1- General</td>
+<td>Ordinal scale <br/>0 - No measures; 1 - Recommend; 2 - require closing (or work from home) for some sectors or categories of workers; 3 - require closing (or work from home) all but essential workplaces (eg grocery stores, doctors) <br/>+ binary for geographic scope <br/>0 - Targeted;  1- General</td>
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
@@ -45,31 +46,52 @@ Note that in this table a "Y" in "Is Daily" indicates that value comes from a ti
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
+ 
+<tr>
+<td style="font-weight:bold">Restrictions on gatherings</td>
+<td>Cancellation of public events<br/></td>
+<td>Ordinal scale <br/>0 - No restrictions
+1 - Restrictions on very large gatherings (the limit is above 1000 people); 2 - Restrictions on gatherings between 100-1000 people; 3 - Restrictions on gatherings between 10-100 people; 4 - Restrictions on gatherings of less than 10 people <br/>+ binary for geographic scope <br/>0 - Targeted;  1- General</td>
+<td>Oxford Government Response Tracker</td>
+<td>Y</td>
+</tr>
+  
 <tr>
 <td style="font-weight:bold">Close public transport</td>
 <td>Closing of public transport<br/></td>
-<td>Ordinal scale <br/>0 - No measures; 1 - Recommend; 2 - Required <br/>+ binary for geographic scope <br/>0 - Targeted;  1- General</td>
+<td>Ordinal scale <br/>0 - No measures; 1 - Recommend closing (or significantly reduce volume/route/means of transport available); 2 - Require closing (or prohibit most citizens from using it) <br/>+ binary for geographic scope <br/>0 - Targeted;  1- General</td>
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
 <tr>
 <td style="font-weight:bold">Public information campaigns</td>
 <td>Presence of public info campaigns</td>
-<td>Binary<br/>0 -No COVID-19 public information campaign; 1 - COVID-19 public information campaign<br/>+ binary for geographic scope<br/>0 - Targeted; 1- General</td>
+<td>Ordinal<br/>0 -No COVID-19 public information campaign; 1 - public officials urging caution about COVID-19; 2 - coordinated public information campaign<br/>+ binary for geographic scope<br/>0 - Targeted; 1- General</td>
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
+
+<tr>
+<td style="font-weight:bold">Stay at home requirements</td>
+<td>Recommendations or requirements for citizens to remain in their homes</td>
+<td>0 - No measures; 1 - recommend not leaving house; 2 - require not leaving house with exceptions for daily exercise, grocery shopping, and ‘essential’ trips; 3 - Require not leaving house with minimal exceptions (e.g. allowed to leave only once every
+few days, or only one person can leave at a time, etc.)
+<br/>+ binary for geographic scope<br/>0 - Targeted; 1- General</td>
+<td>Oxford Government Response Tracker</td>
+<td>Y</td>
+</tr>
+
 <tr>
 <td style="font-weight:bold">Restrictions on internal movement</td>
 <td>Restrictions on internal movement</td>
-<td>Ordinal scale <br/>0 - No measures; 1 - Recommend; 2 - Required <br/>+ binary for geographic scope <br/>0 - Targeted;  1- General</td>
+<td>Ordinal scale <br/>0 - No measures; 1 - Recommend closing (or significantly reduce volume/route/means of transport); 2 - Require closing (or prohibit most people from using it) <br/>+ binary for geographic scope <br/>0 - Targeted;  1- General</td>
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
 <tr>
 <td style="font-weight:bold">International travel controls</td>
 <td>Restrictions on international travel</td>
-<td>Ordinal Scale:<br/>0 - No measures; 1 - Screening; 2 - Quarantine on high-risk regions; 3 - Ban on high-risk regions</td>
+<td>Ordinal Scale:<br/>0 - No measures; 1 - Screening; 2 - Quarantine on high-risk regions; 3 - Ban on high-risk regions; 4 - Total border closure</td>
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
@@ -80,13 +102,7 @@ Note that in this table a "Y" in "Is Daily" indicates that value comes from a ti
 <td>Oxford Government Response Tracker</td>
 <td>Y</td>
 </tr>
-<tr>
-<td style="font-weight:bold">Monetary measures</td>
-<td>What monetary policy interventions are in place?</td>
-<td>Value of interest rate in %</td>
-<td>Oxford Government Response Tracker</td>
-<td>Y</td>
-</tr>
+
 <tr>
 <td style="font-weight:bold">Emergency investment in health care</td>
 <td>Short-term spending on, e.g, hospitals, masks, etc</td>
