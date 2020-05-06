@@ -19,5 +19,5 @@ jobs:
 
     # Run action docker file
     - name: Action step
-      uses: rs-delve/covid19_datasets/.gitub/actions/create_dataset
+      uses: rs-delve/covid19_datasets/.gitub/actions/create_dataset@actions
       id: create_dataset
