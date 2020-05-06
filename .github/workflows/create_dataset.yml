@@ -19,5 +19,5 @@ jobs:
 
     # Run action docker file
     - name: Action step
-      uses: $GITHUB_WORKSPACE/.gitub/actions/create_dataset@actions
+      uses: $GITHUB_WORKSPACE/.github/actions/create_dataset@actions
       id: create_dataset
