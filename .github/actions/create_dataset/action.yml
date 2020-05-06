@@ -1,0 +1,9 @@
+# action.yml
+name: 'Create Combined Dataset'
+description: 'Runs code to generate the combined dataset and saves it as a CSV in the repository'
+outputs:
+  status: # id of output
+    description: 'The status of the job'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
