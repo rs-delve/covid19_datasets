@@ -10,14 +10,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: checkout
-      uses: actions/checkout@actions
+    - name: Checkout
+      uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
+    - name: Setup Python 
+      uses: actions/setup-python@v1
+      with:
+          python-version: '3.x'
 
-    # Run action docker file
-    - name: Action step
-      uses: avishkar58/covid19_datasets/.github/actions/create_dataset@actions
-      id: create_dataset
+    - name: Create Dataset
+      run: .github/actions/create_dataset/create.py
+      
+      
