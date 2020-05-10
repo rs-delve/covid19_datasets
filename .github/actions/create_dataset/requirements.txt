@@ -1,6 +1,0 @@
-numpy
-pandas
-pandas-datareader
-xlrd >= 1.0.0
-pycountry
-

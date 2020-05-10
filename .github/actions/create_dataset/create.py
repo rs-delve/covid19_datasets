@@ -5,7 +5,7 @@ import logging
 _log = logging.getLogger(__name__)
 
 
-OUTPUT_FILENAME = './dataset/combind_dataset_latest.csv'
+OUTPUT_FILENAME = './dataset/combined_dataset_latest.csv'
 
 
 def main():
