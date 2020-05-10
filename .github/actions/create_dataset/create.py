@@ -1,6 +1,21 @@
+from .covid19_datasets import Combined
+import pandas as pd
+
+import logging
+_log = logging.getLogger(__name__)
+
+
+OUTPUT_FILENAME = 'combind_dataset_latest.csv'
+
+
 def main():
-    status = 'Hello World'
-    print('::set-output name=status::{}'.format(status))
+	_log.info('Generating combined dataset')
+	combined = Combined()
+	data = combined.get_data()
+	data.to_csv(OUTPUT_FILENAME)
+	_log.info('Wrote outpu to: ' + OUTPUT_FILENAME)
+
+
 
 if __name__ == '__main__':
     main()
