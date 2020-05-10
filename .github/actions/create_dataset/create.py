@@ -1,4 +1,4 @@
-from .covid19_datasets import Combined
+from covid19_datasets import Combined
 import pandas as pd
 
 import logging
