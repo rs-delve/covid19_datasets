@@ -17,3 +17,9 @@ jobs:
         pip install ./
     - name: Run create dataset script
       run: python .github/actions/create_dataset/create.py
+    - name: Push file to github
+      run: |
+        git config --global user.name 'Automated Process'
+        git config --global user.email 'avi@avi-net.co.za'
+        git commit -am "Update dataset"
+        git push
