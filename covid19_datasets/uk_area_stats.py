@@ -49,7 +49,7 @@ def _load_england_cases_dataset():
     df['Country'] = 'England'
 
     df = df.pivot_table(index=['Country', 'Area name'], columns=DATE_COLUMN_NAME,
-                        values='Cumulative lab-confirmed cases')
+                        values='Daily lab-confirmed cases')
     df = _backfill_missing_data(df)
 
     return df
