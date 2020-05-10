@@ -21,5 +21,6 @@ jobs:
       run: |
         git config --global user.name 'Automated Process'
         git config --global user.email 'avi@avi-net.co.za'
-        git commit -am "Update dataset"
+        git add .
+        git commit -m "Update dataset"
         git push
