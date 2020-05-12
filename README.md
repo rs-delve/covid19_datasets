@@ -11,8 +11,10 @@ import pandas as pd
 data_df = pd.read_csv('https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/dataset/combined_dataset_latest.csv')
 ```
 
-## Usage Examples
-Usage examples, including access to the underlying datasets are given in this [Jupyter notebook](./usage_example.ipynb).
+## Examples
+We provide two Jupyter notebook examples:
+- [Basic exploratory data analysis of the combined international dataset](./Data_Exploration.ipynb)
+- [Usage of the underlying datasets](./usage_example.ipynb).
 
 ## Combined Dataset Columns
 The combined dataset provides the following columns for each ISO (the 3 letter ISO country code) and DATE.
