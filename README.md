@@ -1,9 +1,9 @@
-# DELVE COVID19 Dataset Access
+# DELVE COVID-19 Dataset
 
-This repository provides a data set for COVID19 research consolidated from multiple sources. The dataset is available as CSV which can be loaded into most environments.
+This repository provides a data set for COVID-19 research consolidated from multiple sources. The dataset is available as CSV which can be loaded into most environments.
 
 ## Reading the dataset
-Download the CSV from the [Dataset](https://github.com/rs-delve/covid19_datasets/tree/master/dataset) directory and load it in your favourite analysis tool. 
+Download the CSV from the [dataset](https://github.com/rs-delve/covid19_datasets/tree/master/dataset) directory and load it in your favourite analysis tool. 
 
 In Python you can load the CSV directly using [Pandas](https://pandas.pydata.org/):
 ```python
@@ -12,7 +12,7 @@ data_df = pd.read_csv('https://raw.githubusercontent.com/rs-delve/covid19_datase
 ```
 
 ## Examples
-We provide two Jupyter notebook examples:
+We provide two Jupyter notebooks with examples:
 - [Basic exploratory data analysis of the combined international dataset](./Data_Exploration.ipynb)
 - [Usage of the underlying datasets](./usage_example.ipynb).
 
