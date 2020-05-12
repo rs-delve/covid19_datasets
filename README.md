@@ -1,22 +1,18 @@
 # DELVE COVID19 Dataset Access
 
 This repository provides a data set for COVID19 research consolidated from multiple sources. The dataset is available as CSV which can be loaded into most environments.
-Python code is provided for easily accessing both the combined and underlying data sets.
-
-Usage examples are given in this [Jupyter notebook](./usage_example.ipynb).
 
 ## Reading the dataset
-### Generic Option
-Download the CSV from the [Dataset](https://github.com/rs-delve/covid19_datasets/tree/master/dataset) directory
+Download the CSV from the [Dataset](https://github.com/rs-delve/covid19_datasets/tree/master/dataset) directory and load it in your favourite analysis tool. 
 
-### Python
-Install this package using
-```pip install git+https://github.com/rs-delve/covid19_datasets.git```
-Then load the dataset in Python using
+In Python you can load the CSV directly using [Pandas](https://pandas.pydata.org/):
 ```python
-from covid19_datasets import Combined
-data_df = Combined().get_data()
+import pandas as pd
+data_df = pd.read_csv('https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/dataset/combined_dataset_latest.csv')
 ```
+
+## Usage Examples
+Usage examples, including access to the underlying datasets are given in this [Jupyter notebook](./usage_example.ipynb).
 
 ## Combined Dataset Columns
 The combined dataset provides the following columns for each ISO (the 3 letter ISO country code) and DATE.
