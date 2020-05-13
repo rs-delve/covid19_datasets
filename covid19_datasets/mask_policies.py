@@ -9,6 +9,8 @@ def _load_dataset() -> pd.DataFrame:
     _log.info(f'Loading dataset from {_MASK_POLICY_PATH}')
     df = pd.read_csv(_MASK_POLICY_PATH)
     df.DATE = pd.to_datetime(df.DATE, format='%d/%m/%Y')
+    # There are some duplicates in the underlying CSV, remove them:
+    df = df.groupby([ISO_COLUMN_NAME, DATE_COLUMN_NAME]).first().reset_index()
     _log.info('Loaded')
     return df
 
