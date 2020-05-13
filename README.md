@@ -129,7 +129,7 @@ few days, or only one person can leave at a time, etc.)
 <td>Y</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Providing support to other countries</td>
+<td style="font-weight:bold">International Support</td>
 <td>Announced offers of COVID-19 related aid spending to other countries</td>
 <td>Record monetary value announced if additional to previously announced spending - 0 if there is none</td>
 <td>Oxford Government Response Tracker</td>
