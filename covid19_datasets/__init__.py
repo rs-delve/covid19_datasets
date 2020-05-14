@@ -7,4 +7,5 @@ from .uk_area_stats import UKCovid19Data
 from .mask_policies import MaskPolicies
 from .mobility import Mobility
 from .johns_hopkins import JohnsHopkins
+from .un_deaths_by_country import UNDeathsByCountry
 from .combined import Combined
