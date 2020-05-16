@@ -45,6 +45,7 @@ def _load_dataset():
         country_name = country.replace(' ', '-')
         path = COUNTRY_PATH_FORMAT.format(country_name)
         try:
+            _log.info(f"Loading {country} from " + path)
             country_df = pd.read_csv(path)
         except:
             try:
