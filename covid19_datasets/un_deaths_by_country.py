@@ -2,8 +2,10 @@ import pandas as pd
 import logging
 import csv
 from calendar import monthrange
-import pycountry
+
 from .constants import *
+from .utils import get_country_iso
+
 _log = logging.getLogger(__name__)
 
 _DATA_PATH = 'https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/data/un_country_deaths_by_month.csv'
@@ -28,26 +30,6 @@ def _get_daily_average(row):
     _, days_count = monthrange(row['Year'], months[row['Month']])
     return row['Value'] / days_count
 
-
-def _get_country_iso(country_name):
-    # Country names in this dataset is a wondeful mix of official and normal names
-    # so we will try looking up by all of that
-    # and a fuzzy search on top
-
-    country = pycountry.countries.get(name=country_name)
-    if country is not None:
-        return country.alpha_3
-    
-    country = pycountry.countries.get(official_name=country_name)
-    if country is not None:
-        return country.alpha_3
-    
-    try:
-        country = pycountry.countries.search_fuzzy(country_name)[0]
-        return country.alpha_3
-    except LookupError:
-        return None
-
 def _load_dataset() -> pd.DataFrame:
     _log.info(f'Loading dataset from {_DATA_PATH}')
     df = pd.read_csv(_DATA_PATH, quotechar='"')
@@ -64,7 +46,7 @@ def _load_dataset() -> pd.DataFrame:
     df['Year'] = pd.to_numeric(df['Year'])
     df['Value'] = pd.to_numeric(df['Value'])
     
-    df[ISO_COLUMN_NAME] = df['Country or Area'].apply(_get_country_iso)
+    df[ISO_COLUMN_NAME] = df['Country or Area'].apply(get_country_iso)
     # Drop rows that don't represent valid countries (e.g. territories)
     df = df[pd.notnull(df[ISO_COLUMN_NAME])]
 

@@ -1,9 +1,11 @@
 import pandas as pd
 import numpy as np
 import datetime
-from .constants import DATE_COLUMN_NAME
-
 import logging
+
+from .constants import *
+from .utils import get_country_iso
+
 _log = logging.getLogger(__name__)
 
 
@@ -44,7 +46,16 @@ def _load_dataset():
         all_data.append(country_df)
     _log.info("Loaded")
 
-    return pd.concat(all_data, axis=0)
+    df = pd.concat(all_data, axis=0)
+    df["excess_death_daily_avg"] = df["excess_deaths"] / 7.0
+    df["start_date"] = pd.to_datetime(df["start_date"].astype(str))
+    df["end_date"] = pd.to_datetime(df["end_date"].astype(str))
+
+    df = df.drop(['year', 'week', 'month'], axis='columns')
+
+    df[ISO_COLUMN_NAME] = df['country'].apply(get_country_iso)
+
+    return df
 
 
 class EconomistExcessMortality():
@@ -73,8 +84,8 @@ class EconomistExcessMortality():
         Returns the dataset as Pandas dataframe
         """
         return EconomistExcessMortality.data
-    
-    def get_country_level_data(self):
+
+    def get_country_level_data(self, daily=False):
         """
         Returns the dataset with country-level data only
         """
@@ -84,5 +95,24 @@ class EconomistExcessMortality():
         df = df[df['country'] == df['region']]
         # drop region-related columns
         df = df.drop(['region', 'region_code'], axis='columns')
+
+        if daily:
+            df[DATE_COLUMN_NAME] = df['start_date']
+
+            def _resample_start_to_end(country_df):
+                # add last week's end
+                last_row = pd.DataFrame(country_df[-1:].values, columns=country_df.columns)
+                last_row[DATE_COLUMN_NAME] = country_df['end_date'].max()
+                country_df = country_df.append(last_row)
+
+                country_df = country_df.set_index(DATE_COLUMN_NAME).resample('D').ffill()
+
+                return country_df
+
+            df = df.set_index('country').groupby('country') \
+                   .apply(_resample_start_to_end) \
+                   .reset_index()
+            
+            df = df.drop(['start_date', 'end_date'], axis='columns')
 
         return df
