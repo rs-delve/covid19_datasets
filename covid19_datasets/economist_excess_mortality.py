@@ -113,6 +113,8 @@ class EconomistExcessMortality():
                    .apply(_resample_start_to_end) \
                    .reset_index()
             
+            df['weekly_excess_deaths'] = df.apply(lambda row: row['excess_deaths'] if row['end_date'] == row[DATE_COLUMN_NAME] else np.NaN, axis=1)
+
             df = df.drop(['start_date', 'end_date'], axis='columns')
 
         return df

@@ -52,7 +52,7 @@ def _mobility_data() -> pd.DataFrame:
 def _excess_mortality_data() -> pd.DataFrame:
     excess_mortality = EconomistExcessMortality()
     data = excess_mortality.get_country_level_data(daily=True)
-    return data[[ISO_COLUMN_NAME, DATE_COLUMN_NAME, 'excess_death_daily_avg']]
+    return data[[ISO_COLUMN_NAME, DATE_COLUMN_NAME, 'excess_death_daily_avg', 'weekly_excess_deaths']]
 
 
 def _create_interventions_data() -> pd.DataFrame:
