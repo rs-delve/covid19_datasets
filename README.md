@@ -16,6 +16,7 @@ We provide two Jupyter notebooks with examples:
 - [Basic exploratory data analysis of the combined international dataset](./Data_Exploration.ipynb)
 - [Usage of the underlying datasets](./usage_example.ipynb).
 
+
 ## Combined Dataset Columns
 The combined dataset provides the following columns for each ISO (the 3 letter ISO country code) and DATE.
 
@@ -402,5 +403,26 @@ few days, or only one person can leave at a time, etc.)
 <td>World Bank Data Bank</td>
 <td>N</td>
 </tr>
+<tr>
+<td style="font-weight:bold">excess_death_daily_avg</td>
+<td>Daily average number of excess deaths</td>
+<td>Float<br/> Original dataset provides weekly figure, we divide it by 7 to obtain daily average.<br/>Final caulculation is <i>((number of deaths in 2020) - (average number of deaths in past few years))/7</i> </td>
+<td>The Economist excess mortality tracker</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">weekly_excess_death</td>
+<td>Number of excess deaths for the past week</td>
+<td>Taken as is from the source</td>
+<td>The Economist excess mortality tracker</td>
+<td>N</td>
+</tr>
 </tbody></table>
 
+## Our sources
+* [Oxford Government Response Tracker](https://www.bsg.ox.ac.uk/research/research-projects/coronavirus-government-response-tracker)
+* [ACAPS #COVID19 Government Measures](https://www.acaps.org/covid19-government-measures-dataset)
+* [Our World in Data](https://ourworldindata.org/coronavirus)
+* [Google Mobility Report](https://www.google.com/covid19/mobility/data_documentation.html)
+* [World Bank Data Bank](https://data.worldbank.org/)
+* [The Economist excess mortality tracker](https://github.com/TheEconomist/covid-19-excess-deaths-tracker)

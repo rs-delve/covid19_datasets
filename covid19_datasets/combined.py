@@ -8,6 +8,7 @@ from .oxford_government_policy import OxfordGovernmentPolicyDataset
 from .mask_policies import MaskPolicies
 from .world_bank import WorldBankDataBank
 from .mobility import Mobility
+from .economist_excess_mortality import EconomistExcessMortality
 from .constants import ISO_COLUMN_NAME, DATE_COLUMN_NAME
 
 
@@ -48,6 +49,12 @@ def _mobility_data() -> pd.DataFrame:
     return mobility.get_data()
 
 
+def _excess_mortality_data() -> pd.DataFrame:
+    excess_mortality = EconomistExcessMortality()
+    data = excess_mortality.get_country_level_data(daily=True)
+    return data[[ISO_COLUMN_NAME, DATE_COLUMN_NAME, 'excess_death_daily_avg', 'weekly_excess_deaths']]
+
+
 def _create_interventions_data() -> pd.DataFrame:
     interventions_data = (_policies_data()
                           .merge(_mask_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
@@ -64,6 +71,7 @@ def _create_data() -> pd.DataFrame:
                 .merge(_mobility_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .merge(_age_data(), on=ISO_COLUMN_NAME, how='left')
                 .merge(_reference_data(), on=ISO_COLUMN_NAME, how='left')
+                .merge(_excess_mortality_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME]))
     
     return combined
