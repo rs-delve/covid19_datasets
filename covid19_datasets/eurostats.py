@@ -43,6 +43,15 @@ def _load_dataset():
     return excess
 
 
+def _resample(grouped_df):
+  # Dates are the end of the week, so we move the min date back to the beginning of that week
+  min_date = grouped_df.DATE.min() - pd.offsets.Day(6)
+  max_date = grouped_df.DATE.max()
+  grouped = grouped_df.set_index('DATE').reindex(pd.date_range(min_date, max_date, freq='D'))
+  grouped.loc[:, 'excess_mortality_daily_average'] = grouped.loc[:, 'excess_mortality_daily_average'].bfill(limit=7)
+  return grouped
+
+
 class EuroStatsExcessMortality():
     """
     Excess mortality computed from EuroStats mortality statstics.
@@ -62,8 +71,20 @@ class EuroStatsExcessMortality():
         if EuroStatsExcessMortality.data is None or force_load:
             EuroStatsExcessMortality.data = _load_dataset()
 
-    def get_data(self):
+    def get_data(self, daily=False):
         """
         Returns the dataset as Pandas dataframe
         """
-        return EuroStatsExcessMortality.data
+        if daily:
+          df = EuroStatsExcessMortality.data
+          df['excess_mortality_daily_average'] = df['excess_mortality'] / 7
+          key_columns = ['country', 'AGE', 'SEX', 'ISO']
+          daily = (df
+                   .groupby(key_columns)
+                   .apply(_resample)
+                   .drop(['country', 'AGE', 'SEX', 'ISO'], axis='columns')
+                   .reset_index()
+                   .rename(columns={'level_4': DATE_COLUMN_NAME}))
+          return daily
+        else:
+          return EuroStatsExcessMortality.data
