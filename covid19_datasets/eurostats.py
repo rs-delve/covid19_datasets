@@ -31,15 +31,11 @@ def _load_dataset():
     df.loc[:, 'Value'] = df.Value.str.replace(',', '').astype(float)
 
     _log.info('Computing Excess Mortality')
-    baseline = df.query('YEAR < 2020').groupby(_KEY_COLUMNS)['Value'].mean()
+    baseline = df.query('YEAR < 2020').groupby(_KEY_COLUMNS)['Value'].mean().rename('expected_mortality')
     current = df.query('YEAR == 2020').set_index(_KEY_COLUMNS)['Value']
 
-    excess = current - baseline
-    excess = excess.reset_index().rename(
-        columns={
-            'GEO': 'country', 
-            'Value': 'excess_mortality'
-            })
+    excess = pd.concat([baseline, (current - baseline).rename('excess_mortality')], axis=1)
+    excess = excess.reset_index().rename(columns={'GEO': 'country'})
 
     excess[DATE_COLUMN_NAME] = excess['WEEK'].apply(lambda w: _last_day_of_calenderweek(2020, w))
     excess[ISO_COLUMN_NAME] = excess.country.apply(get_country_iso)
