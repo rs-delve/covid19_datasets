@@ -9,4 +9,5 @@ from .mobility import Mobility
 from .johns_hopkins import JohnsHopkins
 from .un_deaths_by_country import UNDeathsByCountry
 from .economist_excess_mortality import EconomistExcessMortality
+from .eurostats import EuroStatsExcessMortality
 from .combined import Combined
