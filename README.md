@@ -407,14 +407,15 @@ few days, or only one person can leave at a time, etc.)
 <td style="font-weight:bold">excess_death_daily_avg</td>
 <td>Daily average number of excess deaths</td>
 <td>Float<br/> Original dataset provides weekly figure, we divide it by 7 to obtain daily average.<br/>Final caulculation is <i>((number of deaths in 2020) - (average number of deaths in past few years))/7</i> </td>
-<td>The Economist excess mortality tracker</td>
+<td>The Economist excess mortality tracker / EuroStats</td>
 <td>Y</td>
 </tr>
 <tr>
 <td style="font-weight:bold">weekly_excess_death</td>
-<td>Number of excess deaths for the past week</td>
+<td>Number of excess deaths for the past week. Generally this is calculated as the number of deaths in a week in 2020 
+ minus the average number of deaths that occured in the same week in the previous 5 years. There are, however, cases where the underlying data provider uses a slightly different calculation (for example fewer than 5 years for the baseline)</td>
 <td>Taken as is from the source</td>
-<td>The Economist excess mortality tracker</td>
+<td>The Economist excess mortality tracker / EuroStats</td>
 <td>N</td>
 </tr>
 </tbody></table>
