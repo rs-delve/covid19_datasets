@@ -62,7 +62,7 @@ def _excess_mortality_data() -> pd.DataFrame:
     eurostats_data = eurostats_data.query('SEX == "Total" and AGE == "Total"')
     eurostats_data = eurostats_data[~eurostats_data[ISO_COLUMN_NAME].isin(_EUROSTATS_EXCLUDE)]
     eurostats_data = eurostats_data.rename(columns={
-        'excess_mortality': 'excess_death',
+        'excess_mortality': 'weekly_excess_deaths',
         'excess_mortality_daily_average': 'excess_death_daily_avg'
         })
 
