@@ -312,6 +312,30 @@ few days, or only one person can leave at a time, etc.)
 <td>Google Mobility Report</td>
 <td>Y</td>
 </tr>
+
+<tr>
+<td style="font-weight:bold">driving_mobility</td>
+<td>Transport mobility trends for driving</td>
+<td>% Change in routing requests since 13 January 2020</td>
+<td>Apple Maps Mobility Trends Report</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">transit_mobility</td>
+<td>Mobility trends for places of residence</td>
+<td>% Change in routing requests since 13 January 2020</td>
+<td>Apple Maps Mobility Trends Report</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">walking_mobility</td>
+<td>Mobility trends for places of residence</td>
+<td>% Change in routing requests since 13 January 2020</td>
+<td>Apple Maps Mobility Trends Report</td>
+<td>Y</td>
+</tr>
+
+
 <tr>
 <td style="font-weight:bold">median_age</td>
 <td>Median age of population</td>
@@ -420,10 +444,12 @@ few days, or only one person can leave at a time, etc.)
 </tr>
 </tbody></table>
 
-## Our sources
+## Data sources
 * [Oxford Government Response Tracker](https://www.bsg.ox.ac.uk/research/research-projects/coronavirus-government-response-tracker)
 * [ACAPS #COVID19 Government Measures](https://www.acaps.org/covid19-government-measures-dataset)
 * [Our World in Data](https://ourworldindata.org/coronavirus)
 * [Google Mobility Report](https://www.google.com/covid19/mobility/data_documentation.html)
 * [World Bank Data Bank](https://data.worldbank.org/)
 * [The Economist excess mortality tracker](https://github.com/TheEconomist/covid-19-excess-deaths-tracker)
+* [EUROSTAT](https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_r_mweek3&lang=en)
+* [Apple Maps Mobility Trends Reports](https://www.apple.com/covid19/mobility)
