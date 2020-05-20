@@ -106,7 +106,7 @@ def _create_data() -> pd.DataFrame:
                 .merge(_age_data(), on=ISO_COLUMN_NAME, how='left')
                 .merge(_reference_data(), on=ISO_COLUMN_NAME, how='left')
                 .merge(_excess_mortality_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
-                .merge(_weather_data, on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
+                .merge(_weather_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME]))
     
     return combined
