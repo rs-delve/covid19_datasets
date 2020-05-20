@@ -11,6 +11,7 @@ from .mobility import Mobility
 from .apple import AppleMobility
 from .economist_excess_mortality import EconomistExcessMortality
 from .eurostats import EuroStatsExcessMortality
+from .weather import Weather
 from .constants import ISO_COLUMN_NAME, DATE_COLUMN_NAME
 
 
@@ -82,6 +83,10 @@ def _excess_mortality_data() -> pd.DataFrame:
     ], axis=0) 
     return excess_mortality
 
+def _weather_data() -> pd.DataFrame:
+    weather = Weather()
+    return weather.get_data()
+
 
 def _create_interventions_data() -> pd.DataFrame:
     interventions_data = (_policies_data()
@@ -101,6 +106,7 @@ def _create_data() -> pd.DataFrame:
                 .merge(_age_data(), on=ISO_COLUMN_NAME, how='left')
                 .merge(_reference_data(), on=ISO_COLUMN_NAME, how='left')
                 .merge(_excess_mortality_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
+                .merge(_weather_data, on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME]))
     
     return combined
