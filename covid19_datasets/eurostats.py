@@ -36,7 +36,7 @@ def _load_dataset():
     current = df.query('YEAR == 2020').set_index(_KEY_COLUMNS)['Value']
 
     excess = pd.concat(
-        [baseline, (current - baseline).rename('deaths_excess')], axis=1)
+        [baseline, (current - baseline).rename('deaths_excess_weekly')], axis=1)
     excess = excess.reset_index().rename(columns={'GEO': 'country'})
 
     excess[DATE_COLUMN_NAME] = excess['WEEK'].apply(
@@ -52,8 +52,7 @@ def _resample(grouped_df):
     max_date = grouped_df.DATE.max()
     grouped = grouped_df.set_index('DATE').reindex(
         pd.date_range(min_date, max_date, freq='D'))
-    grouped.loc[:, 'deaths_excess_daily_avg'] = grouped.loc[:,
-                                                            'deaths_excess_daily_avg'].bfill(limit=7)
+    grouped.loc[:, 'deaths_excess_daily_avg'] = grouped.loc[:, 'deaths_excess_daily_avg'].bfill(limit=7)
     return grouped
 
 
@@ -82,7 +81,7 @@ class EuroStatsExcessMortality():
         """
         if daily:
             df = EuroStatsExcessMortality.data
-            df['deaths_excess_daily_avg'] = df['deaths_excess'] / 7
+            df['deaths_excess_daily_avg'] = df['deaths_excess_weekly'] / 7
             key_columns = ['country', 'AGE', 'SEX', 'ISO']
             daily = (df
                      .groupby(key_columns)
