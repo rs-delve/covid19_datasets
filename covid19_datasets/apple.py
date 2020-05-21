@@ -10,16 +10,17 @@ _log = logging.getLogger(__name__)
 
 
 _MOBILITY_INDEX = 'https://covid19-static.cdn-apple.com/covid19-mobility-data/current/v3/index.json'
-_BASE_URL = 'https://covid19-static.cdn-apple.com/covid19-mobility-data/2008HotfixDev35/v3'
+_BASE_URL = 'https://covid19-static.cdn-apple.com/'
 
 
 def _load_dataset():
-    json = requests.get(_MOBILITY_INDEX).json()
-    filename = json['regions']['en-us']['csvPath']
-    path = _BASE_URL + filename
-    _log.info(f'Loading Apple Mobility data from {path}')
-    df = pd.read_csv(path)
-    return df
+  json = requests.get(_MOBILITY_INDEX).json()
+  base_path = json['basePath']
+  filename = json['regions']['en-us']['csvPath']
+  path = _BASE_URL + base_path + filename
+  _log.info(f'Loading Apple Mobility data from {path}')
+  df = pd.read_csv(path)
+  return df
 
 
 class AppleMobility():
