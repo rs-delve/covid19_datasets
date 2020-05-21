@@ -71,4 +71,4 @@ class Weather():
         """
         Return the dataset in a standardised format.
         """
-        return get_raw_data().rename(columns=_COLUMN_NAMES)
+        return self.get_raw_data().rename(columns=_COLUMN_NAMES)
