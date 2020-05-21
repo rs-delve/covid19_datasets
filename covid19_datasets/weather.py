@@ -8,7 +8,7 @@ import requests
 from .utils import get_country_iso
 _log = logging.getLogger(__name__)
 
-_PATH = 'https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/data/countries_daily_weighted_averages.csv'
+_PATH = 'https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/data/countries_daily_weighted_averages_merged.csv'
 
 
 def _load_dataset():
