@@ -352,23 +352,37 @@ few days, or only one person can leave at a time, etc.)
 </tr>
 
 <tr>
-<td style="font-weight:bold">Temperature_Weighted_Daily_Average</td>
+<td style="font-weight:bold">Precipitation_Weighted_Daily_Average_mean</td>
+<td>Average daily precipitation across the country, sampled in major cities and weighted by population</td>
+<td>Precipitation flux in kg/m^2s (multiply by 3600 to get mm / hr)</td>
+<td>UK Met Office + SimpleMaps</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">Temperature_Weighted_Daily_Average_mean</td>
 <td>Average daily temperature across the country, sampled in major cities and weighted by population</td>
 <td>&deg; C (Degrees celcius)</td>
 <td>UK Met Office + SimpleMaps</td>
 <td>Y</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Humidity_Weighted_Daily_Average</td>
+<td style="font-weight:bold">Humidity_Weighted_Daily_Average_mean</td>
 <td>Average daily humidify across the country, sampled in major cities and weighted by population</td>
 <td>kg/kg (Kilograms of water vapour per kilogram of air)</td>
 <td>UK Met Office + SimpleMaps</td>
 <td>Y</td>
 </tr>
 <tr>
-<td style="font-weight:bold">SW_Weighted_Daily_Average</td>
-<td>Short Wave</td>
+<td style="font-weight:bold">SW_Weighted_Daily_Average_mean</td>
+<td>Average daily short-wave radiation across the country, sampled in major cities and weighted by population</td>
 <td>W/m^2 (Watts per square metre)</td>
+<td>UK Met Office + SimpleMaps</td>
+<td>Y</td>
+</tr>
+<tr>
+<td style="font-weight:bold">Wind_Speed_Weighted_Daily_Average_mean</td>
+<td>Average daily wind speed across the country, sampled in major cities and weighted by population</td>
+<td>m/s (Metres per second)</td>
 <td>UK Met Office + SimpleMaps</td>
 <td>Y</td>
 </tr>
