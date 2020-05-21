@@ -10,8 +10,23 @@ _log = logging.getLogger(__name__)
 
 _PATH = 'https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/data/countries_daily_weighted_averages_merged.csv'
 
+_COLUMN_NAMES = {
+    'Precipitation_Weighted_Daily_Average_maximum': 'weather_precipitation_max',
+    'Precipitation_Weighted_Daily_Average_mean': 'weather_precipitation_mean',
+    'Humidity_Weighted_Daily_Average_maximum': 'weather_humidity_max',
+    'Humidity_Weighted_Daily_Average_mean': 'weather_humidity_mean',
+    'Humidity_Weighted_Daily_Average_minimum': 'weather_humidity_min',
+    'SW_Weighted_Daily_Average_maximum': 'weather_sw_radiation_max', 
+    'SW_Weighted_Daily_Average_mean': 'weather_sw_radiation_mean',
+    'Temperature_Weighted_Daily_Average_maximum': 'weather_temperature_max',
+    'Temperature_Weighted_Daily_Average_mean': 'weather_temperature_mean',
+    'Temperature_Weighted_Daily_Average_minimum': 'weather_temperature_min',
+    'Wind_Speed_Weighted_Daily_Average_maximum': 'weather_wind_speed_max',
+    'Wind_Speed_Weighted_Daily_Average_minimum': 'weather_wind_speed_min',
+    'Wind_Speed_Weighted_Daily_Average_mean': 'weather_wind_speed_mean'
+}
 
-def _load_dataset():
+def _load_dataset() -> pd.DataFrame:
   _log.info(f'Loading weather data from {_PATH}')
   df = pd.read_csv(_PATH, parse_dates=['Date'])
   df = df.rename(columns={'Date': DATE_COLUMN_NAME, 'ISO': ISO_COLUMN_NAME})
@@ -46,8 +61,14 @@ class Weather():
         if Weather.data is None or force_load:
             Weather.data = _load_dataset()
 
-    def get_data(self):
+    def get_raw_data(self) -> pd.DataFrame:
         """
-        Returns the dataset as Pandas dataframe
+        Returns the raw dataset as Pandas dataframe
         """
         return Weather.data
+
+    def get_data(self) -> pd.DataFrame:
+        """
+        Return the dataset in a standardised format.
+        """
+        return get_raw_data().rename(columns=_COLUMN_NAMES)

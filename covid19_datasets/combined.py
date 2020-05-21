@@ -21,14 +21,14 @@ _OWID_AGE_DROP_COLUMNS = ['Entity', 'Year']
 _MASKS_DROP_COLUMNS = ['Country', 'Source']
 _WORLD_BANK_DROP_COLUMNS = ['country', 'Smoking prevalence, females (% of adults)', 'Smoking prevalence, males (% of adults)', 'Diabetes (% of population ages 20 to 79)']
 _WEATHER_DROP_COLUMNS = [
-    'Precipitation_Weighted_Daily_Average_maximum', 
-    'Humidity_Weighted_Daily_Average_maximum',
-    'Humidity_Weighted_Daily_Average_minimum',
-    'SW_Weighted_Daily_Average_maximum', 
-    'Temperature_Weighted_Daily_Average_maximum',
-    'Temperature_Weighted_Daily_Average_minimum',
-    'Wind_Speed_Weighted_Daily_Average_maximum',
-    'Wind_Speed_Weighted_Daily_Average_minimum'
+    'weather_precipitation_max',
+    'weather_humidity_max',
+    'weather_humidity_min',
+    'weather_sw_radiation_max', 
+    'weather_temperature_max',
+    'weather_temperature_min',
+    'weather_wind_speed_max',
+    'weather_wind_speed_min'
 ]
 _EUROSTATS_EXCLUDE = ['ESP', 'PRT', 'SWE']
 _ECONOMIST_EXCLUDE = ['AUT', 'BEL', 'CHE', 'DNK', 'NOR']
