@@ -19,12 +19,13 @@ _OXFORD_DROP_COLUMNS = ['ConfirmedCases',	'ConfirmedDeaths']
 _OWID_COVID19_DROP_COLUMNS = ['tests_units', 'location']
 _OWID_AGE_DROP_COLUMNS = ['Entity', 'Year']
 _MASKS_DROP_COLUMNS = ['Country', 'Source']
-_WORLD_BANK_DROP_COLUMNS = ['country', 'Smoking prevalence, females (% of adults)', 'Smoking prevalence, males (% of adults)', 'Diabetes (% of population ages 20 to 79)']
+_WORLD_BANK_DROP_COLUMNS = [
+    'country', 'Smoking prevalence, females (% of adults)', 'Smoking prevalence, males (% of adults)', 'Diabetes (% of population ages 20 to 79)']
 _WEATHER_DROP_COLUMNS = [
     'weather_precipitation_max',
     'weather_humidity_max',
     'weather_humidity_min',
-    'weather_sw_radiation_max', 
+    'weather_sw_radiation_max',
     'weather_temperature_max',
     'weather_temperature_min',
     'weather_wind_speed_max',
@@ -57,41 +58,46 @@ def _age_data() -> pd.DataFrame:
 def _reference_data() -> pd.DataFrame:
     wb = WorldBankDataBank()
     return wb.get_data().drop(_WORLD_BANK_DROP_COLUMNS, axis='columns')
-    
+
 
 def _mobility_data() -> pd.DataFrame:
     mobility = Mobility()
     return mobility.get_data()
 
+
 def _transport_mobility_data() -> pd.DataFrame:
     apple_mobility = AppleMobility()
     return apple_mobility.get_country_data()
 
+
 def _excess_mortality_data() -> pd.DataFrame:
     economist_excess_mortality = EconomistExcessMortality()
-    economist_data = economist_excess_mortality.get_country_level_data(daily=True)
-    economist_data = economist_data[~economist_data[ISO_COLUMN_NAME].isin(_ECONOMIST_EXCLUDE)]
+    economist_data = economist_excess_mortality.get_country_level_data(
+        daily=True)
+    economist_data = economist_data[~economist_data[ISO_COLUMN_NAME].isin(
+        _ECONOMIST_EXCLUDE)]
 
     eurostats_mortality = EuroStatsExcessMortality()
     eurostats_data = eurostats_mortality.get_data(daily=True)
     eurostats_data = eurostats_data.query('SEX == "Total" and AGE == "Total"')
-    eurostats_data = eurostats_data[~eurostats_data[ISO_COLUMN_NAME].isin(_EUROSTATS_EXCLUDE)]
-    eurostats_data = eurostats_data.rename(columns={
-        'excess_mortality': 'weekly_excess_deaths',
-        'excess_mortality_daily_average': 'excess_death_daily_avg'
-        })
+    eurostats_data = eurostats_data[~eurostats_data[ISO_COLUMN_NAME].isin(
+        _EUROSTATS_EXCLUDE)]
 
-    columns = [ISO_COLUMN_NAME, DATE_COLUMN_NAME, 'excess_death_daily_avg', 'weekly_excess_deaths']
+    columns = [ISO_COLUMN_NAME, DATE_COLUMN_NAME,
+               'deaths_excess_daily_avg', 'deaths_excess_weekly']
 
-    intersection = set(eurostats_data[ISO_COLUMN_NAME]) & set(economist_data[ISO_COLUMN_NAME])
+    intersection = set(eurostats_data[ISO_COLUMN_NAME]) & set(
+        economist_data[ISO_COLUMN_NAME])
     if intersection:
-        raise ValueError('Found duplicated ISOs in Economist and EuroStats excess mortality data: ' + intersection)
+        raise ValueError(
+            'Found duplicated ISOs in Economist and EuroStats excess mortality data: ' + intersection)
 
     excess_mortality = pd.concat([
         economist_data[columns],
         eurostats_data[columns]
-    ], axis=0) 
+    ], axis=0)
     return excess_mortality
+
 
 def _weather_data() -> pd.DataFrame:
     weather = Weather()
@@ -102,13 +108,15 @@ def _create_interventions_data() -> pd.DataFrame:
     interventions_data = (_policies_data()
                           .merge(_mask_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                           .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME, 'CountryName']))
-    interventions_data = interventions_data.groupby(level=0).ffill().fillna(0.).reset_index()
+    interventions_data = interventions_data.groupby(
+        level=0).ffill().fillna(0.).reset_index()
     return interventions_data
 
 
 def _create_data() -> pd.DataFrame:
     interventions_data = _create_interventions_data()
-    interventions_cases = interventions_data.merge(_cases_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left').fillna(0)
+    interventions_cases = interventions_data.merge(
+        _cases_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left').fillna(0)
 
     combined = (interventions_cases
                 .merge(_mobility_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
@@ -118,7 +126,7 @@ def _create_data() -> pd.DataFrame:
                 .merge(_excess_mortality_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .merge(_weather_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME]))
-    
+
     return combined
 
 

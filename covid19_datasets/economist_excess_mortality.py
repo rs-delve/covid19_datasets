@@ -31,6 +31,15 @@ COUNTRIES = [
 
 
 COUNTRY_PATH_FORMAT = 'https://raw.githubusercontent.com/TheEconomist/covid-19-excess-deaths-tracker/master/output-data/excess-deaths/{}_excess_deaths.csv'
+_COLUMN_NAMES = {
+    'total_deaths': 'deaths_total',
+    'covid_deaths': 'deaths_covid',
+    'expected_deaths': 'deaths_expected',
+    'excess_deaths': 'deaths_excess',
+    'non_covid_deaths': 'deaths_non_covid',
+    'excess_death_daily_avg': 'deaths_excess_daily_avg'
+}
+
 
 def _load_dataset():
     _log.info("Loading The Economist excess mortality dataset")
@@ -65,7 +74,7 @@ class EconomistExcessMortality():
         https://www.economist.com/graphic-detail/2020/04/16/tracking-covid-19-excess-deaths-across-countries
         https://github.com/TheEconomist/covid-19-excess-deaths-tracker
     """
-    
+
     data = None
 
     def __init__(self, force_load=False):
@@ -79,15 +88,15 @@ class EconomistExcessMortality():
         if EconomistExcessMortality.data is None or force_load:
             EconomistExcessMortality.data = _load_dataset()
 
-    def get_data(self):
+    def get_raw_data(self):
         """
-        Returns the dataset as Pandas dataframe
+        Returns the raw dataset as Pandas dataframe
         """
         return EconomistExcessMortality.data
 
     def get_country_level_data(self, daily=False):
         """
-        Returns the dataset with country-level data only
+        Returns the dataset with country-level data only in a standarised format.s
         """
         df = EconomistExcessMortality.data
 
@@ -101,20 +110,25 @@ class EconomistExcessMortality():
 
             def _resample_start_to_end(country_df):
                 # add last week's end
-                last_row = pd.DataFrame(country_df[-1:].values, columns=country_df.columns)
+                last_row = pd.DataFrame(
+                    country_df[-1:].values, columns=country_df.columns)
                 last_row[DATE_COLUMN_NAME] = country_df['end_date'].max()
                 country_df = country_df.append(last_row)
 
-                country_df = country_df.set_index(DATE_COLUMN_NAME).resample('D').ffill()
+                country_df = country_df.set_index(
+                    DATE_COLUMN_NAME).resample('D').ffill()
 
                 return country_df
 
             df = df.set_index('country').groupby('country') \
                    .apply(_resample_start_to_end) \
                    .reset_index()
-            
-            df['weekly_excess_deaths'] = df.apply(lambda row: row['excess_deaths'] if row['end_date'] == row[DATE_COLUMN_NAME] else np.NaN, axis=1)
+
+            df['deaths_excess_weekly'] = df.apply(
+                lambda row: row['excess_deaths'] if row['end_date'] == row[DATE_COLUMN_NAME] else np.NaN, axis=1)
 
             df = df.drop(['start_date', 'end_date'], axis='columns')
+
+        df = df.rename(columns=_COLUMN_NAMES)
 
         return df
