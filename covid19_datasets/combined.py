@@ -20,6 +20,16 @@ _OWID_COVID19_DROP_COLUMNS = ['tests_units', 'location']
 _OWID_AGE_DROP_COLUMNS = ['Entity', 'Year']
 _MASKS_DROP_COLUMNS = ['Country', 'Source']
 _WORLD_BANK_DROP_COLUMNS = ['country', 'Smoking prevalence, females (% of adults)', 'Smoking prevalence, males (% of adults)', 'Diabetes (% of population ages 20 to 79)']
+_WEATHER_DROP_COLUMNS = [
+    'Precipitation_Weighted_Daily_Average_maximum', 
+    'Humidity_Weighted_Daily_Average_maximum',
+    'Humidity_Weighted_Daily_Average_minimum',
+    'SW_Weighted_Daily_Average_maximum', 
+    'Temperature_Weighted_Daily_Average_maximum',
+    'Temperature_Weighted_Daily_Average_minimum',
+    'Wind_Speed_Weighted_Daily_Average_maximum',
+    'Wind_Speed_Weighted_Daily_Average_minimum'
+]
 _EUROSTATS_EXCLUDE = ['ESP', 'PRT', 'SWE']
 _ECONOMIST_EXCLUDE = ['AUT', 'BEL', 'CHE', 'DNK', 'NOR']
 
@@ -85,7 +95,7 @@ def _excess_mortality_data() -> pd.DataFrame:
 
 def _weather_data() -> pd.DataFrame:
     weather = Weather()
-    return weather.get_data()
+    return weather.get_data().drop(_WEATHER_DROP_COLUMNS, axis='columns')
 
 
 def _create_interventions_data() -> pd.DataFrame:
