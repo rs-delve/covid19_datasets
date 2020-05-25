@@ -5,12 +5,31 @@ from .constants import *
 import logging
 _log = logging.getLogger(__name__)
 
-OXFORD_PATH = 'https://oxcgrtportal.azurewebsites.net/api/CSVDownload'
-
+_OXFORD_PATH = 'https://oxcgrtportal.azurewebsites.net/api/CSVDownload'
+_COLUMN_NAMES = {
+    'School closing': 'npi_school_closing',	
+    'Workplace closing': 'npi_workplace_closing',	
+    'Cancel public events': 'npi_cancel_public_events',	
+    'Restrictions on gatherings': 'npi_gatherings_restrictions',	
+    'Close public transport': 'npi_close_public_transport',	
+    'Stay at home requirements': 'npi_stay_at_home',	
+    'Restrictions on internal movement': 'npi_internal_movement_restrictions',	
+    'International travel controls': 'npi_international_travel_controls',
+    'Income support': 'npi_income_support',	
+    'Debt/contract relief': 'npi_debt_relief',	
+    'Fiscal measures': 'npi_fiscal_measures',	
+    'International support': 'npi_international_support',	
+    'Public information campaigns': 'npi_public_information',
+    'Testing policy': 'npi_testing_policy',	
+    'Contact tracing': 'npi_contact_tracing',	
+    'Emergency investment in healthcare': 'npi_healthcare_investment',	
+    'Investment in vaccines': 'npi_vaccine_investment',
+    'StringencyIndex': 'npi_stringency_index'
+}
 
 def _load_dataset() -> pd.DataFrame:
-    _log.info(f'Loading dataset from {OXFORD_PATH}')
-    oxford_df = pd.read_csv(OXFORD_PATH)
+    _log.info(f'Loading dataset from {_OXFORD_PATH}')
+    oxford_df = pd.read_csv(_OXFORD_PATH)
     oxford_df[DATE_COLUMN_NAME] = pd.to_datetime(oxford_df.Date.astype(str))
     df = oxford_df[[c for c in oxford_df.columns if 'Notes' not in c and 'Flag' not in c and 'Unnamed' not in c]].drop(['Date', 'StringencyIndexForDisplay', 'M1_Wildcard'], axis='columns')
     df = df.rename(columns={'CountryCode': ISO_COLUMN_NAME})
@@ -19,7 +38,7 @@ def _load_dataset() -> pd.DataFrame:
     df = df.rename(columns={c: regex.sub('', c) for c in df.columns})
 
     _log.info("Loaded")
-    return df
+    return df.rename(columns=_COLUMN_NAMES)
 
 class OxfordGovernmentPolicyDataset:
     """
