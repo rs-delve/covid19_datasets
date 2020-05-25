@@ -8,12 +8,12 @@ _log = logging.getLogger(__name__)
 _MOBILITY_PATH = 'https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv'
 
 _COLUMN_NAME_MAP = {
-    'retail_and_recreation_percent_change_from_baseline': 'Retail and Recreation',
-    'grocery_and_pharmacy_percent_change_from_baseline': 'Grocery and Pharmacy',
-    'parks_percent_change_from_baseline': 'Parks',
-    'transit_stations_percent_change_from_baseline': 'Transit Stations',
-    'workplaces_percent_change_from_baseline': 'Workplaces',
-    'residential_percent_change_from_baseline': 'Residential'
+    'retail_and_recreation_percent_change_from_baseline': 'mobility_retail_recreation',
+    'grocery_and_pharmacy_percent_change_from_baseline': 'mobility_grocery_pharmacy',
+    'parks_percent_change_from_baseline': 'mobility_parks',
+    'transit_stations_percent_change_from_baseline': 'mobility_transit_stations',
+    'workplaces_percent_change_from_baseline': 'mobility_workplaces',
+    'residential_percent_change_from_baseline': 'mobility_residential'
 }
 
 _NORMALISE_COLUMNS = _COLUMN_NAME_MAP.values()

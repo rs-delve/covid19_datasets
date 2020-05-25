@@ -9,6 +9,29 @@ _OWID_PATH = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
 _AGE_PATH = 'https://github.com/rs-delve/covid19_datasets/raw/master/data/median-age.csv'
 
 
+_COLUMN_NAMES_COVID19 = {
+    'total_cases': 'cases_total',
+    'new_cases': 'cases_new',
+    'total_deaths': 'deaths_total',
+    'new_deaths': 'deaths_new',
+    'total_cases_per_million': 'cases_total_per_million',
+    'new_cases_per_million': 'cases_new_per_million',
+    'total_deaths_per_million': 'deaths_total_per_million',
+    'new_deaths_per_million': 'deaths_new_per_million',
+    'total_tests': 'tests_total',
+    'new_tests': 'tests_new',
+    'total_tests_per_thousand': 'tests_total_per_thousand',
+    'new_tests_per_thousand': 'tests_new_per_thousand',
+    'new_tests_smoothed': 'tests_new_smoothed',
+    'new_tests_smoothed_per_thousand': 'tests_new_smoothed_per_thousand',
+    'days_since_first_case': 'cases_days_since_first',
+    'days_since_first_death': 'deaths_days_since_first',
+    'population': 'stats_population',
+    'population_density': 'stats_population_density',
+    'median_age': 'stats_median_age',
+    'gdp_per_capita': 'stats_gdp_per_capita'
+}
+
 def _compute_anchor(col: str) -> Callable[[pd.DataFrame], pd.Timestamp]:
     def _apply(rows: pd.DataFrame) -> pd.Timestamp:
         anchor = rows.query(f'{col} > 0')
@@ -96,7 +119,7 @@ class OWIDCovid19:
         """
         Returns the dataset as Pandas dataframe
         """
-        return OWIDCovid19._data
+        return OWIDCovid19._data.rename(columns=_COLUMN_NAMES_COVID19)
 
 
 class OWIDMedianAges:
