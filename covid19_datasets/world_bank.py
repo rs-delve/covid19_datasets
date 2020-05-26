@@ -7,21 +7,12 @@ _log = logging.getLogger(__name__)
 
 
 WORLD_BANK_INDICATORS = {
-  'hospital_beds (per 1000)': 'SH.MED.BEDS.ZS',
-  'physicians (per 1000)': 'SH.MED.PHYS.ZS',
-  'nurses (per 1000)': 'SH.MED.NUMW.P3',
-  'Diabetes (% of population ages 20 to 79)': 'SH.STA.DIAB.ZS',
-  'Smoking prevalence, total, ages 15+': 'SH.PRV.SMOK',
-  'Smoking prevalence, females (% of adults)': 'SH.PRV.SMOK.FE',
-  'Smoking prevalence, males (% of adults)': 'SH.PRV.SMOK.MA',
-  'Mortality rate, adult, female (per 1,000 female adults)': 'SP.DYN.AMRT.FE',
-  'Mortality rate, adult, male (per 1,000 male adults)': 'SP.DYN.AMRT.MA',
-  'Population Density': 'EN.POP.DNST',
-  'Population in Urban Agglomerations': 'EN.URB.MCTY',
-  'Population Female': 'SP.POP.TOTL.FE.IN',
-  'Population Male': 'SP.POP.TOTL.MA.IN',
-  'Population': 'SP.POP.TOTL',
-  'Population of Compulsory School Age': 'UIS.SAP.CE'
+  'stats_hospital_beds_per_1000': 'SH.MED.BEDS.ZS',
+  'stats_smoking': 'SH.PRV.SMOK',
+  'stats_population_urban': 'EN.URB.MCTY',
+  'stats_population_female': 'SP.POP.TOTL.FE.IN',
+  'stats_population_male': 'SP.POP.TOTL.MA.IN',
+  'stats_population_school_age': 'UIS.SAP.CE'
 }
 
 

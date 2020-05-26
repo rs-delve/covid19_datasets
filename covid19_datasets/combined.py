@@ -15,47 +15,83 @@ from .weather import Weather
 from .constants import ISO_COLUMN_NAME, DATE_COLUMN_NAME
 
 
-_OXFORD_DROP_COLUMNS = ['ConfirmedCases',	'ConfirmedDeaths']
-_OWID_COVID19_DROP_COLUMNS = ['tests_units', 'location']
-_OWID_AGE_DROP_COLUMNS = ['Entity', 'Year']
-_MASKS_DROP_COLUMNS = ['Country', 'Source']
-_WORLD_BANK_DROP_COLUMNS = [
-    'country', 'Smoking prevalence, females (% of adults)', 'Smoking prevalence, males (% of adults)', 'Diabetes (% of population ages 20 to 79)']
-_WEATHER_DROP_COLUMNS = [
-    'weather_precipitation_max',
-    'weather_humidity_max',
-    'weather_humidity_min',
-    'weather_sw_radiation_max',
-    'weather_temperature_max',
-    'weather_temperature_min',
-    'weather_wind_speed_max',
-    'weather_wind_speed_min'
+_POLICIES_COLUMNS = [
+    'npi_school_closing', 
+    'npi_workplace_closing',
+    'npi_cancel_public_events', 
+    'npi_gatherings_restrictions',
+    'npi_close_public_transport', 
+    'npi_stay_at_home',
+    'npi_internal_movement_restrictions',
+    'npi_international_travel_controls', 
+    'npi_income_support',
+    'npi_debt_relief', 
+    'npi_fiscal_measures', 
+    'npi_international_support',
+    'npi_public_information', 
+    'npi_testing_policy', 
+    'npi_contact_tracing',
+    'npi_healthcare_investment', 
+    'npi_vaccine_investment', 
+    'npi_stringency_index']
+
+
+_MASKS_COLUMNS = [
+    'npi_masks'
+]
+
+
+_CASES_COLUMNS = [
+    'cases_total', 
+    'cases_new', 
+    'deaths_total',
+    'deaths_new', 
+    'cases_total_per_million', 
+    'cases_new_per_million',
+    'deaths_total_per_million', 
+    'deaths_new_per_million', 
+    'tests_total',
+    'tests_new', 
+    'tests_total_per_thousand', 
+    'tests_new_per_thousand',
+    'tests_new_smoothed', 
+    'tests_new_smoothed_per_thousand', 
+    'stats_population', 
+    'stats_population_density',
+    'stats_median_age', 
+    'stats_gdp_per_capita', 
+    'cases_days_since_first', 
+    'deaths_days_since_first'
+]
+
+
+_WEATHER_COLUMNS = [
+    'weather_precipitation_mean',
+    'weather_humidity_mean', 
+    'weather_sw_radiation_mean',
+    'weather_temperature_mean',
+    'weather_wind_speed_mean'
 ]
 
 
 def _policies_data() -> pd.DataFrame:
     oxford = OxfordGovernmentPolicyDataset()
-    return oxford.get_data().drop(_OXFORD_DROP_COLUMNS, axis='columns')
+    return oxford.get_data()[[ISO_COLUMN_NAME, DATE_COLUMN_NAME] + _POLICIES_COLUMNS]
 
 
 def _mask_data() -> pd.DataFrame:
     masks = MaskPolicies()
-    return masks.get_data().drop(_MASKS_DROP_COLUMNS, axis='columns').rename(columns={'Stringency': 'Masks'})
+    return masks.get_data()[[ISO_COLUMN_NAME, DATE_COLUMN_NAME] + _MASKS_COLUMNS]
 
 
 def _cases_data() -> pd.DataFrame:
     owid_covid19 = OWIDCovid19()
-    return owid_covid19.get_data().drop(_OWID_COVID19_DROP_COLUMNS, axis='columns')
-
-
-def _age_data() -> pd.DataFrame:
-    owid_ages = OWIDMedianAges()
-    return owid_ages.get_data().drop(_OWID_AGE_DROP_COLUMNS, axis='columns')
+    return owid_covid19.get_data()[[ISO_COLUMN_NAME, DATE_COLUMN_NAME] + _CASES_COLUMNS]
 
 
 def _reference_data() -> pd.DataFrame:
     wb = WorldBankDataBank()
-    return wb.get_data().drop(_WORLD_BANK_DROP_COLUMNS, axis='columns')
+    return wb.get_data()
 
 
 def _mobility_data() -> pd.DataFrame:
@@ -75,7 +111,7 @@ def _excess_mortality_data() -> pd.DataFrame:
 
 def _weather_data() -> pd.DataFrame:
     weather = Weather()
-    return weather.get_data().drop(_WEATHER_DROP_COLUMNS, axis='columns')
+    return weather.get_data()[[ISO_COLUMN_NAME, DATE_COLUMN_NAME] + _WEATHER_COLUMNS]
 
 
 def _create_interventions_data() -> pd.DataFrame:
@@ -95,7 +131,6 @@ def _create_data() -> pd.DataFrame:
     combined = (interventions_cases
                 .merge(_mobility_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .merge(_transport_mobility_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
-                .merge(_age_data(), on=ISO_COLUMN_NAME, how='left')
                 .merge(_reference_data(), on=ISO_COLUMN_NAME, how='left')
                 .merge(_excess_mortality_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .merge(_weather_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
