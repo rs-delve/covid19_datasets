@@ -128,7 +128,10 @@ def _create_interventions_data() -> pd.DataFrame:
         for iso in interventions_data[ISO_COLUMN_NAME].unique()
     }
 
-    interventions_data['country_name'] = interventions_data[ISO_COLUMN_NAME].replace(country_name_map)
+    interventions_data = interventions_data.insert(
+        0,
+        'country_name', 
+        interventions_data[ISO_COLUMN_NAME].replace(country_name_map))
     return interventions_data
 
 
