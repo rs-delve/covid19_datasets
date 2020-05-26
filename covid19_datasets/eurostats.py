@@ -7,18 +7,12 @@ import datetime
 import logging
 
 from .constants import *
-from .utils import get_country_iso
+from .utils import get_country_iso, last_day_of_calenderweek
 
 _log = logging.getLogger(__name__)
 
 _PATH = 'https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/data/demo_r_mweek3_1_Data.csv'
 _KEY_COLUMNS = ['GEO', 'AGE', 'SEX', 'WEEK']
-
-
-def _last_day_of_calenderweek(year, week):
-    first = datetime.date(year, 1, 1)
-    base = 1 if first.isocalendar()[1] == 1 else 8
-    return first + datetime.timedelta(days=base - first.isocalendar()[2] + 7 * (week - 1) + 6)
 
 
 def _load_dataset():
@@ -40,7 +34,7 @@ def _load_dataset():
     excess = excess.reset_index().rename(columns={'GEO': 'country'})
 
     excess[DATE_COLUMN_NAME] = excess['WEEK'].apply(
-        lambda w: _last_day_of_calenderweek(2020, w))
+        lambda w: last_day_of_calenderweek(2020, w))
     excess[ISO_COLUMN_NAME] = excess.country.apply(get_country_iso)
 
     return excess

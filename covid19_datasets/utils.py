@@ -1,3 +1,4 @@
+import datetime
 import pycountry
 
 def get_country_iso(country_name):
@@ -18,3 +19,9 @@ def get_country_iso(country_name):
         return country.alpha_3
     except LookupError:
         return None
+
+
+def last_day_of_calenderweek(year, week):
+    first = datetime.date(year, 1, 1)
+    base = 1 if first.isocalendar()[1] == 1 else 8
+    return first + datetime.timedelta(days=base - first.isocalendar()[2] + 7 * (week - 1) + 6)

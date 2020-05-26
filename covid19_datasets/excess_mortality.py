@@ -48,7 +48,7 @@ def _generate_excess_mortality() -> pd.DataFrame:
 
 class ExcessMortality():
     """
-    Excess mortality using data from EuroStats, the Economist and Max Plank Institute.
+    Excess mortality using data from EuroStats, the Economist and Human Mortality Database.
     """
 
     data = None
@@ -64,7 +64,7 @@ class ExcessMortality():
         if ExcessMortality.data is None or force_load:
             ExcessMortality.data = _generate_excess_mortality()
 
-    def get_data(self, daily=False):
+    def get_data(self):
         """
         Returns the dataset as Pandas dataframe
         """
