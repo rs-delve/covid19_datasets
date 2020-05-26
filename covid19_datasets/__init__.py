@@ -13,4 +13,5 @@ from .eurostats import EuroStatsExcessMortality
 from .apple import AppleMobility
 from .weather import Weather
 from .excess_mortality import ExcessMortality
+from .hmd import HMDExcessMortality
 from .combined import Combined
