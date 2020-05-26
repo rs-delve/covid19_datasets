@@ -12,4 +12,5 @@ from .economist_excess_mortality import EconomistExcessMortality
 from .eurostats import EuroStatsExcessMortality
 from .apple import AppleMobility
 from .weather import Weather
+from .excess_mortality import ExcessMortality
 from .combined import Combined

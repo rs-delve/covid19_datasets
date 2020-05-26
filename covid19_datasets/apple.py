@@ -12,7 +12,7 @@ _log = logging.getLogger(__name__)
 _MOBILITY_INDEX = 'https://covid19-static.cdn-apple.com/covid19-mobility-data/current/v3/index.json'
 _BASE_URL = 'https://covid19-static.cdn-apple.com/'
 
-_COLUMN_NAMES = {
+COLUMN_NAMES = {
     'driving': 'mobility_travel_driving',
     'transit': 'mobility_travel_transit',
     'walking': 'mobility_travel_walking'
@@ -78,5 +78,5 @@ class AppleMobility():
               .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME, 'transportation_type'])
               .unstack()['value']
               .reset_index())
-        df = df.rename(columns=_COLUMN_NAMES)
+        df = df.rename(columns=COLUMN_NAMES)
         return df

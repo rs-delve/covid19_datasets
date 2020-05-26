@@ -7,7 +7,7 @@ _log = logging.getLogger(__name__)
 
 _MOBILITY_PATH = 'https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv'
 
-_COLUMN_NAME_MAP = {
+COLUMN_NAMES = {
     'retail_and_recreation_percent_change_from_baseline': 'mobility_retail_recreation',
     'grocery_and_pharmacy_percent_change_from_baseline': 'mobility_grocery_pharmacy',
     'parks_percent_change_from_baseline': 'mobility_parks',
@@ -16,7 +16,7 @@ _COLUMN_NAME_MAP = {
     'residential_percent_change_from_baseline': 'mobility_residential'
 }
 
-_NORMALISE_COLUMNS = _COLUMN_NAME_MAP.values()
+_NORMALISE_COLUMNS = COLUMN_NAMES.values()
 
 
 def _load_dataset():
@@ -25,7 +25,7 @@ def _load_dataset():
     mob_rep_data = raw.rename(columns={'date': DATE_COLUMN_NAME})
     mob_rep_data[DATE_COLUMN_NAME] = pd.to_datetime(mob_rep_data[DATE_COLUMN_NAME])
     mob_rep_data = mob_rep_data[mob_rep_data["sub_region_1"].isnull()]
-    mob_rep_data = mob_rep_data.rename(columns=_COLUMN_NAME_MAP)
+    mob_rep_data = mob_rep_data.rename(columns=COLUMN_NAMES)
     mob_rep_data = mob_rep_data.drop(['sub_region_1', 'sub_region_2', 'country_region'], axis=1)
     mob_rep_data = mob_rep_data.dropna(subset=['country_region_code'])
 

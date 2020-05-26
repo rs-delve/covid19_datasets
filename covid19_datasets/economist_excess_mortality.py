@@ -31,7 +31,7 @@ COUNTRIES = [
 
 
 COUNTRY_PATH_FORMAT = 'https://raw.githubusercontent.com/TheEconomist/covid-19-excess-deaths-tracker/master/output-data/excess-deaths/{}_excess_deaths.csv'
-_COLUMN_NAMES = {
+COLUMN_NAMES = {
     'total_deaths': 'deaths_total',
     'covid_deaths': 'deaths_covid',
     'expected_deaths': 'deaths_expected',
@@ -129,6 +129,6 @@ class EconomistExcessMortality():
 
             df = df.drop(['start_date', 'end_date'], axis='columns')
 
-        df = df.rename(columns=_COLUMN_NAMES)
+        df = df.rename(columns=COLUMN_NAMES)
 
         return df

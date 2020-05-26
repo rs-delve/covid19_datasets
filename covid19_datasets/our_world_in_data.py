@@ -9,7 +9,7 @@ _OWID_PATH = 'https://covid.ourworldindata.org/data/owid-covid-data.csv'
 _AGE_PATH = 'https://github.com/rs-delve/covid19_datasets/raw/master/data/median-age.csv'
 
 
-_COLUMN_NAMES_COVID19 = {
+COLUMN_NAMES = {
     'total_cases': 'cases_total',
     'new_cases': 'cases_new',
     'total_deaths': 'deaths_total',
@@ -119,7 +119,7 @@ class OWIDCovid19:
         """
         Returns the dataset as Pandas dataframe
         """
-        return OWIDCovid19._data.rename(columns=_COLUMN_NAMES_COVID19)
+        return OWIDCovid19._data.rename(columns=COLUMN_NAMES)
 
 
 class OWIDMedianAges:

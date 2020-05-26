@@ -6,7 +6,7 @@ import logging
 _log = logging.getLogger(__name__)
 
 _OXFORD_PATH = 'https://oxcgrtportal.azurewebsites.net/api/CSVDownload'
-_COLUMN_NAMES = {
+COLUMN_NAMES = {
     'School closing': 'npi_school_closing',	
     'Workplace closing': 'npi_workplace_closing',	
     'Cancel public events': 'npi_cancel_public_events',	
@@ -38,7 +38,7 @@ def _load_dataset() -> pd.DataFrame:
     df = df.rename(columns={c: regex.sub('', c) for c in df.columns})
 
     _log.info("Loaded")
-    return df.rename(columns=_COLUMN_NAMES)
+    return df.rename(columns=COLUMN_NAMES)
 
 class OxfordGovernmentPolicyDataset:
     """

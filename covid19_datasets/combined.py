@@ -9,8 +9,8 @@ from .mask_policies import MaskPolicies
 from .world_bank import WorldBankDataBank
 from .mobility import Mobility
 from .apple import AppleMobility
-from .economist_excess_mortality import EconomistExcessMortality
-from .eurostats import EuroStatsExcessMortality
+from .excess_mortality import ExcessMortality
+
 from .weather import Weather
 from .constants import ISO_COLUMN_NAME, DATE_COLUMN_NAME
 
@@ -31,8 +31,6 @@ _WEATHER_DROP_COLUMNS = [
     'weather_wind_speed_max',
     'weather_wind_speed_min'
 ]
-_EUROSTATS_EXCLUDE = ['ESP', 'PRT', 'SWE']
-_ECONOMIST_EXCLUDE = ['AUT', 'BEL', 'CHE', 'DNK', 'NOR']
 
 
 def _policies_data() -> pd.DataFrame:
@@ -71,32 +69,8 @@ def _transport_mobility_data() -> pd.DataFrame:
 
 
 def _excess_mortality_data() -> pd.DataFrame:
-    economist_excess_mortality = EconomistExcessMortality()
-    economist_data = economist_excess_mortality.get_country_level_data(
-        daily=True)
-    economist_data = economist_data[~economist_data[ISO_COLUMN_NAME].isin(
-        _ECONOMIST_EXCLUDE)]
-
-    eurostats_mortality = EuroStatsExcessMortality()
-    eurostats_data = eurostats_mortality.get_data(daily=True)
-    eurostats_data = eurostats_data.query('SEX == "Total" and AGE == "Total"')
-    eurostats_data = eurostats_data[~eurostats_data[ISO_COLUMN_NAME].isin(
-        _EUROSTATS_EXCLUDE)]
-
-    columns = [ISO_COLUMN_NAME, DATE_COLUMN_NAME,
-               'deaths_excess_daily_avg', 'deaths_excess_weekly']
-
-    intersection = set(eurostats_data[ISO_COLUMN_NAME]) & set(
-        economist_data[ISO_COLUMN_NAME])
-    if intersection:
-        raise ValueError(
-            'Found duplicated ISOs in Economist and EuroStats excess mortality data: ' + intersection)
-
-    excess_mortality = pd.concat([
-        economist_data[columns],
-        eurostats_data[columns]
-    ], axis=0)
-    return excess_mortality
+    excess_mortality = ExcessMortality()
+    return excess_mortality.get_data()
 
 
 def _weather_data() -> pd.DataFrame:

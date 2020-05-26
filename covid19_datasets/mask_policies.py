@@ -5,7 +5,7 @@ _log = logging.getLogger(__name__)
 
 _MASK_POLICY_PATH = 'https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/data/mask_policy_dates.csv'
 
-_COLUMN_NAMES = {
+COLUMN_NAMES = {
     'Stringency': 'npi_masks'
 }
 
@@ -40,4 +40,4 @@ class MaskPolicies:
         """
         Returns the dataset as Pandas dataframe
         """
-        return MaskPolicies._data.rename(columns=_COLUMN_NAMES)
+        return MaskPolicies._data.rename(columns=COLUMN_NAMES)

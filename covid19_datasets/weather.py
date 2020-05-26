@@ -10,7 +10,7 @@ _log = logging.getLogger(__name__)
 
 _PATH = 'https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/data/countries_daily_weighted_averages_merged.csv'
 
-_COLUMN_NAMES = {
+COLUMN_NAMES = {
     'Precipitation_Weighted_Daily_Average_maximum': 'weather_precipitation_max',
     'Precipitation_Weighted_Daily_Average_mean': 'weather_precipitation_mean',
     'Humidity_Weighted_Daily_Average_maximum': 'weather_humidity_max',
@@ -71,4 +71,4 @@ class Weather():
         """
         Return the dataset in a standardised format.
         """
-        return self.get_raw_data().rename(columns=_COLUMN_NAMES)
+        return self.get_raw_data().rename(columns=COLUMN_NAMES)
