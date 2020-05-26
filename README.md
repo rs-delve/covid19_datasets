@@ -28,16 +28,16 @@ The combined dataset provides the following columns
 </tr></thead>
 <tbody>
 <tr>
-<td style="font-weight:bold">`ISO`</td>
-<td>The country code. Together with DATE forms a unique identifier for a row.</td>
-<td>[ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)</td>
-<td></td>
+ <td style="font-weight:bold"><b>ISO</b></td>
+ <td>The country code. Together with DATE forms a unique identifier for a row.</td>
+ <td>[ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)</td>
+ <td></td>
 </tr>
 <tr>
-<td style="font-weight:bold">`DATE`</td>
-<td>The date associated with the entry. Together with ISO, forms a unique identifier for the row.</td>
-<td>ISO 8601 Date format (YYYY-MM-DD)</td>
-<td></td>
+ <td style="font-weight:bold"><b>DATE</b></td>
+ <td>The date associated with the entry. Together with ISO, forms a unique identifier for the row.</td>
+ <td>ISO 8601 Date format (YYYY-MM-DD)</td>
+ <td></td>
 </tr>
 <tr>
 <td style="font-weight:bold">`country_name`</td>
