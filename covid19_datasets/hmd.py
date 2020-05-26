@@ -66,13 +66,14 @@ class HMDExcessMortality:
         Returns the compute excess mortality dataset as Pandas dataframe.
         """
         df = self.get_raw_data()
+        key_cols = [ISO_COLUMN_NAME, 'Sex', 'Week']
         baseline = (df.query('Year < 2020 and Year >= 2015')
-                    .groupby(['CountryCode', 'Sex', 'Week'])
+                    .groupby(key_cols)
                     .mean()
                     .drop(['Year'], axis='columns'))
         current = (df.query('Year == 2020')
                    .drop(['Year'], axis='columns')
-                   .set_index(['CountryCode', 'Sex', 'Week']))
+                   .set_index(key_cols))
 
         excess = (current - baseline).dropna(how='all').reset_index()
         excess[DATE_COLUMN_NAME] = excess['Week'].apply(lambda w: last_day_of_calenderweek(2020, w))
