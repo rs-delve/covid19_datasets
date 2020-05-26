@@ -1,6 +1,7 @@
 """Combined dataset for DELVE research"""
 
 import pandas as pd
+import pycountry
 import logging
 
 from .our_world_in_data import OWIDCovid19, OWIDMedianAges
@@ -10,6 +11,7 @@ from .world_bank import WorldBankDataBank
 from .mobility import Mobility
 from .apple import AppleMobility
 from .excess_mortality import ExcessMortality
+from .utils import country_name_from_iso
 
 from .weather import Weather
 from .constants import ISO_COLUMN_NAME, DATE_COLUMN_NAME
@@ -117,9 +119,16 @@ def _weather_data() -> pd.DataFrame:
 def _create_interventions_data() -> pd.DataFrame:
     interventions_data = (_policies_data()
                           .merge(_mask_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
-                          .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME, 'CountryName']))
+                          .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME]))
     interventions_data = interventions_data.groupby(
         level=0).ffill().fillna(0.).reset_index()
+
+    country_name_map = {
+        iso: country_name_from_iso(iso)
+        for iso in interventions_data[ISO_COLUMN_NAME].unique()
+    }
+
+    interventions_data['country_name'] = interventions_data[ISO_COLUMN_NAME].replace(country_name_map)
     return interventions_data
 
 
