@@ -40,123 +40,122 @@ The combined dataset provides the following columns
  <td></td>
 </tr>
 <tr>
-<td style="font-weight:bold">`country_name`</td>
-<td>Name of country</td>
-<td>English name according to ISO</td>
-<td></td>
+ <td style="font-weight:bold"><br>country_name</b></td>
+ <td>Name of country</td>
+ <td>English name according to ISO</td>
+ <td></td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_school_closing`</td>
-<td>Closing of schools and universities.</td>
-<td>Ordinal scale <br/>0 - No measures; 1 - Recommend; 2 - Require closing (only some levels or categories,
-eg just high school, or just public schools); 3 - Require closing all levels; Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_school_closing</b></td>
+ <td>Closing of schools and universities.</td>
+ <td>Ordinal scale <br/>0 - No measures<br/> 1 - Recommend<br/> 2 - Require closing (only some levels or categories,
+eg just high school, or just public schools)<br/> 3 - Require closing all levels<br/> Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_workplace_closing`</td>
-<td>Closing of work places</td>
-<td>Ordinal scale <br/>0 - No measures; 1 - Recommend; 2 - require closing (or work from home) for some sectors or categories of workers; 3 - require closing (or work from home) all but essential workplaces (eg grocery stores, doctors); Blank - no data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_workplace_closing</b></td>
+ <td>Closing of work places</td>
+ <td>Ordinal scale <br/>0 - No measures<br/> 1 - Recommend<br/> 2 - require closing (or work from home) for some sectors or categories of workers<br/> 3 - require closing (or work from home) all but essential workplaces (eg grocery stores, doctors)<br/> Blank - no data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_cancel_public_events`</td>
-<td>Cancellation of public events<br/></td>
-<td>Ordinal scale <br/>0 - No measures; 1 - Recommend; 2 - Required; Blank - no data </td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_cancel_public_events</b></td>
+ <td>Cancellation of public events<br/></td>
+ <td>Ordinal scale <br/>0 - No measures<br/> 1 - Recommend<br/> 2 - Required<br/> Blank - no data </td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_gatherings_restrictions`</td>
-<td>Limits on private gatherings</td>
-<td>Ordinal scale <br/>0 - No restrictions
-1 - Restrictions on very large gatherings (the limit is above 1000 people); 2 - Restrictions on gatherings between 100-1000 people; 3 - Restrictions on gatherings between 10-100 people; 4 - Restrictions on gatherings of less than 10 people; Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_gatherings_restrictions</b></td>
+ <td>Limits on private gatherings</td>
+ <td>Ordinal scale <br/>0 - No restrictions<br/>
+1 - Restrictions on very large gatherings (the limit is above 1000 people)<br/> 2 - Restrictions on gatherings between 100-1000 people<br/> 3 - Restrictions on gatherings between 10-100 people<br/> 4 - Restrictions on gatherings of less than 10 people<br/> Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>  
 <tr>
-<td style="font-weight:bold">`npi_close_public_transport`</td>
-<td>Closing of public transport<br/></td>
-<td>Ordinal scale <br/>0 - No measures; 1 - Recommend closing (or significantly reduce volume/route/means of transport available); 2 - Require closing (or prohibit most citizens from using it); Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_close_public_transport</b></td>
+ <td>Closing of public transport<br/></td>
+ <td>Ordinal scale <br/>0 - No measures<br/> 1 - Recommend closing (or significantly reduce volume/route/means of transport available)<br/> 2 - Require closing (or prohibit most citizens from using it)<br/> Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_stay_at_home`</td>
-<td>Recommendations or requirements for citizens to remain in their homes</td>
-<td>0 - No measures; 1 - recommend not leaving house; 2 - require not leaving house with exceptions for daily exercise, grocery shopping, and ‘essential’ trips; 3 - Require not leaving house with minimal exceptions (e.g. allowed to leave only once every
-few days, or only one person can leave at a time, etc.); Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_stay_at_home</b></td>
+ <td>Recommendations or requirements for citizens to remain in their homes</td>
+ <td>0 - No measures<br/> 1 - recommend not leaving house<br/> 2 - require not leaving house with exceptions for daily exercise, grocery shopping, and ‘essential’ trips<br/> 3 - Require not leaving house with minimal exceptions (e.g. allowed to leave only once every few days, or only one person can leave at a time, etc.)<br/> Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_internal_movement_restrictions`</td>
-<td>Restrictions on internal movement between cities/regions</td>
-<td>Ordinal scale <br/>0 - No measures; 1 - Recommend closing (or significantly reduce volume/route/means of transport); 2 - Require closing (or prohibit most people from using it); Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_internal_movement_restrictions</b></td>
+ <td>Restrictions on internal movement between cities/regions</td>
+ <td>Ordinal scale <br/>0 - No measures<br/> 1 - Recommend closing (or significantly reduce volume/route/means of transport)<br/> 2 - Require closing (or prohibit most people from using it)<br/> Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_international_travel_controls`</td>
-<td>Restrictions on international travel. Note: this records policy for foreign travellers, not citizens</td>
-<td>Ordinal Scale:<br/>0 - No restrictions; 1 - Screening arrivals; 2 - Quarantine on arrival from some or all regions; 3 - Ban on arrival from some regions; 4 - Total border closure; Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_international_travel_controls</b></td>
+ <td>Restrictions on international travel. Note: this records policy for foreign travellers, not citizens</td>
+ <td>Ordinal Scale:<br/>0 - No restrictions<br/> 1 - Screening arrivals<br/> 2 - Quarantine on arrival from some or all regions<br/> 3 - Ban on arrival from some regions<br/> 4 - Total border closure<br/> Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_income_support`</td>
-<td>If the government is covering the salaries or providing direct cash payments, universal basic income, or similar, of people who lose their jobs or cannot work. (Includes payments to firms if explicitly linked to payroll/ salaries)</td>
-<td>Ordinal Scale: 0 - no income support; 1 - government is replacing less than 50% of lost salary (or if a flat sum, it is less than 50% median salary); 2 - government is replacing more than 50% of lost salary (or if a flat sum, it is greater than 50% median salary); Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_income_support</b></td>
+ <td>If the government is covering the salaries or providing direct cash payments, universal basic income, or similar, of people who lose their jobs or cannot work. (Includes payments to firms if explicitly linked to payroll/ salaries)</td>
+ <td>Ordinal Scale: <br/>0 - no income support<br/> 1 - government is replacing less than 50% of lost salary (or if a flat sum, it is less than 50% median salary)<br/> 2 - government is replacing more than 50% of lost salary (or if a flat sum, it is greater than 50% median salary)<br/> Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_debt_relief`</td>
-<td>If government. is freezing financial obligations (eg stopping loan repayments, preventing services like water from stopping, or banning evictions)</td>
-<td>Ordinal Scale: 0 - No; 1 - Narrow relief, specific to one kind of contract; 2 - broad debt/contract relief</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_debt_relief</b></td>
+ <td>If government. is freezing financial obligations (eg stopping loan repayments, preventing services like water from stopping, or banning evictions)</td>
+ <td>Ordinal Scale:<br/> 0 - No<br/> 1 - Narrow relief, specific to one kind of contract<br/> 2 - broad debt/contract relief</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_fiscal_measures`</td>
-<td>Announced economic stimulus spending. Note: this column only records amount additional to previously announced spending</td>
-<td>Monetary value in USD of fiscal stimuli, includes any spending or tax cuts NOT included in `npi_international_support`, `npi_healthcase_investment` or `npi_vaccine_investment`; 0 - no new spending that day; Blank - no data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_fiscal_measures</b></td>
+ <td>Announced economic stimulus spending. Note: this column only records amount additional to previously announced spending</td>
+ <td>Monetary value in USD of fiscal stimuli, includes any spending or tax cuts NOT included in <i>npi_international_support</i>, <i>npi_healthcase_investment</i> or <i>npi_vaccine_investment</i><br/> 0 - no new spending that day; Blank - no data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_international_support`</td>
-<td>Announced offers of Covid-19 related aid spending to other countries. Note: only record amount additional to previously announced spending</td>
-<td>Monetary value in USD; 0 - no new spending that day; Blank - no data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_international_support</b></td>
+ <td>Announced offers of Covid-19 related aid spending to other countries. Note: only record amount additional to previously announced spending</td>
+ <td>Monetary value in USD<br/> 0 - no new spending that day<br/> Blank - no data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_public_information`</td>
-<td>Presence of public info campaigns</td>
-<td>Ordinal<br/>0 -No COVID-19 public information campaign; 1 - public officials urging caution about COVID-19; 2 - coordinated public information campaign; Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_public_information</b></td>
+ <td>Presence of public info campaigns</td>
+ <td>Ordinal<br/>0 -No COVID-19 public information campaign<br/> 1 - public officials urging caution about COVID-19<br/> 2 - coordinated public information campaign<br/> Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_testing_policy`</td>
-<td>Who can get tested; Note: this records policies about testing for current infection (PCR tests) not testing for immunity (antibody test)</td>
-<td>Ordinal Scale<br/>0 - No testing policy<br/>1 - only testing those who both (a) have symptoms, and (b) meet specific criteria (eg key workers, admitted to hospital, came into contact with a known case, returned from overseas)<br/>2 - testing of anyone showing COVID19 symptoms<br/>3 - open public testing (eg “drive through” testing available to asymptomatic people)<br/>Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_testing_policy</b></td>
+ <td>Who can get tested; Note: this records policies about testing for current infection (PCR tests) not testing for immunity (antibody test)</td>
+ <td>Ordinal Scale<br/>0 - No testing policy<br/>1 - only testing those who both (a) have symptoms, and (b) meet specific criteria (eg key workers, admitted to hospital, came into contact with a known case, returned from overseas)<br/>2 - testing of anyone showing COVID19 symptoms<br/>3 - open public testing (eg “drive through” testing available to asymptomatic people)<br/>Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_contact_tracing`</td>
-<td>Government policy on contact tracing after a positive diagnosis. Note: we are looking for policies that would identify all people potentially exposed to Covid-19; voluntary bluetooth apps are unlikely to achieve this</td>
-<td>Ordinal Scale<br/>0 - No contact tracing<br/>1 - Limited contact tracing – not done for all cases<br/>2 - Comprehensive contact tracing –done for all cases</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_contact_tracing</b></td>
+ <td>Government policy on contact tracing after a positive diagnosis. Note: we are looking for policies that would identify all people potentially exposed to Covid-19; voluntary bluetooth apps are unlikely to achieve this</td>
+ <td>Ordinal Scale<br/>0 - No contact tracing<br/>1 - Limited contact tracing – not done for all cases<br/>2 - Comprehensive contact tracing –done for all cases</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_healthcare_investment`</td>
-<td>Announced short term spending on healthcare system, eg hospitals, masks, etc. Note: only record amount additional to previously announced spending</td>
-<td>Monetary value of new short-term spending on health in USD; 0 - No new investment on that day; Blank - No data</td>
-<td>Oxford Government Response Tracker</td>
+ <td style="font-weight:bold"><b>npi_healthcare_investment</b></td>
+ <td>Announced short term spending on healthcare system, eg hospitals, masks, etc. Note: only record amount additional to previously announced spending</td>
+ <td>Monetary value of new short-term spending on health in USD<br/> 0 - No new investment on that day<br/> Blank - No data</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_vaccine_investment`</td>
-<td>Announced public spending on Covid-19 vaccine development. Note: only record amount additional to previously announced spending</td>
-<td>Monetary value in USD<br/>
+<td style="font-weight:bold"><b>npi_vaccine_investment</b></td>
+ <td>Announced public spending on Covid-19 vaccine development. Note: only record amount additional to previously announced spending</td>
+ <td>Monetary value in USD<br/>
 0 - no new spending that day<br/>
 Blank - no data</td>
-<td>Oxford Government Response Tracker</td>
+ <td>Oxford Government Response Tracker</td>
 </tr>
 <tr>
-<td style="font-weight:bold">`npi_masks`</td>
-<td>Mask policy in force in the country. </td>
-<td>Ordinal Scale<br/>0 - No mask policy in place<br/>1 - Limited mask policy (eg in stores only) or limited enforcement<br/>2 - Widespread mask policy and/or strict enforcement<br/>Blank - No data</td>
-<td>ACAPS + Manual</td>
+ <td style="font-weight:bold"><b>npi_masks</b></td>
+ <td>Mask policy in force in the country. </td>
+ <td>Ordinal Scale<br/>0 - No mask policy in place<br/>1 - Limited mask policy (eg in stores only) or limited enforcement<br/>2 - Widespread mask policy and/or strict enforcement<br/>Blank - No data</td>
+ <td>ACAPS + Manual</td>
 </tr>
  
 <tr>
