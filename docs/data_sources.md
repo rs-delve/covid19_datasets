@@ -11,6 +11,6 @@
 | The Economist excess mortality tracker | [Documentation and code](https://github.com/TheEconomist/covid-19-excess-deaths-tracker) | Government statistical agencies (full list provided on the Economist Github repo) | Regular, but unclear how often exactly | Latest version | [Automatic](https://github.com/rs-delve/covid19_datasets/blob/master/covid19_datasets/economist_excess_mortality.py) |
 | [EuroStat](https://ec.europa.eu/eurostat) | [Documentation](https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_mweek3_esms.htm) | Government statistical agencies | As often as the underlying providers (generally weekly per country) | Manually extracted from Eurostat weekly | Manually updated weekly [here](https://github.com/rs-delve/covid19_datasets/tree/master/data), loaded using [this code](https://github.com/rs-delve/covid19_datasets/blob/master/covid19_datasets/eurostats.py) which calculated excess deaths | 
 | [UK Met Office](https://www.metoffice.gov.uk/) | Not Available | Unknown | Daily | Manuly extracted Weekly | Manually updated weekly [here](https://github.com/rs-delve/covid19_datasets/tree/master/data) |
-
+| Masks | N/A | Derived from the [ACAPS government measures](https://www.acaps.org/covid19-government-measures-dataset) dataset and [Masks 4 All](https://masks4all.co/). Both link to their original public sources | Unknown | Manual Weekly | Manually updated weekly [here](https://github.com/rs-delve/covid19_datasets/tree/master/data) |
 
 
