@@ -336,20 +336,20 @@ Blank - no data</td>
 
 <tr>
 <td style="font-weight:bold"><b>stats_hospital_beds_per_1000</b></td>
-<td>Number of hospital beds per 1000 people</td>
-<td>Float</td>
+<td>Number of hospital beds per 1000 people. Hospital beds include inpatient beds available in public, private, general, and specialized hospitals and rehabilitation centers. In most cases beds for both acute and chronic care are included.</td>
+<td>Float, latest date available</td>
 <td>World Bank Data Bank</td>
 </tr>
 <tr>
 <td style="font-weight:bold"><b>stats_smoking</b></td>
-<td>Percent of people over 15 who smoke</td>
-<td>Float</td>
+<td>Prevalence of smoking is the percentage of men and women ages 15 and over who currently smoke any tobacco product on a daily or non-daily basis. It excludes smokeless tobacco use. The rates are age-standardized.</td>
+<td>Percent of population over 15, latest date available</td>
 <td>World Bank Data Bank</td>
 </tr>
 <tr>
 <td style="font-weight:bold"><b>stats_population_urban</b></td>
-<td>Population living in urban areas</td>
-<td>Number of people living in agglomerations consisting of over 1 million people, latest date available. Note that the source is different from <i>population</i> (which is a UN projection) and so this value may not be directly comparable to <i>population</i></td>
+<td>Population in urban agglomerations of more than one million is the country's population living in metropolitan areas that in 2018 had a population of more than one million people.</td>
+<td>Latest date available. Note that the source is different from <i>population</i> (which is a UN projection) and so this value may not be directly comparable to <i>population</i></td>
 <td>World Bank Data Bank</td>
 </tr>
 <tr>
