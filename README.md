@@ -30,20 +30,20 @@ The combined dataset provides the following columns
 <tr>
  <td style="font-weight:bold"><b>ISO</b></td>
  <td>The country code. Together with DATE forms a unique identifier for a row.</td>
- <td>[ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)</td>
- <td></td>
+ <td>ISO 3166-1 alpha-3</td>
+ <td>International Organization for Standardization</td>
 </tr>
 <tr>
  <td style="font-weight:bold"><b>DATE</b></td>
  <td>The date associated with the entry. Together with ISO, forms a unique identifier for the row.</td>
  <td>ISO 8601 Date format (YYYY-MM-DD)</td>
- <td></td>
+ <td>International Organization for Standardization</td>
 </tr>
 <tr>
  <td style="font-weight:bold"><b>country_name</b></td>
  <td>Name of country</td>
  <td>English name according to ISO</td>
- <td></td>
+ <td>International Organization for Standardization</td>
 </tr>
 <tr>
  <td style="font-weight:bold"><b>npi_school_closing</b></td>
@@ -415,3 +415,4 @@ Blank - no data</td>
 * [Apple Maps Mobility Trends Reports](https://www.apple.com/covid19/mobility)
 * [UK Met Office](https://www.metoffice.gov.uk/)
 * [Simplemaps](https://simplemaps.com/world)
+* [International Organization for Standardization](https://www.iso.org/home.html)
