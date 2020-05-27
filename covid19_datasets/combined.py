@@ -67,6 +67,13 @@ _CASES_COLUMNS = [
 ]
 
 
+_REFERENCE_COLUMNS = [
+    'stats_hospital_beds_per_1000', 
+    'stats_smoking',
+    'stats_population_urban', 
+    'stats_population_school_age'
+]
+
 _WEATHER_COLUMNS = [
     'weather_precipitation_mean',
     'weather_humidity_mean', 
@@ -93,7 +100,7 @@ def _cases_data() -> pd.DataFrame:
 
 def _reference_data() -> pd.DataFrame:
     wb = WorldBankDataBank()
-    return wb.get_data()
+    return wb.get_data()[[ISO_COLUMN_NAME] + _REFERENCE_COLUMNS]
 
 
 def _mobility_data() -> pd.DataFrame:

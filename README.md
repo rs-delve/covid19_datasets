@@ -40,7 +40,7 @@ The combined dataset provides the following columns
  <td></td>
 </tr>
 <tr>
- <td style="font-weight:bold"><br>country_name</b></td>
+ <td style="font-weight:bold"><b>country_name</b></td>
  <td>Name of country</td>
  <td>English name according to ISO</td>
  <td></td>
@@ -159,270 +159,248 @@ Blank - no data</td>
 </tr>
  
 <tr>
-<td style="font-weight:bold">total_cases</td>
-<td>Total (cumulative) confirmed cases in the country, as published by ECDC</td>
+<td style="font-weight:bold"><b>cases_total</b></td>
+<td>Total (cumulative) confirmed cases in the country, as published by ECDC.</td>
 <td>Integer number of cases</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">new_cases</td>
+<td style="font-weight:bold"><b>cases_new</b></td>
 <td>Number of new cases since previous day as published by ECDC</td>
 <td>Integer number of cases</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">total_deaths</td>
+<td style="font-weight:bold"><b>deaths_total</b></td>
 <td>Total (cumulative) confirmed deaths in the country, as published by ECDC</td>
 <td>Integer number of deaths</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">new_deaths</td>
+<td style="font-weight:bold"><b>deaths_new</b></td>
 <td>Number of new deaths since previous day as published by ECDC</td>
 <td>Integer number of deaths</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">total_cases_per_million</td>
+<td style="font-weight:bold"><b>cases_total_per_million</b></td>
 <td>Total cases per mililon people</td>
 <td>Float number of cases</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">new_cases_per_million</td>
+<td style="font-weight:bold"><b>cases_new_per_million</b></td>
 <td>New cases per million people</td>
 <td>Float number of cases</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">total_deaths_per_million</td>
+<td style="font-weight:bold"><b>deaths_total_per_million</b></td>
 <td>Total deaths per million people</td>
 <td>Float number of deaths</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">new_deaths_per_million</td>
-<td>New detahs per million people</td>
+<td style="font-weight:bold"><b>deaths_new_per_million</b></td>
+<td>New deaths per million people</td>
 <td>Float number of deaths</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">total_tests</td>
+<td style="font-weight:bold"><b>tests_total</b></td>
 <td>Total (cumulative) number of COVID-19 tests performed in the country </td>
 <td>Integer number of tests</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">new_tests</td>
+<td style="font-weight:bold"><b>tests_new</b></td>
 <td>Number of new COVID-19 tests performed in the country </td>
 <td>Integer number of tests</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">total_tests_per_thousand</td>
+<td style="font-weight:bold"><b>tests_total_per_thousand</b></td>
 <td>Total (cumulative) number of COVID-19 tests performed per 1000 people</td>
 <td>Float number of tests</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">new_tests_per_thousand</td>
+<td style="font-weight:bold"><b>tests_new_per_thousand</b></td>
 <td>Number of new COVID-19 tests performned per 1000 people</td>
 <td>Float number of tests</td>
 <td>Our World in Data</td>
 </tr>
 <tr>
-<td style="font-weight:bold">days_since_first_case</td>
+<td style="font-weight:bold"><b>tests_new_smoothed</b></td>
+<td>New tests for COVID-19 (7-day smoothed). For countries that don't report testing data on a daily basis, we assume that testing changed equally on a daily basis over any periods in which no data was reported. This produces a complete series of daily figures, which is then averaged over a rolling 7-day window</td>
+<td>Float number of tests</td>
+<td>Our World in Data</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>tests_new_smoothed_per_thousand</b></td>
+<td><i>tests_new_smoothed</i> per 1000 people</td>
+<td>Float number of tests</td>
+<td>Our World in Data</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>stats_population</b></td>
+<td>Population in 2020 as per United Nations, Department of Economic and Social Affairs, Population Division, World Population Prospects: The 2019 Revision</td>
+<td>Float number of tests</td>
+<td>Our World in Data</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>stats_population_density</b></td>
+<td>Population Density as estimated by World Bank</td>
+<td>Number of people divided by land area, measured in square kilometers, most recent year available</td>
+<td>Our World in Data</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>stats_median_age</b></td>
+<td>Median age of the population, UN projection for 2020</td>
+<td>Float, median age in country</td>
+<td>Our World in Data</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>stats_gdp_per_capita</b></td>
+<td>Gross domestic product at purchasing power parity as estimated by World Bank International Comparison Program database</td>
+<td>GDP using constant 2011 international dollars, most recent year available</td>
+<td>Our World in Data</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>cases_days_since_first</b></td>
 <td>Days since the first recorded case in the country</td>
 <td>0 until the first case is recoded, then DATE - first_case_date in days</td>
 <td>Derived</td>
 </tr>
 <tr>
-<td style="font-weight:bold">days_since_first_death</td>
+<td style="font-weight:bold"><b>deaths_days_since_first</b></td>
 <td>Days since the first recorded death in the country</td>
 <td>0 until the first death is recoded, then DATE - first_death_date in days</td>
 <td>Derived</td>
 </tr>
-
 <tr>
-<td style="font-weight:bold">Retail and Recreation</td>
+<td style="font-weight:bold"><b>mobility_retail_recreation</b></td>
 <td>Mobility trends for places like restaurants, cafes, shopping centers, theme parks, museums, libraries, and movie theaters.</td>
 <td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
 <td>Google Mobility Report</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Grocery and Pharmacy</td>
+<td style="font-weight:bold"><b>mobility_grocery_pharmacy</b></td>
 <td>Mobility trends for places like grocery markets, food warehouses, farmers markets, specialty food shops, drug stores, and pharmacies.</td>
 <td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
 <td>Google Mobility Report</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Parks</td>
+<td style="font-weight:bold"><b>mobility_parks</b></td>
 <td>Mobility trends for places like national parks, public beaches, marinas, dog parks, plazas, and public gardens</td>
 <td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
 <td>Google Mobility Report</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Transit Stations</td>
+<td style="font-weight:bold"><b>mobility_transit_stations</b></td>
 <td>Mobility trends for places like public transport hubs such as subway, bus, and train stations.</td>
 <td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
 <td>Google Mobility Report</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Workplaces</td>
+<td style="font-weight:bold"><b>mobility_workplaces</b></td>
 <td>Mobility trends for places of work.</td>
 <td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
 <td>Google Mobility Report</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Residential</td>
+<td style="font-weight:bold"><b>mobility_residential</b></td>
 <td>Mobility trends for places of residence</td>
 <td>% Relative to baseline (median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.)</td>
 <td>Google Mobility Report</td>
 </tr>
 
 <tr>
-<td style="font-weight:bold">driving_mobility</td>
+<td style="font-weight:bold"><b>mobility_travel_driving</b></td>
 <td>Transport mobility trends for driving</td>
 <td>% Change in routing requests since 13 January 2020</td>
 <td>Apple Maps Mobility Trends Report</td>
 </tr>
 <tr>
-<td style="font-weight:bold">transit_mobility</td>
+<td style="font-weight:bold"><b>mobility_travel_transit</b></td>
 <td>Mobility trends for places of residence</td>
 <td>% Change in routing requests since 13 January 2020</td>
 <td>Apple Maps Mobility Trends Report</td>
 </tr>
 <tr>
-<td style="font-weight:bold">walking_mobility</td>
+<td style="font-weight:bold"><b>mobility_travel_walking</b></td>
 <td>Mobility trends for places of residence</td>
 <td>% Change in routing requests since 13 January 2020</td>
 <td>Apple Maps Mobility Trends Report</td>
 </tr>
 
 <tr>
-<td style="font-weight:bold">excess_death_daily_avg</td>
-<td>Daily average number of excess deaths</td>
-<td>Float<br/> Original dataset provides weekly figure, we divide it by 7 to obtain daily average.<br/>Final caulculation is <i>((number of deaths in 2020) - (average number of deaths in past few years))/7</i> </td>
-<td>The Economist excess mortality tracker / EuroStats</td>
-</tr>
-<tr>
-<td style="font-weight:bold">weekly_excess_death</td>
-<td>Number of excess deaths for the past week. Generally this is calculated as the number of deaths in a week in 2020 
- minus the average number of deaths that occured in the same week in the previous 5 years. There are, however, cases where the underlying data provider uses a slightly different calculation (for example fewer than 5 years for the baseline)</td>
-<td>Taken as is from the source</td>
-<td>The Economist excess mortality tracker / EuroStats</td>
-</tr>
-
-<tr>
-<td style="font-weight:bold">Precipitation_Weighted_Daily_Average_mean</td>
-<td>Average daily precipitation across the country, sampled in major cities and weighted by population</td>
-<td>Precipitation flux in kg/m^2s (multiply by 3600 to get mm / hr)</td>
-<td>UK Met Office + SimpleMaps</td>
-</tr>
-<tr>
-<td style="font-weight:bold">Temperature_Weighted_Daily_Average_mean</td>
-<td>Average daily temperature across the country, sampled in major cities and weighted by population</td>
-<td>&deg; C (Degrees celcius)</td>
-<td>UK Met Office + SimpleMaps</td>
-</tr>
-<tr>
-<td style="font-weight:bold">Humidity_Weighted_Daily_Average_mean</td>
-<td>Average daily humidify across the country, sampled in major cities and weighted by population</td>
-<td>kg/kg (Kilograms of water vapour per kilogram of air)</td>
-<td>UK Met Office + SimpleMaps</td>
-</tr>
-<tr>
-<td style="font-weight:bold">SW_Weighted_Daily_Average_mean</td>
-<td>Average daily short-wave radiation across the country, sampled in major cities and weighted by population</td>
-<td>W/m^2 (Watts per square metre)</td>
-<td>UK Met Office + SimpleMaps</td>
-</tr>
-<tr>
-<td style="font-weight:bold">Wind_Speed_Weighted_Daily_Average_mean</td>
-<td>Average daily wind speed across the country, sampled in major cities and weighted by population</td>
-<td>m/s (Metres per second)</td>
-<td>UK Met Office + SimpleMaps</td>
-</tr>
-
-<tr>
-<td style="font-weight:bold">median_age</td>
-<td>Median age of population</td>
-<td>Float age</td>
-<td>Our World in Data</td>
-</tr>
-<tr>
-<td style="font-weight:bold">hospital_beds (per 1000)</td>
+<td style="font-weight:bold"><b>stats_hospital_beds_per_1000</b></td>
 <td>Number of hospital beds per 1000 people</td>
 <td>Float</td>
 <td>World Bank Data Bank</td>
 </tr>
 <tr>
-<td style="font-weight:bold">physicians (per 1000)</td>
-<td>Number of physicians per 1000 people</td>
-<td>Float</td>
-<td>World Bank Data Bank</td>
-</tr>
-<tr>
-<td style="font-weight:bold">nurses (per 1000)</td>
-<td>Number of nurses per 1000 people</td>
-<td>Float</td>
-<td>World Bank Data Bank</td>
-</tr>
-<tr>
-<td style="font-weight:bold">Smoking prevalence, total, ages 15+</td>
+<td style="font-weight:bold"><b>stats_smoking</b></td>
 <td>Percent of people over 15 who smoke</td>
-<td>Percentage</td>
+<td>Float</td>
 <td>World Bank Data Bank</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Mortality rate, adult, female (per 1,000 female adults)</td>
-<td>Average mortality rate per 1000 female adults</td>
-<td>Number of people per 1000 females</td>
-<td>World Bank Data Bank</td>
-</tr>
-<tr>
-<td style="font-weight:bold">Mortality rate, adult, male (per 1,000 male adults)</td>
-<td>Average mortality rate per 1000 male adults</td>
-<td>Number of people per 1000 males</td>
-<td>World Bank Data Bank</td>
-</tr>
-<tr>
-<td style="font-weight:bold">Population Density</td>
-<td>Average Density of population over entire country</td>
-<td>Number of people per square kilometre of land area</td>
-<td>World Bank Data Bank</td>
-</tr>
-<tr>
-<td style="font-weight:bold">Population in Urban Agglomerations</td>
+<td style="font-weight:bold"><b>stats_population_urban</b></td>
 <td>Population living in urban areas</td>
-<td>Number of people living in agglomerations consisting of over 1 million people</td>
+<td>Number of people living in agglomerations consisting of over 1 million people, latest date available. Note that the source is different from <i>population</i> (which is a UN projection) and so this value may not be directly comparable to <i>population</i></td>
 <td>World Bank Data Bank</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Population Female</td>
-<td>Female population</td>
+<td style="font-weight:bold"><b>stats_population_school_age</b></td>
+<td>Population that is of the age where school attendance is compulsory, latest date available. Note that the source is different from <i>population</i> (which is a UN projection) and so this value may not be directly comparable to <i>population</i></td>
 <td>Number of people</td>
 <td>World Bank Data Bank</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Population Male</td>
-<td>Male population</td>
-<td>Number of people</td>
-<td>World Bank Data Bank</td>
+<td style="font-weight:bold"><b>deaths_excess_daily_avg</b></td>
+<td>Daily average number of excess deaths</td>
+<td>Float<br/>Weekly excess deaths divided by 7 to obtain daily average.<br/>Final caulculation is <i>((number of deaths in 2020) - (average number of deaths in past 5 years))/7</i> </td>
+<td>Derived from Human Mortality Database / The Economist excess mortality tracker / EuroStats</td>
 </tr>
 <tr>
-<td style="font-weight:bold">Population</td>
-<td>Total population</td>
-<td>Number of people</td>
-<td>World Bank Data Bank</td>
-</tr>
-<tr>
-<td style="font-weight:bold">Population of Compulsory School Age</td>
-<td>Population that is of the age where school attendance is compulsory</td>
-<td>Number of people</td>
-<td>World Bank Data Bank</td>
+<td style="font-weight:bold"><b>deaths_excess_weekly</b></td>
+<td>Number of excess deaths for the past week.</td>
+<td> Number of deaths in a week in 2020 minus the average number of deaths that occured in the same week in the previous 5 years. We perform this calculation ourselves for consistency where weekly mortality data are available. There are, however, cases where the underlying mortality data is not available and the excess deaths is calculated by the provider using a different method (for example fewer than 5 years for the baseline)</td>
+<td>Derived from Human Mortality Database / The Economist excess mortality tracker / EuroStats</td>
 </tr>
 
+<tr>
+<td style="font-weight:bold"><b>weather_precipitation_mean</b></td>
+<td>Average daily precipitation across the country, sampled in major cities and weighted by population</td>
+<td>Precipitation flux in kg/m^2s (multiply by 3600 to get mm / hr)</td>
+<td>UK Met Office + SimpleMaps</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>weather_humidity_mean</b></td>
+<td>Average daily humidify across the country, sampled in major cities and weighted by population</td>
+<td>kg/kg (Kilograms of water vapour per kilogram of air)</td>
+<td>UK Met Office + SimpleMaps</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>weather_sw_radiation_mean</b></td>
+<td>Average daily short-wave radiation across the country, sampled in major cities and weighted by population</td>
+<td>W/m^2 (Watts per square metre)</td>
+<td>UK Met Office + SimpleMaps</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>weather_temperature_mean</b></td>
+<td>Average daily temperature across the country, sampled in major cities and weighted by population</td>
+<td>&deg; C (Degrees celcius)</td>
+<td>UK Met Office + SimpleMaps</td>
+</tr>
+<tr>
+<td style="font-weight:bold">weather_wind_speed_mean</td>
+<td>Average daily wind speed across the country, sampled in major cities and weighted by population</td>
+<td>m/s (Metres per second)</td>
+<td>UK Met Office + SimpleMaps</td>
+</tr>
 </tbody></table>
 
 ## Data sources
@@ -431,6 +409,7 @@ Blank - no data</td>
 * [Our World in Data](https://ourworldindata.org/coronavirus)
 * [Google Mobility Report](https://www.google.com/covid19/mobility/data_documentation.html)
 * [World Bank Data Bank](https://data.worldbank.org/)
+* [Human Mortality Database](https://www.mortality.org/)
 * [The Economist excess mortality tracker](https://github.com/TheEconomist/covid-19-excess-deaths-tracker)
 * [EUROSTAT](https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_r_mweek3&lang=en)
 * [Apple Maps Mobility Trends Reports](https://www.apple.com/covid19/mobility)
