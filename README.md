@@ -396,7 +396,7 @@ Blank - no data</td>
 <td>UK Met Office + SimpleMaps</td>
 </tr>
 <tr>
-<td style="font-weight:bold">weather_wind_speed_mean</td>
+<td style="font-weight:bold"><b>weather_wind_speed_mean</b></td>
 <td>Average daily wind speed across the country, sampled in major cities and weighted by population</td>
 <td>m/s (Metres per second)</td>
 <td>UK Met Office + SimpleMaps</td>
