@@ -17,7 +17,7 @@ We provide two Jupyter notebooks with examples:
 - [Usage of the underlying datasets](./usage_example.ipynb).
 
 ## Codebook
-View the [Codebook](https://github.com/rs-delve/covid19_datasets/blob/master/dataset/codebook.md) for details of the fields available in the dataset
+View the [Codebook](https://github.com/rs-delve/covid19_datasets/blob/master/docs/codebook.md) for details of the fields available in the dataset
 
 ## Data sources
 * [Oxford Government Response Tracker](https://www.bsg.ox.ac.uk/research/research-projects/coronavirus-government-response-tracker)
