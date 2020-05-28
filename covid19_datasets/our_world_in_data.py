@@ -32,6 +32,46 @@ COLUMN_NAMES = {
     'gdp_per_capita': 'stats_gdp_per_capita'
 }
 
+
+_FILL_COLUMNS = [  # These are static reference data, so we can forward and backward fill
+    ISO_COLUMN_NAME,
+    'population,
+    'population_density',
+    'median_age',
+    'gdp_per_capita'
+]
+
+_FFILL_GAPS_COLUMNS = [  # Forward fill gaps created by "holes" in dates
+    'total_cases', 
+    'total_deaths', 
+    'total_cases_per_million', 
+    'total_deaths_per_million', 
+    'total_tests', 
+    'total_tests_per_thousand', 
+    'location'
+]
+
+_ZERO_FILL_GAPS_COLUMNS = [  # Zero fill gaps created by "holes" in dates
+    'new_cases',
+    'new_deaths',
+    'new_cases_per_million',
+    'new_deaths_per_million',
+    'new_tests',
+    'new_tests_per_thousand'
+]
+
+
+def _fill_gaps(series, ffill=True):
+  series = series.copy()
+  non_nans = series[~series.apply(np.isnan)]
+  start, end = non_nans.index[0], non_nans.index[-1]
+  if ffill:
+    series.ix[start:end] = series.ix[start:end].fillna(method='ffill')
+  else:
+    series.ix[start:end] = series.ix[start:end].fillna(0.)
+  return series
+
+
 def _compute_anchor(col: str) -> Callable[[pd.DataFrame], pd.Timestamp]:
     def _apply(rows: pd.DataFrame) -> pd.Timestamp:
         anchor = rows.query(f'{col} > 0')
@@ -61,9 +101,13 @@ def _fill_dates(rows):
     rows = rows.set_index(DATE_COLUMN_NAME)
     rows = rows.reindex(pd.date_range(rows.index.min(), rows.index.max(), freq='D'))
     # Forward fill certain columns
-    fill_cols = [ISO_COLUMN_NAME, 'total_cases', 'total_deaths', 'total_cases_per_million', 'total_deaths_per_million', 'total_tests', 'total_tests_per_thousand', 'location']
-    rows.loc[:, fill_cols] = rows.loc[:, fill_cols].ffill()
-    rows = rows.fillna(0)
+    
+    rows.loc[:, _FILL_COLUMNS] = rows.loc[:, _FILL_COLUMNS].ffill().bfill()
+    for col in _FFILL_GAPS_COLUMNS:
+        rows.loc[:, col] = _fill_gaps(rows.loc[:, col], ffill=True)
+    for col in _ZERO_FILL_GAPS_COLUMNS:
+        rows.loc[:, col] = _fill_gaps(rows.loc[:, col], ffill=False)
+    
     return rows.drop(ISO_COLUMN_NAME, axis='columns')
 
 
