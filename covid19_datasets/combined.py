@@ -4,7 +4,7 @@ import pandas as pd
 import pycountry
 import logging
 
-from .our_world_in_data import OWIDCovid19, OWIDMedianAges
+from .our_world_in_data import OWIDCovid19
 from .oxford_government_policy import OxfordGovernmentPolicyDataset
 from .mask_policies import MaskPolicies
 from .world_bank import WorldBankDataBank
