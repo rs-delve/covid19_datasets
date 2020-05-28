@@ -1,70 +1,160 @@
-Country,ISO,Stringency,DATE,Source
-Hong Kong,HKG,1,9/1/2020,
-Vietnam,VNM,2,30/1/2020,
-China,CHN,1,5/2/2020,
-Thailand,THA,2,14/2/2020,ACAPS ID 2799
-South Korea,KOR,2,24/2/2020,
-Thailand,THA,2,2/3/2020,ACAPS ID 2841
-Slovakia,SVK,2,12/3/2020,ACAPS ID 2364
-Equatorial Guinea,ECU,2,15/3/2020,ACAPS ID 1282
-Mongolia,MNG,2,16/3/2020,
-Namibia,NAM,1,17/3/2020,ACAPS ID 1896
-Namibia,NAM,1,17/3/2020,ACAPS ID 1900
-Czech Republic,CZE,2,18/3/2020,ACAPS ID 949
-Uzbekistan,UZB,2,23/3/2020,
-Bosnia,BIH,1,24/3/2020,
-Cuba,CUB,2,26/3/2020,ACAPS ID 2714
-Antigua and Barbuda,ATG,1,28/3/2020,ACAPS ID 4661
-Honduras,HND,1,29/3/2020,ACAPS ID 4159
-Slovenia,SVN,2,29/3/2020,
-United Arab Emirates,ARE,2,29/3/2020,ACAPS ID 5309
-Bulgaria,BGR,1,30/3/2020,
-Argentina,ARG,2,31/3/2020,ACAPS ID 4623
-Austria,AUT,1,31/3/2020,ACAPS ID 4777
-Austria,AUT,1,31/3/2020,ACAPS ID 5297
-Guinea,GIN,1,31/3/2020,ACAPS ID 4212
-Peru,PER,2,31/3/2020,ACAPS ID 4522
-Israel,ISR,1,1/4/2020,
-Philippines,PHL,1,02/04/2020,
-Dominican Republic,DOM,2,3/4/2020,ACAPS ID 5065
-Turkey,TUR,2,3/4/2020,
-Colombia,COL,2,4/4/2020,ACAPS ID 5038
-Benin,BEN,1,5/4/2020,ACAPS ID 4627
-Indonesia,IDO,2,5/4/2020,
-Italy,ITA,1,5/4/2020,
-Kenya,KEN,1,5/4/2020,ACAPS ID 4025
-Madagascar,MDG,2,5/4/2020,ACAPS ID 4290
-Haiti,HTI,2,6/4/2020,ACAPS ID 4283
-Kenya,KEN,2,6/4/2020,ACAPS ID 4138
-Honduras,HND,2,7/4/2020,ACAPS ID 5120
-Morocco,MAR,2,7/4/2020,
-Panama,PAN,1,07/04/2020,
-Paraguay,PRY,2,07/04/2020,ACAPS ID 5567
-Ukraine,UKR,2,7/4/2020,
-Benin,BEN,2,8/4/2020,ACAPS ID 4626
-Chile,CHL,2,8/4/2020,ACAPS ID 5030
-Chile,CHL,2,8/4/2020,ACAPS ID 5031
-Lithuania,LTU,2,8/4/2020,ACAPS ID 4408
-Mozambique,MOZ,2,8/4/2020,ACAPS ID 5107
-Mozambique,MOZ,2,8/4/2020,ACAPS ID 5108
-Côte d'Ivoire,CIV,2,9/4/2020,ACAPS ID 4768
-Niger,NER,2,10/04/2020,ACAPS ID 5564
-Cuba,CUB,2,11/4/2020,ACAPS ID 5052
-Ethiopia,ETH,2,11/4/2020,ACAPS ID 5021
-Sri Lanka,LKA,2,11/4/2020,ACAPS ID 5177
-El Salvador,SLV,2,12/4/2020,ACAPS ID 4964
-Guatemala,GTM,2,13/4/2020,ACAPS ID 4971
-Singapore,SGP,2,14/4/2020,
-Poland,POL,2,16/04/2020,ACAPS ID 4928
-Burkina Faso,BFA,2,27/04/2020,ACAPS ID 6803
-Chile,CHL,1,17/04/2020,ACAPS ID 6052
-Congo DR,COD,2,22/04/2020,ACAPS ID 7002
-Eswatini,SWZ,1,16/04/2020,ACAPS ID 5664
-Gambia,GMB,1,17/04/2020,ACAPS ID 6603
-Guinea,GIN,2,18/04/2020,ACAPS ID 6122
-Libya,LBY,1,17/04/2020,ACAPS ID 6165
-Luxembourg,LUX,1,20/04/2020,ACAPS ID 6194
-Rwanda,RWA,2,19/04/2020,ACAPS ID 7123
-Sierra Leone,SLE,1,20/04/2020,ACAPS ID 6429
-Sierra Leone,SLE,2,22/04/2020,ACAPS ID 7056
-South Africa,ZAF,1,16/04/2020,ACAPS ID 6615
+Country,ISO,Stringency,DATE,Source,Notes
+Algeria,DZA,3,18/05/2020,masks4all,masks4all link: https://www.africanews.com/2020/05/19/covid-19-algeria-imposes-wearing-of-masks/
+Andorra,AND,3,18/4/2020,masks4all,masks4all link: https://www.brujulabike.com/andorra-permite-ejercicio-mascarilla-obligatoria-prohibido-ciclismo/
+Angola,AGO,2,09/05/2020,ACAPS ID 7958 + masks4all,masks4all link: https://allafrica.com/stories/202005110170.html
+Antigua and Barbuda,ATG,2,28/03/2020,ACAPS ID 4661,
+Argentina,ARG,3,31/03/2020,ACAPS ID 4623,
+Armenia,ARM,2,18/05/2020,masks4all,masks4all link: https://armenpress.am/eng/news/1015331/
+Austria,AUT,2,31/03/2020,ACAPS ID 4777,
+Austria,AUT,2,31/03/2020,ACAPS ID 5297,
+Azerbaijan,AZE,2,01/05/2020,ACAPS ID 10854 + masks4all,masks4all link: https://apa.az/en/accidents-incidents-news/Ehsan-Zahidov:-%22Fine-not-applied-to-those-who-do-not-wear-medical-masks%22-320560
+Bahamas,BHS,3,19/4/2020,masks4all,masks4all link: http://eleutheranews.com/?p=22315
+Bahrain,BHR,3,19/4/2020,ACAPS ID 5437,
+Barbados,BRB,2,12/5/2020,masks4all,masks4all link: https://www.nationnews.com/nationnews/news/245494/mask-required-travel-psvs
+Belgium,BEL,1,24/4/2020,ACAPS ID 7602,
+Belgium,BEL,2,4/5/2020,crisiscentrum.be,https://crisiscentrum.be/nl/news/crisisbeheer/coronavirus-belgie-heeft-zn-exitstrategie-vastgelegd
+Belize,BLZ,2,26/4/2020,ACAPS ID 7718,
+Benin,BEN,2,05/04/2020,ACAPS ID 4627,
+Benin,BEN,3,08/04/2020,ACAPS ID 4626,
+Bosnia and Herzegovina,BIH,3,23/03/2020,masks4all (predates all ACAPS records),masks4all link: http://ba.n1info.com/English/NEWS/a420560/Bosnia-s-Federation-entity-loosens-curfew-introduced-mandatory-masks.html
+Botswana,BWA,3,01/05/2020,ACAPS ID 8904,
+Bulgaria,BGR,3,12/04/2020,"ACAPS ID 7727, 7735",
+Burkina Faso,BFA,3,27/04/2020,ACAPS ID 6803,
+Cabo Verde,CPV,2,05/05/2020,masks4all,masks4all link: https://iclg.com/briefing/12092-coronavirus-cabo-verde-miscellaneous
+Cameroon,CMR,3,13/04/2020,ACAPS ID 5685 + masks4all,masks4all link: https://www.bbc.com/pidgin/tori-52281665
+Chad,TCD,3,13/04/2020,ACAPS ID 5845,
+Chile,CHL,3,08/04/2020,ACAPS ID 5030,
+Chile,CHL,3,08/04/2020,ACAPS ID 5031,
+China,CHN,3,23/01/2020,universal usage (masks4all),universal usage. date taken from https://www.bbc.co.uk/news/world-asia-china-51217455
+"China, Hong Kong Special Administrative Region",HKG,3,09/01/2020,universal usage (masks4all),date taken from https://www.chp.gov.hk/en/healthtopics/content/460/19731.html
+Colombia,COL,3,04/04/2020,ACAPS ID 5038,
+Congo (Congo-Brazzaville),COG,3,30/04/2020,mask4all,masks4all link: https://cg.usembassy.gov/covid-19-health-alert-2/
+Congo DR,COD,3,22/04/2020,ACAPS ID 7002,
+Costa Rica,CRI,1,12/05/2020,ACAPS ID 10484,
+Côte d'Ivoire,CIV,3,09/04/2020,ACAPS ID 4768,
+Croatia,HRV,1,23/04/2020,ACAPS ID 7668,
+Cuba,CUB,3,26/03/2020,ACAPS ID 2714,
+Cuba,CUB,3,11/04/2020,ACAPS ID 5052,
+Czech Republic,CZE,3,18/03/2020,ACAPS ID 949,
+Djibouti,DJI,3,10/05/2020,ACAPS ID 9958 + masks4all,masks4all link: https://reliefweb.int/report/djibouti/republic-djibouti-covid-19-situation-report-7-10-may-2020
+Dominica,DMA,2,27/04/2020,ACAPS ID 8088,
+Dominican Republic,DOM,3,03/04/2020,ACAPS ID 5065,
+Ecuador,ECU,3,17/03/2020,ACAPS ID 5059,
+Egypt,EGY,3,26/04/2020,masks4all,masks4all link: https://www.egypttoday.com/Article/1/85122/COVID-19-in-Egypt-Wearing-face-masks-to-be-obligatory
+El Salvador,SLV,3,12/04/2020,ACAPS ID 4964,
+Equatorial Guinea,ECU,3,15/03/2020,ACAPS ID 1282,
+Estonia,EST,1,05/05/2020,ACAPS ID 10411,
+Eswatini,SWZ,2,16/04/2020,ACAPS ID 5664,
+Ethiopia,ETH,3,11/04/2020,ACAPS ID 5021,
+France,FRA,1,11/05/2020,ACAPS ID 7185,
+France,FRA,2,11/05/2020,ACAPS ID 8448,
+Gabon,GAB,3,15/04/2020,ACAPS ID 6121,
+Gambia,GMB,1,17/04/2020,ACAPS ID 6603,
+Georgia,GEO,2,20/04/2020,masks4all,masks4all link: https://ge.usembassy.gov/alert-prohibition-on-car-traffic-starting-12-noon-friday-april-17/
+Germany,DEU,2,22/04/2020,ACAPS ID 7198,
+Ghana,GHA,1,19/04/2020,ACAPS ID 6419,
+Ghana,GHA,2,05/05/2020,ACAPS ID 9645,
+Greece,GRC,2,04/05/2020,ACAPS ID 9477,
+Grenada,GRD,2,27/04/2020,masks4all,masks4all link: https://today.caricom.org/2020/04/29/covid-19-update-grenada-curfew-continues-until-may-5th/
+Guatemala,GTM,3,13/04/2020,ACAPS ID 4971,
+Guinea,GIN,2,31/03/2020,ACAPS ID 4212,
+Guinea,GIN,3,18/04/2020,ACAPS ID 6122,
+Guinea-Bissau,GNB,1,11/05/2020,ACAPS ID 10070,
+Guinea-Bissau,GNB,3,17/05/2020,ACAPS ID 11064,
+Haiti,HTI,3,06/04/2020,ACAPS ID 4283,
+Honduras,HND,2,29/03/2020,ACAPS ID 4159,
+Honduras,HND,3,07/04/2020,ACAPS ID 5120,
+India,IND,3,19/03/2020,universal usage (masks4all),date taken from 70% estimate in survey at masks4all link: https://www.ipsos.com/en-in/3-4-indians-wearing-masks-protect-themselves-covid-19-ipsos-15-nation-survey.
+Indonesia,IDN,3,05/04/2020,masks4all,masks4all link: https://www.straitstimes.com/asia/se-asia/coronavirus-indonesia-orders-citizens-to-wear-masks-as-infections-rise
+Iraq,IRQ,3,28/04/2020,ACAPS ID 8248,
+Ireland,IRL,1,18/05/2020,ACAPS ID 10915,
+Israel,ISR,3,07/04/2020,ACAPS ID 7435,note: https://www.gov.il/en/departments/news/07042020_2 gives earlier date than ACAPS
+Italy,ITA,2,04/05/2020,ACAPS ID 8493,
+Italy,ITA,2,26/04/2020,ACAPS ID 10559,
+Jamaica,JAM,2,14/04/2020,ACAPS ID 8261,
+Jamaica,JAM,3,22/04/2020,masks4all,masks4all link: https://www.voanews.com/covid-19-pandemic/jamaica-tightens-curfews-and-makes-wearing-mask-mandatory
+Japan,JPN,3,31/01/2020,universal usage (masks4all),date taken from masks4all link: https://www.japantimes.co.jp/news/2020/01/31/national/coronavirus-japan-surgical-masks/#.Xs67Z5oo9N0
+Kenya,KEN,2,05/04/2020,ACAPS ID 4025,
+Kenya,KEN,3,06/04/2020,ACAPS ID 4138,
+Kuwait,KWT,3,12/05/2020,masks4all,masks4all link: http://www.arabtimesonline.com/news/social-distancing-and-use-of-face-masks-mandatory/
+Kyrgyzstan,KGZ,2,11/05/2020,masks4all,masks4all link: https://www.worldaware.com/covid-19-alert-kyrgyzstan-lifts-state-emergency-major-urban-areas-maintains-several-restrictions
+Latvia,LVA,2,12/05/2020,ACAPS ID 10585,
+Lebanon,LBN,3,27/04/2020,masks4all (date estimated),masks4all link: https://www.arabnews.com/node/1664976/middle-east
+Lesotho,LSO,3,06/05/2020,ACAPS ID 10282,
+Liberia,LBR,3,24/04/2020,ACAPS ID 8172,
+Libya,LBY,2,17/04/2020,ACAPS ID 6165,
+Liechtenstein,LIE,1,05/05/2020,ACAPS ID 9329,
+Lithuania,LTU,3,08/04/2020,ACAPS ID 4408,
+Luxembourg,LUX,2,20/04/2020,ACAPS ID 6194,
+Madagascar,MDG,3,05/04/2020,ACAPS ID 4290,
+Malawi,MWI,2,13/05/2020,ACAPS ID 11307,
+Mali,MLI,3,09/05/2020,ACAPS ID 9980,
+Malta,MLT,2,04/05/2020,ACAPS ID 8636,
+Mauritania,MRT,2,10/05/2020,ACAPS ID 10284,
+Mauritius,MUS,3,24/04/2020,masks4all,"masks4all link: http://www.govmu.org/English/News/Pages/Covid-19-Post-confinement-will-be-phase-wise,-says-PM.aspx"
+Moldova,MDA,2,07/05/2020,ACAPS ID 10129,
+Mongolia,MNG,3,12/04/2020,ACAPS ID 9084 + masks4all,masks4all link: https://news.mn/en/791851/
+Montenegro,MNE,2,04/05/2020,ACAPS ID 8545,
+Morocco,MAR,3,07/04/2020,masks4all,masks4all link: https://www.moroccoworldnews.com/2020/04/298834/wearing-face-masks-outside-is-mandatory-in-morocco-starting-april-7/
+Mozambique,MOZ,3,08/04/2020,ACAPS ID 5107,
+Mozambique,MOZ,3,08/04/2020,ACAPS ID 5108,
+Myanmar,MMR,3,13/05/2020,masks4all,masks4all link: https://www.mmtimes.com/news/myanmar-authorities-charge-fine-those-caught-not-wearing-masks-while-outside.html
+Namibia,NAM,2,17/03/2020,ACAPS ID 1896,
+Namibia,NAM,2,17/03/2020,ACAPS ID 1900,
+Namibia,NAM,3,02/05/2020,masks4all,masks4all link: http://www.nbc.na/news/use-face-masks-public-becomes-mandatory-namibia.30485
+Netherlands,NLD,1,11/05/2020,ACAPS ID 9632,
+Netherlands,NLD,2,01/06/2020,ACAPS ID 9633,
+Niger,NER,3,10/04/2020,ACAPS ID 5564,
+Nigeria,NGA,1,15/04/2020,ACAPS ID 6421,
+Nigeria,NGA,2,27/04/2020,ACAPS ID 7873,
+Nigeria,NGA,3,28/04/2020,masks4all (date estimated),masks4all link: https://twitter.com/ncdcgov/status/1258441725472841729
+North Macedonia,MKD,3,23/04/2020,ACAPS ID 8582,
+Panama,PAN,3,12/04/2020,ACAPS ID 6380,
+Paraguay,PRY,3,07/04/2020,ACAPS ID 5567,
+Peru,PER,3,31/03/2020,ACAPS ID 4522,
+Philippines,PHL,2,02/04/2020,masks4all,masks4all link: https://www.thestar.com.my/news/regional/2020/04/02/philippines-requires-people-to-wear-masks-in-public
+Poland,POL,3,16/04/2020,ACAPS ID 4928,
+Portugal,PRT,2,04/05/2020,ACAPS ID 9130,
+Qatar,QAT,3,14/05/2020,masks4all,masks4all link: https://www.reuters.com/article/us-health-coronavirus-qatar/qatar-makes-wearing-masks-outside-mandatory-with-violators-fined-up-to-50000-idUSKBN22Q3IS
+Romania,ROU,3,15/05/2020,ACAPS ID 10133,
+Russia,RUS,2,11/05/2020,masks4all,masks4all link: https://time.com/5836890/russia-coronavirus/
+Rwanda,RWA,3,19/04/2020,ACAPS ID 7123,
+Saint Kitts and Nevis,KNA,1,03/04/2020,ACAPS ID 9536,
+Saint Kitts and Nevis,KNA,3,18/04/2020,ACAPS ID 9559,
+Saint Lucia,LCA,1,07/04/2020,ACAPS ID 9563,
+Sao Tome and Principe,STP,2,21/04/2020,ACAPS ID 9595,
+Senegal,SEN,2,20/04/2020,masks4all,masks4all link: http://www.xinhuanet.com/english/2020-04/21/c_138996216.htm
+Serbia,SRB,2,04/05/2020,ACAPS ID 10031,
+Sierra Leone,SLE,2,20/04/2020,ACAPS ID 6429,
+Sierra Leone,SLE,3,22/04/2020,ACAPS ID 7056,
+Singapore,SGP,3,14/04/2020,masks4all,masks4all link: https://www.straitstimes.com/singapore/coronavirus-mandatory-for-all-to-wear-a-mask-when-out-with-exceptions-for-kids-under-2-and
+Slovakia,SVK,3,12/03/2020,ACAPS ID 2364,
+Slovenia,SVN,3,29/03/2020,masks4all,masks4all link:https://www.total-slovenia-news.com/politics/5951-covid-19-slovenia
+South Africa,ZAF,2,16/04/2020,ACAPS ID 6615,
+South Africa,ZAF,3,01/05/2020,ACAPS ID 7278,
+South Korea,KOR,3,24/02/2020,universal usage (masks4all),universal usage; date from https://www.bbc.co.uk/news/av/world-asia-51609712/coronavirus-drone-captures-massive-queue-for-masks-in-south-korea
+South Sudan,SSD,1,29/04/2020,ACAPS ID 8602,
+Spain,ESP,2,03/05/2020,ACAPS ID 9683,
+Sri Lanka,LKA,3,11/04/2020,ACAPS ID 5177,
+Taiwan,TWN,3,22/01/2020,universal usage (masks4all),universal usage; date from https://focustaiwan.tw/society/202001220020
+Tajikistan,TJK,3,30/04/2020,masks4all,masks4all link: https://www.macaubusiness.com/tajikistan-declares-first-coronavirus-cases/
+Thailand,THA,3,14/02/2020,ACAPS ID 2799,
+Thailand,THA,3,02/03/2020,ACAPS ID 2841,
+Timor-Leste,TLS,2,28/03/2020,ACAPS ID 6980,
+Trinidad and Tobago,TTO,3,05/04/2020,ACAPS ID 5650 + masks4all,masks4all link: https://tt.usembassy.gov/stay-home-order-extended-until-april-30-revised-hours-for-stores-restaurants-close/
+Tunisia,TUN,3,07/04/2020,masks4all,masks4all link: https://twitter.com/AgenceTAP/status/1247246567377166336
+Turkey,TUR,3,03/04/2020,masks4all,masks4all link: https://www.gov.uk/foreign-travel-advice/turkey/staying-during-coronavirus
+Uganda,UGA,3,04/05/2020,ACAPS ID 9073,
+Ukraine,UKR,3,06/04/2020,ACAPS ID 11164,
+United Arab Emirates,ARE,3,29/03/2020,ACAPS ID 5309,
+United Kingdom,GBR,1,11/05/2020,ACAPS ID 10708,
+United States of America,USA,1,06/04/2020,wikipedia,CDC recommendation date from Wikipedia: https://en.wikipedia.org/wiki/Face_masks_during_the_COVID-19_pandemic
+United States of America,USA,2,10/04/2020,masks4all (first US state date),masks4all link: https://www.nj.com/news/2020/04/njs-new-coronavirus-rules-for-grocery-shopping-masks-store-limits-everything-you-need-to-know.html
+Uruguay,URY,2,21/04/2020,ACAPS ID 8946,
+Uzbekistan,UZB,2,22/03/2020,masks4all,masks4all link: https://www.timesca.com/index.php/news/22276-afghanistan-reports-first-coronavirus-fatality-uzbekistan-makes-protective-masks-mandatory
+Venezuela,VEN,3,18/03/2020,masks4all (predates all ACAPS records),masks4all link: https://www.reuters.com/article/us-health-coronavirus-venezuela-masks/venezuelans-sew-homemade-face-masks-amid-coronavirus-quarantine-idUSKBN2171W2
+Vietnam,VNM,1,30/01/2020,ACAPS ID 6722 (error in ACAPS record; should remove 'not'),
+Vietnam,VNM,3,16/03/2020,masks4all (predates next ACAPS records),masks4all link: https://www.thestar.com.my/news/regional/2020/03/16/all-in-vietnam-must-wear-face-mask-in-public-places-for-coronavirus-prevention
+Zambia,ZMB,2,24/04/2020,ACAPS ID 8201,
+Zambia,ZMB,3,18/04/2020,masks4all (date estimated),masks4all link: https://www.nation.co.ke/news/africa/Zambia-records-four-new-cases-of-Covid-19/1066-5527684-4mqoeez/index.html
+Zimbabwe,ZWE,3,01/05/2020,masks4all (predates all ACAPS records),masks4all link: https://iharare.com/people-not-wearing-masks-face-arrest/
