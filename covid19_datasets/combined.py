@@ -131,6 +131,7 @@ def _create_interventions_data() -> pd.DataFrame:
                                        .groupby(level=0)
                                        .ffill()
                                        .fillna(0.))
+    interventions_data = interventions_data.reset_index()
 
     country_name_map = {
         iso: country_name_from_iso(iso)
