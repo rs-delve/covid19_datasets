@@ -136,7 +136,8 @@ Blank - no data</td>
 <tr>
  <td style="font-weight:bold"><b>npi_masks</b></td>
  <td>Mask policy in force in the country. </td>
- <td>Ordinal Scale<br/>0 - No mask policy in place<br/>1 - Limited mask policy (eg in stores only) or limited enforcement<br/>2 - Widespread mask policy and/or strict enforcement<br/>Blank - No data</td>
+ <td>Ordinal Scale<br/>0 - No mask policy in place<br/>
+  1 - General recommendation<br/>2 - Mandatory in specific regions of country or specific places (public transport, inside shops)<br/>3 - Mandatory everywhere or universal usage <br/>Blank - No data</td>
  <td>ACAPS + Manual</td>
 </tr>
  
