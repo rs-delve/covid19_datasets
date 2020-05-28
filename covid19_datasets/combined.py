@@ -127,8 +127,10 @@ def _create_interventions_data() -> pd.DataFrame:
     interventions_data = (_policies_data()
                           .merge(_mask_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                           .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME]))
-    interventions_data = interventions_data.groupby(
-        level=0).ffill().fillna(0.).reset_index()
+    interventions_data['npi_masks'] = (interventions_data['npi_masks']
+                                       .groupby(level=0)
+                                       .ffill()
+                                       .fillna(0.))
 
     country_name_map = {
         iso: country_name_from_iso(iso)
