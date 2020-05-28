@@ -149,7 +149,7 @@ def _create_interventions_data() -> pd.DataFrame:
 def _create_data() -> pd.DataFrame:
     interventions_data = _create_interventions_data()
     interventions_cases = interventions_data.merge(
-        _cases_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left').fillna(0)
+        _cases_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
 
     combined = (interventions_cases
                 .merge(_mobility_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
