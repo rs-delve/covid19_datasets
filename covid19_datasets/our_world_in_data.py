@@ -1,5 +1,6 @@
 from typing import Callable
 import pandas as pd
+import numpy as np
 import logging
 from .constants import *
 _log = logging.getLogger(__name__)
