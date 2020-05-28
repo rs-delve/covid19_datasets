@@ -67,9 +67,9 @@ def _fill_gaps(series, ffill=True):
   non_nans = series[~series.apply(np.isnan)]
   start, end = non_nans.index[0], non_nans.index[-1]
   if ffill:
-    series.ix[start:end] = series.ix[start:end].fillna(method='ffill')
+    series.iloc[start:end] = series.iloc[start:end].fillna(method='ffill')
   else:
-    series.ix[start:end] = series.ix[start:end].fillna(0.)
+    series.iloc[start:end] = series.iloc[start:end].fillna(0.)
   return series
 
 
