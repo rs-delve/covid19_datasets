@@ -35,7 +35,7 @@ COLUMN_NAMES = {
 
 _FILL_COLUMNS = [  # These are static reference data, so we can forward and backward fill
     ISO_COLUMN_NAME,
-    'population,
+    'population',
     'population_density',
     'median_age',
     'gdp_per_capita'
