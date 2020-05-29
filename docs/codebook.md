@@ -167,7 +167,7 @@ Blank - no data</td>
  <td>Ordinal Scale<br/>0 - No mask policy in place<br/>
   1 - General recommendation<br/>2 - Mandatory in specific regions of country or specific places (public transport, inside shops)<br/>3 - Mandatory everywhere or universal usage <br/>Blank - No data</td>
  <td>170 Countries</td>
- <td>ACAPS + Manual</td>
+ <td>ACAPS + Masks4All + Manual</td>
 </tr>
  
 <tr>
