@@ -146,6 +146,12 @@ def _create_interventions_data() -> pd.DataFrame:
     return interventions_data
 
 
+def _check_index(df):
+    """Check that there are no duplicates in the dataframe index."""
+    duplicates = df.index[df.index.duplicated()]
+    assert len(duplicates) == 0, 'Duplicates found in index!'
+
+
 def _create_data() -> pd.DataFrame:
     interventions_data = _create_interventions_data()
     interventions_cases = interventions_data.merge(
@@ -158,7 +164,9 @@ def _create_data() -> pd.DataFrame:
                 .merge(_excess_mortality_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .merge(_weather_data(), on=[ISO_COLUMN_NAME, DATE_COLUMN_NAME], how='left')
                 .set_index([ISO_COLUMN_NAME, DATE_COLUMN_NAME]))
-
+    
+    _check_index(combined)
+    
     return combined
 
 
