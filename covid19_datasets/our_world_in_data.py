@@ -92,9 +92,7 @@ def _add_days_since(df: pd.DataFrame) -> pd.DataFrame:
     first_deaths = df.groupby('ISO').apply(_compute_anchor('total_deaths')).reset_index().rename(columns={0: 'first_death'})
     df = df.merge(first_cases, on='ISO').merge(first_deaths, on='ISO')
     df['days_since_first_case'] = (df.DATE - df.first_case).dt.days
-    df.loc[df.days_since_first_case < 0, 'days_since_first_case'] = 0
     df['days_since_first_death'] = (df.DATE - df.first_death).dt.days
-    df.loc[df.days_since_first_death < 0, 'days_since_first_death'] = 0
     df = df.drop(['first_case', 'first_death'], axis='columns')
     return df
 
