@@ -299,14 +299,14 @@ Blank - no data</td>
 <tr>
 <td style="font-weight:bold"><b>cases_days_since_first</b></td>
 <td>Days since the first recorded case in the country</td>
-<td>0 until the first case is recoded, then DATE - first_case_date in days</td>
- <td>166 Countries</td>
+<td><i>DATE</i> - <Date of first case> in days, value will be negative before the first case. If a country has not had any cases, the <Date of first case> is taken to be the latest date and all values will be negative</td>
+<td>166 Countries</td>
 <td>Derived</td>
 </tr>
 <tr>
 <td style="font-weight:bold"><b>deaths_days_since_first</b></td>
 <td>Days since the first recorded death in the country</td>
-<td>0 until the first death is recoded, then DATE - first_death_date in days</td>
+<td><i>DATE</i> - <Date of first death> in days, value will be negative before the first case. If a country has not had any deaths, the <Date of first death> is taken to be the latest date and all values will be negative</td>
  <td>166 Countries</td>
 <td>Derived</td>
 </tr>
