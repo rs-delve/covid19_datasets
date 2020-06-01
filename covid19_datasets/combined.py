@@ -79,6 +79,8 @@ _WEATHER_COLUMNS = [
     'weather_humidity_mean', 
     'weather_sw_radiation_mean',
     'weather_temperature_mean',
+    'weather_temperature_min',
+    'weather_temperature_max',
     'weather_wind_speed_mean'
 ]
 
