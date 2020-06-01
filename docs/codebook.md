@@ -441,7 +441,21 @@ Blank - no data</td>
 </tr>
 <tr>
 <td style="font-weight:bold"><b>weather_temperature_mean</b></td>
-<td>Average daily temperature across the country, sampled in major cities and weighted by population</td>
+<td>Average of daily mean temperatures across the country, sampled in major cities and weighted by population</td>
+<td>&deg; C (Degrees celcius)</td>
+ <td>168 Countries</td>
+<td>UK Met Office + SimpleMaps</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>weather_temperature_min</b></td>
+<td>Average of daily minimum temperatures across the country, sampled in major cities and weighted by population</td>
+<td>&deg; C (Degrees celcius)</td>
+ <td>168 Countries</td>
+<td>UK Met Office + SimpleMaps</td>
+</tr>
+<tr>
+<td style="font-weight:bold"><b>weather_temperature_max</b></td>
+<td>Average of daily maximum temperatures across the country, sampled in major cities and weighted by population</td>
 <td>&deg; C (Degrees celcius)</td>
  <td>168 Countries</td>
 <td>UK Met Office + SimpleMaps</td>
