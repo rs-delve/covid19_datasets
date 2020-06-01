@@ -7,7 +7,7 @@ import datetime
 import logging
 
 from .economist_excess_mortality import EconomistExcessMortality
-from .eurostats import EuroStatsExcessMortality
+from .eurostat import EuroStatExcessMortality
 from .hmd import HMDExcessMortality
 
 from .constants import *
@@ -16,16 +16,16 @@ from .utils import get_country_iso
 _log = logging.getLogger(__name__)
 
 _HMD_COUNTRIES = ['AUT', 'BEL', 'DNK', 'FIN', 'ESP', 'ISL', 'NLD', 'NOR', 'PRT', 'SWE', 'USA']
-_EUROSTATS_COUNTRIES = ['ARM', 'BGR', 'CZE', 'EST', 'GEO', 'LVA', 'LIE', 'LTU', 'LUX', 'MNE', 'SRB', 'SVK', 'SVN', 'CHE']
+_EUROSTAT_COUNTRIES = ['ARM', 'BGR', 'CZE', 'EST', 'GEO', 'LVA', 'LIE', 'LTU', 'LUX', 'MNE', 'SRB', 'SVK', 'SVN', 'CHE']
 _ECONOMIST_COUNTRIES = [
-    'GBR',  # Economist dataset combines England, Wales, Scotland and Northern Ireland unlike HMD and EuroStats
+    'GBR',  # Economist dataset combines England, Wales, Scotland and Northern Ireland unlike HMD and EuroStat
     'ECU',
     'FRA',
     'DEU',
     'ITA'
 ]
 
-assert len(set(_HMD_COUNTRIES + _EUROSTATS_COUNTRIES + _ECONOMIST_COUNTRIES)) == len(_HMD_COUNTRIES + _EUROSTATS_COUNTRIES + _ECONOMIST_COUNTRIES)
+assert len(set(_HMD_COUNTRIES + _EUROSTAT_COUNTRIES + _ECONOMIST_COUNTRIES)) == len(_HMD_COUNTRIES + _EUROSTAT_COUNTRIES + _ECONOMIST_COUNTRIES)
 
 
 def _generate_excess_mortality() -> pd.DataFrame:
@@ -33,10 +33,10 @@ def _generate_excess_mortality() -> pd.DataFrame:
     economist_data = economist_excess_mortality.get_country_level_data(daily=True)
     economist_data = economist_data[economist_data[ISO_COLUMN_NAME].isin(_ECONOMIST_COUNTRIES)]
 
-    eurostats_mortality = EuroStatsExcessMortality()
-    eurostats_data = eurostats_mortality.get_data(daily=True)
-    eurostats_data = eurostats_data.query('SEX == "Total" and AGE == "Total"')
-    eurostats_data = eurostats_data[eurostats_data[ISO_COLUMN_NAME].isin(_EUROSTATS_COUNTRIES)]
+    eurostat_mortality = EuroStatExcessMortality()
+    eurostat_data = eurostat_mortality.get_data(daily=True)
+    eurostat_data = eurostat_data.query('SEX == "Total" and AGE == "Total"')
+    eurostat_data = eurostat_data[eurostat_data[ISO_COLUMN_NAME].isin(_EUROSTAT_COUNTRIES)]
 
     hmd_mortality = HMDExcessMortality()
     hmd_data = hmd_mortality.get_data(daily=True)
@@ -47,7 +47,7 @@ def _generate_excess_mortality() -> pd.DataFrame:
 
     excess_mortality = pd.concat([
         economist_data[columns],
-        eurostats_data[columns],
+        eurostat_data[columns],
         hmd_data[columns]
     ], axis=0)
     return excess_mortality
@@ -55,7 +55,7 @@ def _generate_excess_mortality() -> pd.DataFrame:
 
 class ExcessMortality():
     """
-    Excess mortality using data from EuroStats, the Economist and Human Mortality Database.
+    Excess mortality using data from EuroStat, the Economist and Human Mortality Database.
     """
 
     data = None

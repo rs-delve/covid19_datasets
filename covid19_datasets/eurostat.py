@@ -16,7 +16,7 @@ _KEY_COLUMNS = ['GEO', 'AGE', 'SEX', 'WEEK']
 
 
 def _load_dataset():
-    _log.info("Loading EuroStats data")
+    _log.info("Loading EuroStat data")
     df = pd.read_csv(_PATH)
     df = df.replace(':', np.nan)
     df['YEAR'] = df.TIME.str.slice(stop=4).astype(int)
@@ -50,10 +50,10 @@ def _resample(grouped_df):
     return grouped
 
 
-class EuroStatsExcessMortality():
+class EuroStatExcessMortality():
     """
-    Excess mortality computed from EuroStats mortality statstics.
-    Data from EuroStats: https://ec.europa.eu/eurostat
+    Excess mortality computed from EuroStat mortality statstics.
+    Data from EuroStat: https://ec.europa.eu/eurostat
     """
 
     data = None
@@ -66,15 +66,15 @@ class EuroStatsExcessMortality():
         :param force_load: If true, forces download of the dataset, even if it was loaded already
         """
         # This is to make sure we only load the dataset once during a single session
-        if EuroStatsExcessMortality.data is None or force_load:
-            EuroStatsExcessMortality.data = _load_dataset()
+        if EuroStatExcessMortality.data is None or force_load:
+            EuroStatExcessMortality.data = _load_dataset()
 
     def get_data(self, daily=False):
         """
         Returns the dataset as Pandas dataframe
         """
         if daily:
-            df = EuroStatsExcessMortality.data
+            df = EuroStatExcessMortality.data
             df['deaths_excess_daily_avg'] = df['deaths_excess_weekly'] / 7
             key_columns = ['country', 'AGE', 'SEX', 'ISO']
             daily = (df
@@ -85,4 +85,4 @@ class EuroStatsExcessMortality():
                      .rename(columns={'level_4': DATE_COLUMN_NAME}))
             return daily
         else:
-            return EuroStatsExcessMortality.data
+            return EuroStatExcessMortality.data
