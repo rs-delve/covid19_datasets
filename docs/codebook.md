@@ -408,14 +408,14 @@ Blank - no data</td>
 <td>Daily average number of excess deaths</td>
 <td>Float<br/>Weekly excess deaths divided by 7 to obtain daily average.<br/>Final caulculation is <i>((number of deaths in 2020) - (average number of deaths in past 5 years))/7</i> </td>
  <td>24 Countries</td>
-<td>Derived from Human Mortality Database / The Economist excess mortality tracker / EuroStats</td>
+<td>Derived from Human Mortality Database / The Economist excess mortality tracker / EuroStat</td>
 </tr>
 <tr>
 <td style="font-weight:bold"><b>deaths_excess_weekly</b></td>
 <td>Number of excess deaths for the past week.</td>
 <td> Number of deaths in a week in 2020 minus the average number of deaths that occured in the same week in the previous 5 years. We perform this calculation ourselves for consistency where weekly mortality data are available. There are, however, cases where the underlying mortality data is not available and the excess deaths is calculated by the provider using a different method (for example fewer than 5 years for the baseline)</td>
  <td>24 Countries. Only populated on the last day of an ISO week</td>
-<td>Derived from Human Mortality Database / The Economist excess mortality tracker / EuroStats</td>
+<td>Derived from Human Mortality Database / The Economist excess mortality tracker / EuroStat</td>
 </tr>
 
 <tr>
