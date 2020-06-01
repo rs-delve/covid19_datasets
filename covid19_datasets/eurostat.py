@@ -1,4 +1,4 @@
-"""Calculate excess mortality from weekly EuroStats mortality data."""
+"""Calculate excess mortality from weekly EuroStat mortality data."""
 
 import pycountry
 import pandas as pd
