@@ -20,6 +20,8 @@ We provide two Jupyter notebooks with examples:
 View the [Codebook](https://github.com/rs-delve/covid19_datasets/blob/master/docs/codebook.md) for details of the fields available in the dataset
 
 ## Data sources
+A full description of data sources, links to their documentation and update frequencies is available [here](https://github.com/rs-delve/covid19_datasets/blob/master/docs/data_sources.md)
+
 * [Oxford Government Response Tracker](https://www.bsg.ox.ac.uk/research/research-projects/coronavirus-government-response-tracker)
 * [ACAPS #COVID19 Government Measures](https://www.acaps.org/covid19-government-measures-dataset)
 * [Our World in Data](https://ourworldindata.org/coronavirus)
