@@ -11,6 +11,11 @@ import pandas as pd
 data_df = pd.read_csv('https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/dataset/combined_dataset_latest.csv')
 ```
 
+Or in R:
+```R
+X = read.csv(url("https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/dataset/combined_dataset_latest.csv")) 
+```
+
 ## Examples
 We provide two Jupyter notebooks with examples:
 - [Basic exploratory data analysis of the combined international dataset](./Data_Exploration.ipynb)
