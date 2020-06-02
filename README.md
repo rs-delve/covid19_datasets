@@ -24,6 +24,22 @@ We provide two Jupyter notebooks with examples:
 ## Codebook
 View the [Codebook](https://github.com/rs-delve/covid19_datasets/blob/master/docs/codebook.md) for details of the fields available in the dataset
 
+## Licence
+This software is published under the MIT licence. The data generated are available under the Creative Commons Attribution 4.0 International License.
+
+## Citation
+We recommend citing the combined dataset as follows, noting the importance of including an access date, since the data may be retroactively updated over time.
+
+```bibtex
+@misc{DelveCovidDataset,
+    title = {DELVE Global COVID-19 Dataset},
+    howpublished= {\url{https://github.com/rs-delve/covid19_datasets/blob/master/dataset/combined_dataset_latest.csv}},
+    note = {Accessed: <DATE ACCESSED>}
+} 
+```
+  
+We also recommend citing the original sources of any fields you use, these sources can be found in the [Codebook](https://github.com/rs-delve/covid19_datasets/blob/master/docs/codebook.md)
+
 ## Data sources
 A full description of data sources, links to their documentation and update frequencies is available [here](https://github.com/rs-delve/covid19_datasets/blob/master/docs/data_sources.md)
 
