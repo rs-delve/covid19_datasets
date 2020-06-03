@@ -22,7 +22,7 @@ We provide two Jupyter notebooks with examples:
 - [Usage of the underlying datasets](./usage_example.ipynb).
 
 ## Codebook
-View the [Codebook](https://github.com/rs-delve/covid19_datasets/blob/master/docs/codebook.md) for details of the fields available in the dataset
+View the [Codebook](https://github.com/rs-delve/covid19_datasets/blob/master/docs/codebook.md) for details of the fields available in the dataset.
 
 ## Licence
 This software is published under the MIT licence. The data generated are available under the Creative Commons Attribution 4.0 International License.
@@ -38,10 +38,10 @@ We recommend citing the combined dataset as follows, noting the importance of in
 } 
 ```
   
-We also recommend citing the original sources of any fields you use, these sources can be found in the [Codebook](https://github.com/rs-delve/covid19_datasets/blob/master/docs/codebook.md)
+We also recommend citing the original sources of any fields you use, these sources can be found in the [Codebook](https://github.com/rs-delve/covid19_datasets/blob/master/docs/codebook.md).
 
 ## Data sources
-A full description of data sources, links to their documentation and update frequencies is available [here](https://github.com/rs-delve/covid19_datasets/blob/master/docs/data_sources.md)
+A full description of data sources, links to their documentation and update frequencies is available [here](https://github.com/rs-delve/covid19_datasets/blob/master/docs/data_sources.md).
 
 * [Oxford Government Response Tracker](https://www.bsg.ox.ac.uk/research/research-projects/coronavirus-government-response-tracker)
 * [ACAPS #COVID19 Government Measures](https://www.acaps.org/covid19-government-measures-dataset)
