@@ -94,6 +94,8 @@ class HMDExcessMortality:
         excess = excess.rename(columns=COLUMN_NAMES)
         excess['deaths_excess_daily_avg'] = excess['deaths_excess_weekly'] / 7.0
 
+        excess[ISO_COLUMN_NAME] = excess[ISO_COLUMN_NAME].replace({'DEUTNP': 'DEU'})  # HMD has a special code for "Germany Total Population"
+        
         if daily:
             excess = (excess
                       .groupby(['ISO', 'Sex'])
