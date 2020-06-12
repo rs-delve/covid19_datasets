@@ -15,13 +15,12 @@ from .utils import get_country_iso
 
 _log = logging.getLogger(__name__)
 
-_HMD_COUNTRIES = ['AUT', 'BEL', 'DNK', 'FIN', 'ESP', 'ISL', 'NLD', 'NOR', 'PRT', 'SWE', 'USA']
+_HMD_COUNTRIES = ['AUT', 'BEL', 'DNK', 'FIN', 'ESP', 'ISL', 'NLD', 'NOR', 'PRT', 'SWE', 'USA', 'DEU']
 _EUROSTAT_COUNTRIES = ['ARM', 'BGR', 'CZE', 'EST', 'GEO', 'LVA', 'LIE', 'LTU', 'LUX', 'MNE', 'SRB', 'SVK', 'SVN', 'CHE']
 _ECONOMIST_COUNTRIES = [
     'GBR',  # Economist dataset combines England, Wales, Scotland and Northern Ireland unlike HMD and EuroStat
     'ECU',
     'FRA',
-    'DEU',
     'ITA'
 ]
 
