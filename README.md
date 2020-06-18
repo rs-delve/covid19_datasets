@@ -8,7 +8,7 @@ Download the CSV from the [dataset](https://github.com/rs-delve/covid19_datasets
 In Python you can load the CSV directly using [Pandas](https://pandas.pydata.org/):
 ```python
 import pandas as pd
-data_df = pd.read_csv('https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/dataset/combined_dataset_latest.csv')
+data_df = pd.read_csv('https://raw.githubusercontent.com/rs-delve/covid19_datasets/master/dataset/combined_dataset_latest.csv', parse_dates=['DATE'])
 ```
 
 Or in R:
