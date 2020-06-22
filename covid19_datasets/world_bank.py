@@ -66,6 +66,10 @@ AGGREGATES = [
 ]
 
 
+# Temporarily use HTTP due to SSL certificate error
+wb.WB_API_URL = 'http://api.worldbank.org/v2'
+
+
 def _load_dataset(start=2010, end=2020, extra_indicators={}):
     _log.info("Loading dataset")
     indicators = dict(WORLD_BANK_INDICATORS, **extra_indicators)
