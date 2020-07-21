@@ -80,7 +80,7 @@ def _load_wales_datasets():
 
 def _load_scotland_cases_dataset():
     _log.info("Loading dataset from " + SCOTLAND_PATH)
-    df = pd.read_csv(SCOTLAND_PATH)
+    df = pd.read_csv(SCOTLAND_PATH, error_bad_lines=False)
     _log.info("Loaded")
 
     # downloaded file is (dates x areas), and we want the opposite
