@@ -3,3 +3,7 @@ pandas
 pandas-datareader
 xlrd >= 1.0.0
 pycountry
+osfclient
+beautifulsoup4
+tabula-py
+PyPDF2
