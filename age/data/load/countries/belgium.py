@@ -36,14 +36,14 @@ class Belgium(base.LoaderBase):
     self._raw_deaths = None
 
   def raw_cases(self) -> pd.DataFrame:
-    if not self._raw_cases:
+    if self._raw_cases is None:
       raw_cases = pd.read_csv(CASES_PATH, parse_dates=['DATE'])
       raw_cases = _process_raw_data(raw_cases)
       self._raw_cases = raw_cases
     return self._raw_cases
 
   def raw_deaths(self) -> pd.DataFrame:
-    if not self._raw_deaths:
+    if self._raw_deaths is None:
       raw_deaths = pd.read_csv(DEATHS_PATH, parse_dates=['DATE'])
       raw_deaths = _process_raw_data(raw_deaths)
       self._raw_deaths = raw_deaths
