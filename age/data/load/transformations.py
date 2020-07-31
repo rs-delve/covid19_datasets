@@ -51,3 +51,15 @@ def smooth_sample(data: pd.DataFrame, rolling_window: int = 3) -> pd.DataFrame:
         .unstack().unstack().fillna(0.)
         .rolling(rolling_window, center=True, min_periods=1)
         .mean()).stack().stack().reset_index()
+
+
+def cumulative_to_new(data: pd.DataFrame) -> pd.DataFrame:
+    """Convert a time series of cumulative counts in tidy format to a one that of daily counts."""
+    return (data
+            .set_index(['Date', 'Age', 'Sex'])
+            .unstack()
+            .unstack()
+            .diff()
+            .stack()
+            .stack()
+            .reset_index())
