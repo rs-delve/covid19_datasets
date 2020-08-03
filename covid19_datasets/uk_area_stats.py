@@ -117,7 +117,7 @@ class UKCovid19Data:
     ENGLAND_UPPER_TIER_AUTHORITY = 'Upper tier local authority'
     ENGLAND_LOWER_TIER_AUTHORITY = 'Lower tier local authority'
 
-    def __init__(self, force_load=False, england_area_type=UKCovid19Data.ENGLAND_UPPER_TIER_AUTHORITY):
+    def __init__(self, force_load=False, england_area_type=ENGLAND_UPPER_TIER_AUTHORITY):
         """
         Loads datasets and store them in memory.
         Further instances of this class will reuse the same data
