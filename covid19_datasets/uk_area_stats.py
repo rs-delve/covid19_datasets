@@ -9,8 +9,6 @@ _log = logging.getLogger(__name__)
 
 ENGLAND_CASES_PATH = 'https://c19downloads.azureedge.net/downloads/csv/coronavirus-cases_latest.csv'
 ENGLAND_DEATHS_PATH = 'https://c19downloads.azureedge.net/downloads/csv/coronavirus-deaths_latest.csv'
-ENGLAND_UPPER_TIER_AUTHORITY = 'Upper tier local authority'
-ENGLAND_LOWER_TIER_AUTHORITY = 'Lower tier local authority'
 
 WALES_PATH = 'http://www2.nphs.wales.nhs.uk:8080/CommunitySurveillanceDocs.nsf/61c1e930f9121fd080256f2a004937ed/77fdb9a33544aee88025855100300cab/$FILE/Rapid%20COVID-19%20surveillance%20data.xlsx'
 
@@ -116,8 +114,10 @@ class UKCovid19Data:
     wales_cases_data = None
     wales_tests_data = None
     scotland_cases_data = None
+    ENGLAND_UPPER_TIER_AUTHORITY = 'Upper tier local authority'
+    ENGLAND_LOWER_TIER_AUTHORITY = 'Lower tier local authority'
 
-    def __init__(self, force_load=False, england_area_type=ENGLAND_UPPER_TIER_AUTHORITY):
+    def __init__(self, force_load=False, england_area_type=UKCovid19Data.ENGLAND_UPPER_TIER_AUTHORITY):
         """
         Loads datasets and store them in memory.
         Further instances of this class will reuse the same data
