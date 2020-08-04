@@ -47,37 +47,41 @@ def _process_canada_raw(raw_data, field, date_field, count_field):
 
 
 class Canada(base.LoaderBase):
-  def __init__(self, reference_data):
-    self._raw_cases = None
-    self._raw_deaths = None
-    self._reference_data = reference_data
+    def __init__(self, reference_data):
+        self._raw_cases = None
+        self._raw_deaths = None
+        self._reference_data = reference_data
 
-  def raw_cases(self) -> pd.DataFrame:
-    if self._raw_cases is None:
-      raw_cases = pd.read_csv(_CASES_SAMPLE_PATH)
-      raw_cases = _process_canada_raw(raw_cases, 'cases_new', 'date_report', 'case_id')
-      self._raw_cases = raw_cases
-    return self._raw_cases
+    def raw_cases(self) -> pd.DataFrame:
+        if self._raw_cases is None:
+            raw_cases = pd.read_csv(_CASES_SAMPLE_PATH)
+            raw_cases = _process_canada_raw(
+                raw_cases, 'cases_new', 'date_report', 'case_id')
+            self._raw_cases = raw_cases
+        return self._raw_cases
 
-  def raw_deaths(self) -> pd.DataFrame:
-    if self._raw_deaths is None:
-      raw_deaths = pd.read_csv(_DEATHS_SAMPLE_PATH)
-      raw_deaths = _process_canada_raw(raw_deaths, 'deaths_new', 'date_death_report', 'death_id')
-      self._raw_deaths = raw_deaths
-    return self._raw_deaths
+    def raw_deaths(self) -> pd.DataFrame:
+        if self._raw_deaths is None:
+            raw_deaths = pd.read_csv(_DEATHS_SAMPLE_PATH)
+            raw_deaths = _process_canada_raw(
+                raw_deaths, 'deaths_new', 'date_death_report', 'death_id')
+            self._raw_deaths = raw_deaths
+        return self._raw_deaths
 
-  def cases(self) -> pd.DataFrame:
-    cases = self.raw_cases()
-    cases = transformations.ensure_contiguous(cases)
-    cases = transformations.add_both_sexes(cases)
-    cases = transformations.smooth_sample(cases, rolling_window=5)
-    cases = transformations.rescale(cases, self._reference_data.query('ISO == "CAN"'), 'cases_new')
-    return cases
+    def cases(self) -> pd.DataFrame:
+        cases = self.raw_cases()
+        cases = transformations.ensure_contiguous(cases)
+        cases = transformations.add_both_sexes(cases)
+        cases = transformations.smooth_sample(cases, rolling_window=5)
+        cases = transformations.rescale(
+            cases, self._reference_data.query('ISO == "CAN"'), 'cases_new')
+        return cases
 
-  def deaths(self) -> pd.DataFrame:
-    deaths = self.raw_deaths()
-    deaths = transformations.ensure_contiguous(deaths)
-    deaths = transformations.add_both_sexes(deaths)
-    deaths = transformations.smooth_sample(deaths, rolling_window=5)
-    deaths = transformations.rescale(deaths, self._reference_data.query('ISO == "CAN"'), 'deaths_new')
-    return deaths
+    def deaths(self) -> pd.DataFrame:
+        deaths = self.raw_deaths()
+        deaths = transformations.ensure_contiguous(deaths)
+        deaths = transformations.add_both_sexes(deaths)
+        deaths = transformations.smooth_sample(deaths, rolling_window=5)
+        deaths = transformations.rescale(
+            deaths, self._reference_data.query('ISO == "CAN"'), 'deaths_new')
+        return deaths
