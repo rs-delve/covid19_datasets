@@ -5,6 +5,8 @@ from age.data.load.countries import base
 from age.data.load import transformations
 from age.data.load import coverage
 
+ISO = 'AUT'
+
 class Austria(base.LoaderBase):
     def __init__(self):
         self._raw_cases = None
@@ -24,9 +26,11 @@ class Austria(base.LoaderBase):
     def cases(self) -> pd.DataFrame:
         raw_cases = self.raw_cases()
         cases = transformations.cumulative_to_new(raw_cases)
+        cases['ISO'] = ISO
         return cases
 
     def deaths(self) -> pd.DataFrame:
         raw_deaths = self.raw_deaths()
         deaths = transformations.cumulative_to_new(raw_deaths)
+        deaths['ISO'] = ISO
         return deaths

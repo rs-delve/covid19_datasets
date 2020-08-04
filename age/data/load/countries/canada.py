@@ -25,6 +25,8 @@ _EXPECTED_AGE_GROUPS = ['0-9', '10-19', '20-29', '30-39',
                         '40-49', '50-59', '60-69', '70-79', '80-89', '90+']
 
 
+ISO = 'CAN'
+
 def _process_canada_raw(raw_data, field, date_field, count_field):
     raw_data[date_field] = pd.to_datetime(
         raw_data[date_field], format='%d-%m-%Y')
@@ -75,6 +77,7 @@ class Canada(base.LoaderBase):
         cases = transformations.smooth_sample(cases, rolling_window=5)
         cases = transformations.rescale(
             cases, self._reference_data.query('ISO == "CAN"'), 'cases_new')
+        cases['ISO'] = ISO
         return cases
 
     def deaths(self) -> pd.DataFrame:
@@ -84,4 +87,5 @@ class Canada(base.LoaderBase):
         deaths = transformations.smooth_sample(deaths, rolling_window=5)
         deaths = transformations.rescale(
             deaths, self._reference_data.query('ISO == "CAN"'), 'deaths_new')
+        deaths['ISO'] = ISO
         return deaths

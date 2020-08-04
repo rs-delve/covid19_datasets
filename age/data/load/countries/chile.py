@@ -19,6 +19,7 @@ _DEATHS_COLUMN_MAPPING = {
     'Casos confirmados': 'deaths_new'
 }
 
+ISO = 'CHL'
 
 class Chile(base.LoaderBase):
     def __init__(self):
@@ -47,9 +48,11 @@ class Chile(base.LoaderBase):
         cases = transformations.add_both_sexes(cases)
         cases = transformations.cumulative_to_new(cases)
         cases = transformations.periodic_to_daily(cases)
+        cases['ISO'] = ISO
         return cases
 
     def deaths(self) -> pd.DataFrame:
         deaths = self.raw_deaths()
         deaths = transformations.cumulative_to_new(deaths)
+        deaths['ISO'] = ISO
         return deaths

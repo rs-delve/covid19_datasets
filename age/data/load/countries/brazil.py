@@ -6,6 +6,8 @@ from age.data.load import transformations
 from age.data.load import coverage
 
 
+ISO = 'BRA'
+
 class Brazil(base.LoaderBase):
     def __init__(self, reference_data):
         self._raw_deaths = None
@@ -27,4 +29,5 @@ class Brazil(base.LoaderBase):
         brazil_deaths = self.raw_deaths()
         ref_data = self._reference_data.query('ISO == "BRA"')
         brazil_deaths = transformations.rescale(brazil_deaths, ref_data, 'deaths_new')
+        brazil_deaths['ISO'] = ISO
         return brazil_deaths
