@@ -58,8 +58,7 @@ def _split_sex_by_fractions(combined_data, fractions, field):
 
 
 class CoverageDB():
-    def __init__(self):
-        self._cache = {}
+    _cache = {}
 
     def _populate_cache(self, filename):
         osf = osfclient.api.OSF()
@@ -80,13 +79,13 @@ class CoverageDB():
             self._cache[file.name] = df
 
     def _get_data_from_file(self, filename: str) -> pd.DataFrame:
-        if filename not in self._cache:
+        if filename not in CoverageDB._cache:
             self._populate_cache(filename)
 
-        if filename not in self._cache:
+        if filename not in CoverageDB._cache:
             raise ValueError(f'{filename} does not exist')
 
-        return self._cache[filename]
+        return CoverageDB._cache[filename]
 
     def get_counts_from_input_db(self, country, field, region=None):
         source_field = _field_to_source_field(field)
