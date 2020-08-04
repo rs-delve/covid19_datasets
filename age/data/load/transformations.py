@@ -63,3 +63,11 @@ def cumulative_to_new(data: pd.DataFrame) -> pd.DataFrame:
             .stack()
             .stack()
             .reset_index())
+
+
+def ensure_contiguous(data):
+    """Ensure the dates are contiguous in the given data."""
+    data = data.set_index(['Date', 'Sex', 'Age']).unstack().unstack()
+    data = data.fillna(0)  # Fill the holes in the age-sex cross product
+    data = data.resample('d').ffill()  # Fill the holes in the dates
+    return data.stack().stack().reset_index()
