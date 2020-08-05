@@ -114,8 +114,8 @@ class UKCovid19Data:
     wales_cases_data = None
     wales_tests_data = None
     scotland_cases_data = None
-    ENGLAND_UPPER_TIER_AUTHORITY = 'Upper tier local authority'
-    ENGLAND_LOWER_TIER_AUTHORITY = 'Lower tier local authority'
+    ENGLAND_UPPER_TIER_AUTHORITY = 'utla'
+    ENGLAND_LOWER_TIER_AUTHORITY = 'ltla'
 
     def __init__(self, force_load=False, england_area_type=ENGLAND_UPPER_TIER_AUTHORITY):
         """
