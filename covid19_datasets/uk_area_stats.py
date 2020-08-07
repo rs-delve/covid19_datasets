@@ -34,7 +34,7 @@ def _backfill_missing_data(df):
     return df
 
 
-def _load_england_cases_dataset():
+def _load_england_cases_dataset(area_type):
     _log.info("Loading dataset from " + ENGLAND_CASES_PATH)
     df = pd.read_csv(ENGLAND_CASES_PATH)
     _log.info("Loaded")
@@ -45,7 +45,7 @@ def _load_england_cases_dataset():
     # Each row corresponds to an area
     # Each column corresponds to a date
     df['Daily lab-confirmed cases'] = df['Daily lab-confirmed cases'].astype('float')
-    df = df[df['Area type'] == 'Upper tier local authority']
+    df = df[df['Area type'] == area_type]
     df['Country'] = 'England'
 
     df = df.pivot_table(index=['Country', 'Area name'], columns=DATE_COLUMN_NAME,
@@ -114,16 +114,19 @@ class UKCovid19Data:
     wales_cases_data = None
     wales_tests_data = None
     scotland_cases_data = None
+    ENGLAND_UPPER_TIER_AUTHORITY = 'utla'
+    ENGLAND_LOWER_TIER_AUTHORITY = 'ltla'
 
-    def __init__(self, force_load=False):
+    def __init__(self, force_load=False, england_area_type=ENGLAND_UPPER_TIER_AUTHORITY):
         """
         Loads datasets and store them in memory.
         Further instances of this class will reuse the same data
 
         :param force_load: If true, forces download of the dataset, even if it was loaded already
         """
-        if UKCovid19Data.england_cases_data is None or force_load:
-            UKCovid19Data.england_cases_data = _load_england_cases_dataset()
+        if UKCovid19Data.england_cases_data is None or force_load or UKCovid19Data.england_area_type != england_area_type:
+            UKCovid19Data.england_area_type = england_area_type
+            UKCovid19Data.england_cases_data = _load_england_cases_dataset(england_area_type)
 
         if UKCovid19Data.wales_cases_data is None or UKCovid19Data.wales_tests_data is None or force_load:
             UKCovid19Data.wales_cases_data, UKCovid19Data.wales_tests_data = _load_wales_datasets()
