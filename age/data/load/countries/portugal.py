@@ -108,6 +108,7 @@ class Portugal(base.LoaderBase):
 
     def raw_cases(self) -> pd.DataFrame:
         if self._raw_cases is None:
+            # TODO: Consider caching output of _read_all_cases()
             self._raw_cases = _read_raw_cases(_read_all_cases())
         return self._raw_cases
 
