@@ -15,7 +15,7 @@ class Generator():
         country_loaders = [
             austria.Austria(),
             belgium.Belgium(),
-            brazil.Brazil(),
+            brazil.Brazil(reference_data),
             canada.Canada(reference_data),
             chile.Chile(),
             czechia.Czechia(),
