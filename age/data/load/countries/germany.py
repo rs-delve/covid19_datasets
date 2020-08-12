@@ -32,9 +32,8 @@ _NOT_APPLICABLE = 'Nicht übermittelt'
 ISO = 'DEU'
 
 class Germany(base.LoaderBase):
-    def __init__(self, reference_data):
+    def __init__(self):
         self._raw_data = None
-        self._reference_data = reference_data
 
     def _load_raw_data(self):
         raw_data = pd.read_csv(_PATH).rename(columns=_COLUMN_MAP).replace(_NOT_APPLICABLE, 'N/A')
