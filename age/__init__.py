@@ -1,1 +1,1 @@
-from .data.load import generator
+from age.data.load import generator
