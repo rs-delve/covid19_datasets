@@ -44,8 +44,12 @@ def _scrape_report_urls() -> Dict[str, str]:
     all_report_urls = {}
     for page_i in range(1, num_pages+1):
         url = _START_URL + str(page_i)
-        with urlopen(url) as f:
-            soup = BeautifulSoup(f, 'html.parser')  
+        try:
+            with urlopen(url) as f:
+                soup = BeautifulSoup(f, 'html.parser')  
+        except Exception as e:
+            _log.error(f'Error Loading URL: {url}: {e}')
+            raise e
         hrefs = soup.find_all('a')
         for a in hrefs:
             if 'title' in a.attrs and _SEARCH_STRING in a.attrs['title']:
