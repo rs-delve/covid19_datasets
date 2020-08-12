@@ -22,6 +22,7 @@ class Generator():
             canada.ISO: canada.Canada(reference_data),
             chile.ISO: chile.Chile(),
             czechia.ISO: czechia.Czechia(),
+            finland.ISO: finland.Finland(),
             france.ISO: france.France(),
             germany.ISO: germany.Germany(reference_data),
             india.ISO: india.India(reference_data),
@@ -40,8 +41,12 @@ class Generator():
 
         for iso, loader in self._country_loaders.items():
             _log.info(f'Loading {iso}')
-            all_cases.append(loader.cases())
-            all_deaths.append(loader.deaths())
+            cases = loader.cases()
+            if cases is not None:
+                all_cases.append(cases)
+            deaths = loader.deaths()
+            if deaths is not None:
+                all_deaths.append(deaths)
 
         cases = pd.concat(all_cases, axis=0)
         deaths = pd.concat(all_deaths, axis=0)
