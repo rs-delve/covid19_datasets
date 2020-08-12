@@ -13,7 +13,6 @@ def _age_conform(s: str) -> str:
     elif s == '0':
         return '0-4'
     else:
-        val = int(s)
         return s + '-' + str(int(s) + 9)
 
 class Austria(base.LoaderBase):
