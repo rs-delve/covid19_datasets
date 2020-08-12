@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 from age.data.load.countries import base
 from age.data.load import transformations
 from age.data.load import utils
@@ -47,6 +48,7 @@ class Germany(base.LoaderBase):
                     .resample('d').ffill()
                     .stack().stack()
                     .reset_index())
+        raw_data.Age = raw_data.Age.apply(lambda s: re.sub('A0?', '', s))
         raw_data.Sex = raw_data.Sex.replace({'M': 'm', 'W': 'f'})
         self._raw_data = raw_data
 

@@ -7,6 +7,15 @@ from age.data.load import coverage
 
 ISO = 'AUT'
 
+def _age_conform(s: str) -> str:
+    if s == '85':
+        return '85+'
+    elif s == '0':
+        return '0-4'
+    else:
+        val = int(s)
+        return s + '-' + str(int(s) + 9)
+
 class Austria(base.LoaderBase):
     def __init__(self):
         self._raw_cases = None
@@ -15,12 +24,15 @@ class Austria(base.LoaderBase):
 
     def raw_cases(self) -> pd.DataFrame:
         if self._raw_cases is None:
-            self._raw_cases = self._coverage_db.get_data_from_input_db('Austria', 'cases_new')
+             self._raw_cases = self._coverage_db.get_data_from_input_db('Austria', 'cases_new')
+             self._raw_cases.Age =  self._raw_cases.Age.apply(_age_conform)
         return self._raw_cases
 
     def raw_deaths(self) -> pd.DataFrame:
         if self._raw_deaths is None:
-            self._raw_deaths = self._coverage_db.get_data_from_input_db('Austria', 'deaths_new')
+            deaths = self._coverage_db.get_data_from_input_db('Austria', 'deaths_new')
+            deaths.Age = deaths.Age.apply(_age_conform)
+            self._raw_deaths = deaths
         return self._raw_deaths
 
     def cases(self) -> pd.DataFrame:
