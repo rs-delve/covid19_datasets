@@ -24,7 +24,7 @@ def find_ined_data_link(ined_url, page_language='en'):
     return data_file_link[0].attrs['href'].replace(' ', '%20')
 
 
-def read_ined_table(ined_url, sheet_name, population_column, page_language='en', date_format='%d/%m/%Y', skip_columns=None, num_rows=10):
+def read_ined_table(ined_url, sheet_name, page_language='en', date_format='%d/%m/%Y', skip_columns=None, num_rows=10):
     skip_columns = skip_columns or []
     deaths_path = find_ined_data_link(ined_url, page_language)
     deaths_raw = pd.read_excel(deaths_path, sheet_name=sheet_name, skiprows=5, header=[0, 1], 
@@ -42,10 +42,13 @@ def read_ined_table(ined_url, sheet_name, population_column, page_language='en',
         deaths_raw[age_group_col]['Unnamed: 0_level_1'].rename('Age'))
     deaths = deaths.drop([age_group_col] + skip_columns, axis='columns')
 
-    if population_column not in deaths_raw.columns:
-        _log.warn(f'Could not find population column "{population_column}" in columns: {deaths_raw.columns}')
+    population_column = [c for c in deaths_raw.columns if c.lower().startswith('population')]
+
+    if not population_column:
+        _log.error(f'Could not find population in columns: {deaths_raw.columns}')
+        return None
     else:
-        deaths = deaths.drop(population_column, axis='columns')
+        deaths = deaths.drop(population_column[0], axis='columns')
 
     deaths = deaths.swaplevel(axis=1).stack()[
         ['Both sexes',	'Females',	'Males']]

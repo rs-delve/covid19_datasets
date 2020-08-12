@@ -42,7 +42,7 @@ class Netherlands(base.LoaderBase):
 
     def raw_deaths(self) -> pd.DataFrame:
         if self._raw_deaths is None:
-            self._raw_deaths = ined.read_ined_table(_INED_URL, 'RIVM_Data', 'Population on 01/01/2019', num_rows=20)
+            self._raw_deaths = ined.read_ined_table(_INED_URL, 'RIVM_Data', num_rows=20)
         
         return self._raw_deaths
 

@@ -114,7 +114,7 @@ class Korea(base.LoaderBase):
     def raw_deaths(self) -> pd.DataFrame:
         if self._raw_deaths is None:
             self._raw_deaths = ined.read_ined_table(
-                _INED_URL, 'KCDC__by age and sex_Data', 'Population on 01.2020')
+                _INED_URL, 'KCDC__by age and sex_Data')
         return self._raw_deaths
 
     def cases(self) -> pd.DataFrame:

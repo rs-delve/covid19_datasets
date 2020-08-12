@@ -55,8 +55,7 @@ class France(base.LoaderBase):
         if self._raw_deaths is None:
             raw_deaths = ined.read_ined_table(
                 _INED_PATH, 
-                sheet_name='SpF_by age and sex_HospitalData', 
-                population_column='Population on 01.01.2020')
+                sheet_name='SpF_by age and sex_HospitalData')
             self._raw_deaths = raw_deaths
         return self._raw_deaths
 

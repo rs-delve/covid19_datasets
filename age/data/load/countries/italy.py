@@ -80,8 +80,7 @@ class Italy(base.LoaderBase):
         if self._raw_deaths is None:
             raw_deaths = ined.read_ined_table(
                 _INED_PATH, 
-                sheet_name='Combined_Information', 
-                population_column='Population* on 01/01/2019')
+                sheet_name='Combined_Information')
             self._raw_deaths = raw_deaths
         return self._raw_deaths
 
