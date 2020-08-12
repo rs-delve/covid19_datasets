@@ -8,6 +8,12 @@ from age.data.load import coverage
 
 ISO = 'BRA'
 
+def _age_conform(s: str) -> str:
+    if s == '90':
+        return '90+'
+    else:
+        return s + '-' + str(int(s) + 9)
+
 class Brazil(base.LoaderBase):
     def __init__(self, reference_data):
         self._raw_deaths = None
@@ -20,6 +26,7 @@ class Brazil(base.LoaderBase):
     def raw_deaths(self) -> pd.DataFrame:
         if self._raw_deaths is None:
             self._raw_deaths = self._coverage_db.get_data_from_input_db('Brazil', 'deaths_new', region='All')
+            self._raw_deaths.Age = self._raw_deaths.Age.apply(_age_conform)
         return self._raw_deaths
 
     def cases(self) -> pd.DataFrame:

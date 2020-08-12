@@ -30,7 +30,12 @@ class Chile(base.LoaderBase):
         if self._raw_cases is None:
             raw_cases = pd.read_csv(_CASES_PATH, parse_dates=['Fecha'])
             raw_cases = raw_cases.rename(columns=_CASE_COLUMN_MAPPING)
-            raw_cases.Age = raw_cases.Age.apply(lambda s: s.replace(' años', '').replace(' y más', '+'))
+            replacements = [(' años', ''), (' y más', '+'), (' ', ''), ('00-04', '0-4'), ('05-09', '5-9')]
+            def age_conform(s):
+                for r in replacements:
+                    s = s.replace(*r)
+                return s
+            raw_cases.Age = raw_cases.Age.apply(age_conform)
             raw_cases.Sex = raw_cases.Sex.replace({'M': 'm', 'F': 'f'})
             self._raw_cases = raw_cases
         return self._raw_cases
@@ -39,6 +44,15 @@ class Chile(base.LoaderBase):
         if self._raw_deaths is None:
             raw_deaths = pd.read_csv(_DEATHS_PATH, parse_dates=['fecha'])
             raw_deaths = raw_deaths.rename(columns=_DEATHS_COLUMN_MAPPING)
+            def age_conform(s: str) -> str:
+                if s == '>=90':
+                    return '90+'
+                elif s == '<=39':
+                    return '0-39'
+                else:
+                    return s
+            raw_deaths.Age = raw_deaths.Age.apply(age_conform)
+
             raw_deaths['Sex'] = 'b'
             self._raw_deaths = raw_deaths
         return self._raw_deaths

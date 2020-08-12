@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 from age.data.load.countries import base
 from age.data.load import transformations
 from age.data.load import utils
@@ -31,9 +32,8 @@ _NOT_APPLICABLE = 'Nicht übermittelt'
 ISO = 'DEU'
 
 class Germany(base.LoaderBase):
-    def __init__(self, reference_data):
+    def __init__(self):
         self._raw_data = None
-        self._reference_data = reference_data
 
     def _load_raw_data(self):
         raw_data = pd.read_csv(_PATH).rename(columns=_COLUMN_MAP).replace(_NOT_APPLICABLE, 'N/A')
@@ -47,6 +47,7 @@ class Germany(base.LoaderBase):
                     .resample('d').ffill()
                     .stack().stack()
                     .reset_index())
+        raw_data.Age = raw_data.Age.apply(lambda s: re.sub('A0?', '', s))
         raw_data.Sex = raw_data.Sex.replace({'M': 'm', 'W': 'f'})
         self._raw_data = raw_data
 
