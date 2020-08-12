@@ -42,9 +42,15 @@ def read_ined_table(ined_url, sheet_name, page_language='en', date_format='%d/%m
         deaths_raw[age_group_col]['Unnamed: 0_level_1'].rename('Age'))
     deaths = deaths.drop([age_group_col] + skip_columns, axis='columns')
 
-    population_column = [c for c in deaths_raw.columns if c.lower().startswith('population')]
+    population_column = None:
+    for column in deaths_raw.columns:
+        if not isinstance(column, tuple):
+            column = column[0]
+        if column.lower().startswith('population'):
+            population_column = column
+            break
 
-    if not population_column:
+    if population_column is None:
         _log.error(f'Could not find population in columns: {deaths_raw.columns}')
         return None
     else:
