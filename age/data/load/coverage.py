@@ -75,7 +75,8 @@ class CoverageDB():
             with open('temp.b', 'r') as f:
                 df = pd.read_csv('temp.b', skiprows=1)
             df = df[df.Date != 'NA.NA.NA']
-            df.Date = pd.to_datetime(df.Date, format='%d.%m.%Y')
+            df.Date = pd.to_datetime(df.Date, format='%d.%m.%Y', errors='coerce')
+            df = df[df.Date.notna()]
             self._cache[file.name] = df
 
     def _get_data_from_file(self, filename: str) -> pd.DataFrame:
