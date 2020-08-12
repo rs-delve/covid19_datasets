@@ -54,7 +54,7 @@ def read_ined_table(ined_url, sheet_name, page_language='en', date_format='%d/%m
         _log.error(f'Could not find population in columns: {deaths_raw.columns}')
         return None
     else:
-        deaths = deaths.drop(population_column[0], axis='columns')
+        deaths = deaths.drop(population_column, axis='columns')
 
     deaths = deaths.swaplevel(axis=1).stack()[
         ['Both sexes',	'Females',	'Males']]
