@@ -24,7 +24,7 @@ class Generator():
             czechia.ISO: czechia.Czechia(),
             finland.ISO: finland.Finland(),
             france.ISO: france.France(),
-            germany.ISO: germany.Germany(reference_data),
+            germany.ISO: germany.Germany(),
             india.ISO: india.India(reference_data),
             korea.ISO: korea.Korea(),
             mexico.ISO: mexico.Mexico(reference_data),
