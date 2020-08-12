@@ -42,7 +42,7 @@ def read_ined_table(ined_url, sheet_name, page_language='en', date_format='%d/%m
         deaths_raw[age_group_col]['Unnamed: 0_level_1'].rename('Age'))
     deaths = deaths.drop([age_group_col] + skip_columns, axis='columns')
 
-    population_column = None:
+    population_column = None
     for column in deaths_raw.columns:
         if not isinstance(column, tuple):
             column = column[0]
