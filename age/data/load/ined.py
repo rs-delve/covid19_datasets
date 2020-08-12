@@ -44,7 +44,7 @@ def read_ined_table(ined_url, sheet_name, page_language='en', date_format='%d/%m
 
     population_column = None
     for column in deaths_raw.columns:
-        if not isinstance(column, tuple):
+        if isinstance(column, tuple):
             column = column[0]
         if column.lower().startswith('population'):
             population_column = column
