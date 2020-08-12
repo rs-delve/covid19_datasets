@@ -1,5 +1,5 @@
 import pandas as pd
-
+import datetime
 
 def map_age(age):
     """Map ages to standard buckets."""
@@ -16,3 +16,9 @@ def map_age(age):
         if 'month' in age.lower():
             return '0-9'
         return age
+
+
+def last_day_of_calenderweek(year, week):
+    first = datetime.date(year, 1, 1)
+    base = 1 if first.isocalendar()[1] == 1 else 8
+    return first + datetime.timedelta(days=base - first.isocalendar()[2] + 7 * (week - 1) + 6)
