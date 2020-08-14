@@ -28,6 +28,8 @@ def _load_raw_cases():
     df.Date = pd.to_datetime(df.Date)
     df.Sex = df.Sex.replace({'Female': 'f', 'Male': 'm'})
     df = df[df.Sex != "Unknown"]
+    df = df[df.Age != "Unknown"]
+    df = df[df.Age != "<50"]
     return df
 
 class Netherlands(base.LoaderBase):
