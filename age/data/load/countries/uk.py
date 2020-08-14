@@ -52,6 +52,7 @@ def _load_raw_deaths():
         data = deaths_raw.iloc[idx+1:idx+8]
         data = data.set_index('Age').stack().to_frame().reset_index().rename(columns={0: 'deaths_new', 'level_1': 'Date'})
         data['Sex'] = sex
+        data['Age'] = data['Age'].replace('Under 1 year', '00-01')
         return data
 
     uk_deaths = pd.concat([
