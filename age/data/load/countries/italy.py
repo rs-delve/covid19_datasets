@@ -62,6 +62,7 @@ def _load_case_from_pdfs():
 
         age_df['Date'] = pd.to_datetime(date)
         age_df = age_df.set_index(['Date', 'Age']).stack().reset_index().rename(columns={'level_2': 'Sex', 0: 'cases_new'})
+        age_df.Age = age_df.Age.replace('>90', '90+')
         all_age_dfs.append(age_df)
     return pd.concat(all_age_dfs, axis=0)
 
