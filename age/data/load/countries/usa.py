@@ -23,6 +23,11 @@ def _load_raw_deaths():
     })
     deaths.Date = pd.to_datetime(deaths.Date, format=r'%m/%d/%Y')
     deaths.Sex = deaths.Sex.replace({'Female': 'f', 'Male': 'm', 'All Sex': 'b'})
+    deaths.Age = deaths.Age.apply(lambda a: a.replace(' years', ''))
+    deaths.Age = deaths.Age.replace({
+        '85 and over': '85+',
+        'Under 1 year': '0-1'
+    })
     return deaths
 
 def _load_raw_cases():
@@ -54,6 +59,7 @@ def _load_raw_cases():
     us_cases = us_cases.drop('Week', axis='columns').set_index('Date')
     us_cases = us_cases.stack().reset_index().rename(columns={'level_1': 'Age', 0: 'cases_new'})
     us_cases['Sex'] = 'b'
+    us_cases['Age'] = us_cases['Age'].apply(lambda a: a.replace(' years', ''))
 
     return us_cases
 
