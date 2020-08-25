@@ -121,7 +121,7 @@ class Portugal(base.LoaderBase):
 
     def raw_deaths(self) -> pd.DataFrame:
         if self._raw_deaths is None:
-            self._raw_deaths = ined.read_ined_table(_INED_URL, 'min-sau_Data')
+            self._raw_deaths = ined.read_ined_table(_INED_URL, 'min-sau_Data', skip_columns=[pd.to_datetime('2019-07-01')])
         
         return self._raw_deaths
 
