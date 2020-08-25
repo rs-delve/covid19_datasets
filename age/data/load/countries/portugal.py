@@ -30,6 +30,10 @@ _URL_MAP = {
     'https://covid19.min-saude.pt/wp-content/uploads/2020/03/Relatório-de-Situação-8.pdf': 'https://covid19.min-saude.pt/wp-content/uploads/2020/03/Relato%CC%81rio-de-Situac%CC%A7a%CC%83o-8.pdf'
 }
 
+_SKIP_URLS = [
+    'https://covid19.min-saude.pt/wp-content/uploads/2020/08/169_DGS_boletim_20200818-002.pdf'
+]
+
 _EXPECTED_AGE_GROUPS = ['00-09 anos', '10-19 anos', '20-29 anos', '30-39 anos', '40-49 anos', '50-59 anos', '60-69 anos', '70-79 anos', '80+']
 _INED_URL = 'https://dc-covid.site.ined.fr/en/data/portugal/'
 
@@ -65,12 +69,15 @@ def _read_all_cases():
                     date = ' 29/04/2020'
 
                 url = link.attrs['href']
+                if url in _SKIP_URLS:
+                    _log.info(f'Skipping URL: {url}')
+                    continue
                 measurements = _MEASUREMENT_SETS[0] if num < _MEASUREMENT1_NUM else _MEASUREMENT_SETS[1]
                 try:
                     df = _read_cases_from_pdf(url, measurements)
                 except Exception as e:
-                    print(f'Error processing URL {url} with measurements {measurements}')
-                    raise e
+                    _log.error(f'Error processing URL {url} with measurements {measurements}')
+                    continue
                 cases[date] = df
                 _log.info(f'Loaded report {num} for date {date}')
 
