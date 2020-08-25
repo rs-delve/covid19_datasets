@@ -46,13 +46,12 @@ def read_ined_table(ined_url, sheet_name, page_language='en', date_format='%d/%m
     for column in deaths_raw.columns:
         if isinstance(column, tuple):
             column = column[0]
-        if column.lower().startswith('population'):
+        if str(column).lower().startswith('population'):
             population_column = column
             break
 
     if population_column is None:
-        _log.error(f'Could not find population in columns: {deaths_raw.columns}')
-        return None
+        _log.warn(f'Could not find population in columns: {deaths_raw.columns}')
     else:
         deaths = deaths.drop(population_column, axis='columns')
 
