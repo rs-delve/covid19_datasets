@@ -27,21 +27,16 @@ def rescale(data: pd.DataFrame, ref_data: pd.DataFrame, field: str) -> pd.DataFr
 
 def periodic_to_daily(data: pd.DataFrame) -> pd.DataFrame:
     """Convert a dataframe that has new cases or deaths sampled periodically to daily sampling."""
-    min_date = data.Date.min()
-    max_date = data.Date.max()
-    process_df = data.set_index(['Date', 'Age', 'Sex']).unstack().unstack().fillna(
-        0).reindex(pd.date_range(min_date, max_date, freq='d'))
-
-    to_distribute = process_df.loc[process_df.shift(1).isna().all(
-        axis=1) & ~process_df.isna().all(axis=1)].iloc[1:]
-    gap = pd.Series(data=to_distribute.reset_index()[
-                    'index'].diff().dt.days.values, index=to_distribute.index)
-    process_df.loc[to_distribute.index] = round(
-        to_distribute.divide(gap, axis=0))
-    process_df.bfill()
-    data = process_df.stack().stack().reset_index().rename(
-        columns={'level_0': 'Date'})
-    return data
+    process_df = data.set_index(['Date', 'Age', 'Sex']).unstack().unstack().fillna(0).reset_index()
+    
+    gap_days = process_df.Date.diff().dt.days
+    gap_days.index = process_df.Date
+    
+    process_df = process_df.set_index('Date').divide(gap_days, axis=0)
+    process_df = process_df.resample('d').interpolate()
+    process_df = round(process_df.stack().stack().reset_index())
+    
+    return process_df
 
 
 def smooth_sample(data: pd.DataFrame, rolling_window: int = 3) -> pd.DataFrame:
