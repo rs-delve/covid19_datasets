@@ -56,7 +56,7 @@ class France(base.LoaderBase):
             raw_deaths = ined.read_ined_table(
                 _INED_PATH, 
                 sheet_name='SpF_by age and sex_HospitalData', 
-                skip_columns=[pd.to_datetime('2020-07-26'))  # Temporarily skipping this column which has some text in it on 25 Aug
+                skip_columns=[pd.to_datetime('2020-07-26')])  # Temporarily skipping this column which has some text in it on 25 Aug
             self._raw_deaths = raw_deaths
         return self._raw_deaths
 
