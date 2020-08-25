@@ -73,7 +73,7 @@ class CoverageDB():
                 file.write_to(f)
             _log.info(f'Downloaded {file.name}')
             with open('temp.b', 'r') as f:
-                df = pd.read_csv('temp.b', skiprows=1)
+                df = pd.read_csv('temp.b', skiprows=1, compression='zip' if filename.endswith('zip') else 'infer')
             df = df[df.Date != 'NA.NA.NA']
             df.Date = pd.to_datetime(df.Date, format='%d.%m.%Y', errors='coerce')
             df = df[df.Date.notna()]
