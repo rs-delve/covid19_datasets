@@ -26,9 +26,8 @@ def _find_excel_url():
         soup = BeautifulSoup(f.read())
     xl_url = None
     for a in soup.find_all('a'):
-        for child in a.children:
-            if isinstance(child, Tag) and child.children and any(c == 'Download Deaths registered weekly in England and Wales, provisional: 2020 in xlsx format' for c in child.children):
-                xl_url = a.attrs['href']
+        if 'aria-label' in a.attrs and a.attrs['aria-label'] == 'Download Deaths registered weekly in England and Wales, provisional: 2020 in xlsx format':
+            xl_url = a.attrs['href']
 
     if xl_url is None:
         raise ValueError('Could not find URL of Excel file')
