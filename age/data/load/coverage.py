@@ -93,14 +93,14 @@ class CoverageDB():
         query = f'Country == "{country}" and Metric == "Count" and Measure == "{source_field}"'
         if region:
             query = query + f' and Region=="{region}"'
-        input_df = self._get_data_from_file('inputDB.csv')
+        input_df = self._get_data_from_file('inputDB.zip')
         counts = input_df.query(query)[['Date', 'Age', 'Sex', 'Value']].rename(
             columns={'Value': field})
         return counts
 
     def get_sex_fractions_from_input_db(self, country, field):
         source_field = _field_to_source_field(field)
-        input_df = self._get_data_from_file('inputDB.csv')
+        input_df = self._get_data_from_file('inputDB.zip')
         sex_fractions = input_df.query(
             f'Country == "{country}" and Measure == "{source_field}" and Metric=="Fraction" and Age == "TOT" and (Sex == "m" or Sex == "f")')
         return sex_fractions
