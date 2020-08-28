@@ -60,7 +60,7 @@ def _load_cases_from_pdfs(skip_dates=[]):
         age_df.Age = age_df.Age.replace('≥90', '>90')
         age_df = age_df[age_df.Age.isin(_AGE_GROUPS)]
         for age_grp in _AGE_GROUPS:
-            assert age_grp in age_df.Age.values, f'Missing age group: {age_grp}'
+            assert age_grp in age_df.Age.values, f'Missing age group: {age_grp} in {url}, page {page}, using measurement set {param_idx}'
         def convert(s):
             return int(str(s).replace('.', ''))
 
