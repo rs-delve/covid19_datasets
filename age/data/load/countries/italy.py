@@ -92,17 +92,15 @@ class Italy(base.LoaderBase):
             self._raw_deaths = raw_deaths
         return self._raw_deaths
 
-    def cases(self) -> pd.DataFrame:
-        cases = self.raw_cases()
+    def cases(self, skip_dates=[]) -> pd.DataFrame:
+        cases = self.raw_cases(skip_dates)
         cases = transformations.cumulative_to_new(cases)
         cases = transformations.add_both_sexes(cases)
-        # cases = transformations.rescale(cases, self._reference_data.query(f'ISO == "{ISO}"'), 'cases_new')
         cases['ISO'] = ISO
         return cases
 
     def deaths(self) -> pd.DataFrame:
         deaths = self.raw_deaths()
-        # deaths = transformations.rescale(deaths, self._reference_data.query(f'ISO == "{ISO}"'), 'deaths_new')
         deaths['ISO'] = ISO
         return deaths
 
