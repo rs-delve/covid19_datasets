@@ -8,8 +8,8 @@ import tabula
 
 _CASE_PDFS = {  # Value is tuple(URL, Page Number, Parameter Set Index)
     '18 August 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_18-agosto-2020.pdf', 19, 0),
-    '11 August 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_11-agosto-2020.pdf', 12, 0),
-    '4 August 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_4-agosto-2020.pdf', 10, 0),
+    '11 August 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_11-agosto-2020.pdf', 12, 3),
+    '4 August 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_4-agosto-2020.pdf', 10, 3),
     '28 July 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_28-luglio-2020.pdf', 8, 0),
     '21 July 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_21-luglio-2020.pdf', 7, 0),
     '14 July 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_14-luglio-2020.pdf', 7, 0),
@@ -37,7 +37,8 @@ _MEASUREMENT_SETS = [
     # (top left bottom right)
     (2.73*72, 0.35*72, 5.28*72, 5.05*72),  
     (4*72, 0.78*72, 6.44*72, 5.32*72),
-    (4.28*72, 0.78*72, 6.59*72, 5.32*72)
+    (4.28*72, 0.78*72, 6.59*72, 5.32*72),
+    (3.2*72, 0.35*72, 6*72, 5.05*72)
 ]
 
 _AGE_GROUPS = ['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-79', '80-89', '>90']
