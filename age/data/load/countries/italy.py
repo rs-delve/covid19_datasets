@@ -7,6 +7,9 @@ import tabula
 
 
 _CASE_PDFS = {  # Value is tuple(URL, Page Number, Parameter Set Index)
+    '18 August 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_18-agosto-2020.pdf', 19, 0),
+    '11 August 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_11-agosto-2020.pdf', 12, 0),
+    '4 August 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_4-agosto-2020.pdf', 10, 0),
     '28 July 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_28-luglio-2020.pdf', 8, 0),
     '21 July 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_21-luglio-2020.pdf', 7, 0),
     '14 July 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_14-luglio-2020.pdf', 7, 0),
