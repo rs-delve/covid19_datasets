@@ -44,9 +44,13 @@ _AGE_GROUPS = ['0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69', '70-
 
 ISO = 'ITA'
 
-def _load_case_from_pdfs():
+def _load_cases_from_pdfs(skip_dates=[]):
     all_age_dfs = []
     for date, (url, page, param_idx) in _CASE_PDFS.items():
+        if pd.to_datetime(date) in skip_dates:
+          _log.info(f'Skipping data for date {date}')
+          continue
+
         measurements = _MEASUREMENT_SETS[param_idx]
         df = tabula.read_pdf(
             url, output_format='dataframe', pages=page, guess=False, 
@@ -75,9 +79,9 @@ class Italy(base.LoaderBase):
         self._raw_cases = None
         self._raw_deaths = None
 
-    def raw_cases(self) -> pd.DataFrame:
+    def raw_cases(self, skip_dates=[]) -> pd.DataFrame:
         if self._raw_cases is None:
-            self._raw_cases = _load_case_from_pdfs()
+            self._raw_cases = _load_cases_from_pdfs(skip_dates)
         return self._raw_cases
 
     def raw_deaths(self) -> pd.DataFrame:
