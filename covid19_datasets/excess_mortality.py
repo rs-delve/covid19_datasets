@@ -37,17 +37,17 @@ def _generate_excess_mortality() -> pd.DataFrame:
     eurostat_data = eurostat_data.query('SEX == "Total" and AGE == "Total"')
     eurostat_data = eurostat_data[eurostat_data[ISO_COLUMN_NAME].isin(_EUROSTAT_COUNTRIES)]
 
-    hmd_mortality = HMDExcessMortality()
-    hmd_data = hmd_mortality.get_data(daily=True)
-    hmd_data = hmd_data.query('Sex == "Total"')
-    hmd_data = hmd_data[hmd_data[ISO_COLUMN_NAME].isin(_HMD_COUNTRIES)]
+    # hmd_mortality = HMDExcessMortality()
+    # hmd_data = hmd_mortality.get_data(daily=True)
+    # hmd_data = hmd_data.query('Sex == "Total"')
+    # hmd_data = hmd_data[hmd_data[ISO_COLUMN_NAME].isin(_HMD_COUNTRIES)]
 
     columns = [ISO_COLUMN_NAME, DATE_COLUMN_NAME, 'deaths_excess_daily_avg', 'deaths_excess_weekly']
 
     excess_mortality = pd.concat([
         economist_data[columns],
         eurostat_data[columns],
-        hmd_data[columns]
+        # hmd_data[columns]
     ], axis=0)
     return excess_mortality
 
