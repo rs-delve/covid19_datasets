@@ -31,7 +31,8 @@ def _load_dataset() -> pd.DataFrame:
     _log.info(f'Loading dataset from {_OXFORD_PATH}')
     oxford_df = pd.read_csv(_OXFORD_PATH)
     oxford_df[DATE_COLUMN_NAME] = pd.to_datetime(oxford_df.Date.astype(str))
-    df = oxford_df[[c for c in oxford_df.columns if 'Notes' not in c and 'Flag' not in c and 'Unnamed' not in c]].drop(['Date', 'StringencyIndexForDisplay', 'M1_Wildcard'], axis='columns')
+    oxford_df = oxford_df[oxford_df.RegionCode.isna()]  # Filter to country level data only
+    df = oxford_df[[c for c in oxford_df.columns if 'Notes' not in c and 'Flag' not in c and 'Unnamed' not in c]].drop(['Date', 'StringencyIndexForDisplay', 'M1_Wildcard', 'RegionName', 'RegionCode'], axis='columns')
     df = df.rename(columns={'CountryCode': ISO_COLUMN_NAME})
 
     regex = re.compile(r"[C|H|E](\d)*_")
