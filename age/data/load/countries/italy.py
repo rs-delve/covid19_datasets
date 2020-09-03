@@ -101,6 +101,7 @@ class Italy(base.LoaderBase):
         cases = self.raw_cases(skip_dates)
         cases = transformations.cumulative_to_new(cases)
         cases = transformations.add_both_sexes(cases)
+        cases = transformations.periodic_to_daily(cases)
         cases['ISO'] = ISO
         return cases
 
