@@ -5,6 +5,10 @@ from age.data.load import utils
 from age.data.load import ined
 import tabula
 
+import logging
+
+_log = logging.getLogger(__name__)
+
 
 _CASE_PDFS = {  # Value is tuple(URL, Page Number, Parameter Set Index)
     '18 August 2020': ('https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_18-agosto-2020.pdf', 19, 0),
