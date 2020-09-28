@@ -63,8 +63,8 @@ def _load_raw_deaths():
     return uk_deaths
 
 def _load_raw_cases():
-    cases_raw = pd.read_excel(_PHE_CASES_PATH, sheet_name=['Figure 3. Case rates by gender', 'Figure 4. Case rates by agegrp'], skiprows=6, header=1)
-    cases_gender_raw = cases_raw['Figure 3. Case rates by gender']
+    cases_raw = pd.read_excel(_PHE_CASES_PATH, sheet_name=['Figure 3. Case rates by sex', 'Figure 4. Case rates by agegrp'], skiprows=6, header=1)
+    cases_gender_raw = cases_raw['Figure 3. Case rates by sex']
     cases_age_raw = cases_raw['Figure 4. Case rates by agegrp']
 
     cases_gender = cases_gender_raw.drop(['Unnamed: 0', 'Unnamed: 6'], axis='columns')
