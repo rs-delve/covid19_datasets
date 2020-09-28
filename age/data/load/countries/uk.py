@@ -13,7 +13,7 @@ from io import BytesIO
 
 
 _ONS_URL = 'https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales'
-_PHE_CASES_PATH = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/896777/Weekly_COVID19_report_data_current.xlsx'
+_PHE_CASES_PATH = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/921562/Weekly_COVID19_report_data_w39.xlsx'
 _EXPECTED_AGE_GROUP_VALUES = ['Persons - UK', 'Males - UK', 'Females - UK', 'Under 1 year', '01-14', '15-44', '45-64', '65-74', '75-84', '85+', '']
 _UK_POPULATION = 67_886_011  # From UN population data
 
