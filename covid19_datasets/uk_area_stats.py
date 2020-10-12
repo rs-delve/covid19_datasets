@@ -7,8 +7,8 @@ import logging
 _log = logging.getLogger(__name__)
 
 
-ENGLAND_CASES_PATH = 'https://c19downloads.azureedge.net/downloads/csv/coronavirus-cases_latest.csv'
-ENGLAND_DEATHS_PATH = 'https://c19downloads.azureedge.net/downloads/csv/coronavirus-deaths_latest.csv'
+ENGLAND_CASES_PATH = 'https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv'
+ENGLAND_DEATHS_PATH = 'https://c19downloads.azureedge.net/downloads/csv/coronavirus-deaths_latest.csv'  # TODO: This has been deprecated, update to new dashboard source
 
 WALES_PATH = 'http://www2.nphs.wales.nhs.uk:8080/CommunitySurveillanceDocs.nsf/61c1e930f9121fd080256f2a004937ed/77fdb9a33544aee88025855100300cab/$FILE/Rapid%20COVID-19%20surveillance%20data.xlsx'
 
