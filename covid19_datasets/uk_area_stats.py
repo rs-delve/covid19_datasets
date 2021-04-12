@@ -12,7 +12,7 @@ ENGLAND_DEATHS_PATH = 'https://c19downloads.azureedge.net/downloads/csv/coronavi
 
 WALES_PATH = 'http://www2.nphs.wales.nhs.uk:8080/CommunitySurveillanceDocs.nsf/61c1e930f9121fd080256f2a004937ed/77fdb9a33544aee88025855100300cab/$FILE/Rapid%20COVID-19%20surveillance%20data.xlsx'
 
-SCOTLAND_PATH = 'https://raw.githubusercontent.com/DataScienceScotland/COVID-19-Management-Information/master/COVID19%20-%20Daily%20Management%20Information%20-%20Scottish%20Health%20Boards%20-%20Cumulative%20cases.csv'
+SCOTLAND_PATH = 'https://raw.githubusercontent.com/DataScienceScotland/COVID-19-Management-Information/master/export/health-boards/cumulative-cases.csv'
 
 def _backfill_missing_data(df):
     """
