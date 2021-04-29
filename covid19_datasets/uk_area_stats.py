@@ -7,7 +7,7 @@ import logging
 _log = logging.getLogger(__name__)
 
 
-ENGLAND_CASES_PATH = 'https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv'
+ENGLAND_CASES_PATH = 'https://api.coronavirus.data.gov.uk/v2/data?areaType=TOREPLACE&metric=cumCasesBySpecimenDate&metric=newCasesBySpecimenDate&metric=cumCasesBySpecimenDateRate&format=csv' # New link as of 29/4/21
 ENGLAND_DEATHS_PATH = 'https://c19downloads.azureedge.net/downloads/csv/coronavirus-deaths_latest.csv'  # TODO: This has been deprecated, update to new dashboard source
 
 WALES_PATH = 'http://www2.nphs.wales.nhs.uk:8080/CommunitySurveillanceDocs.nsf/61c1e930f9121fd080256f2a004937ed/77fdb9a33544aee88025855100300cab/$FILE/Rapid%20COVID-19%20surveillance%20data.xlsx'
@@ -36,16 +36,16 @@ def _backfill_missing_data(df):
 
 def _load_england_cases_dataset(area_type):
     _log.info("Loading dataset from " + ENGLAND_CASES_PATH)
-    df = pd.read_csv(ENGLAND_CASES_PATH)
+    df = pd.read_csv(ENGLAND_CASES_PATH.replace("TOREPLACE", area_type))
     _log.info("Loaded")
 
-    df[DATE_COLUMN_NAME] = pd.to_datetime(df["Specimen date"].astype(str))
+    df[DATE_COLUMN_NAME] = pd.to_datetime(df["date"].astype(str))
 
     # Convert so that
     # Each row corresponds to an area
     # Each column corresponds to a date
-    df['Daily lab-confirmed cases'] = df['Daily lab-confirmed cases'].astype('float')
-    df = df[df['Area type'] == area_type]
+    df['Daily lab-confirmed cases'] = df['newCasesBySpecimenDate'].astype('float')
+    df["Area name"] = df["areaName"]
     df['Country'] = 'England'
 
     df = df.pivot_table(index=['Country', 'Area name'], columns=DATE_COLUMN_NAME,
