@@ -1,5 +1,7 @@
 # DELVE COVID-19 Dataset
 
+> :warning: **This dataset is no longer being maintained.** Please see our data sources instead.
+
 This repository provides a data set for COVID-19 research consolidated from multiple sources. The dataset is available as CSV which can be loaded into most environments. We also provide Python code for accessing underlying datasets which in some cases provide more detail or finer resolution.
 
 ## Reading the dataset
